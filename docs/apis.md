@@ -83,10 +83,10 @@ Creating a new class using a form with fields. It returns
 all of the form fields with the new database id.
 
 
-## Create a new a user account
+## Create a new a student account
 
 * **Method**: `POST`
-* **Path**: /api/users/create
+* **Path**: /api/students/create
 
 Input:
 
@@ -111,7 +111,7 @@ Output:
 }
 ```
 
-Creating a new user using a form with fields. It returns 
+Creating a new student account using a form with fields. It returns 
 all of the form fields with the new database id.
 
 ## Create a new a instructor account
@@ -138,6 +138,7 @@ Output:
 
 ```json
 {
+    "id": integer,
     "name": string,
     "email": string,
     "address": string,
@@ -154,7 +155,7 @@ It returns all of the form fields with the new database id.
 
 ## Edit a class
 
-* **Method**: `GET`
+* **Method**: `PUT`
 * **Path**: /api/classes/edit
 
 Input:
@@ -187,3 +188,116 @@ Output:
 
 Submits a PUT request to edit an existing classes form fields.
 Returns the details of edited class in dictionary format. 
+
+## Edit an existing student account
+
+* **Method**: `PUT`
+* **Path**: /api/students/edit
+
+Input:
+
+```json
+{
+    "name": string,
+    "email": string,
+    "address": string,
+    "phone_number": string
+}
+```
+
+Output:
+
+```json
+{
+    "id": integer,
+    "name": string,
+    "email": string,
+    "address": string,
+    "phone_number": string
+}
+```
+
+Submits a PUT request to edit an existing student account's model fields.
+Returns the details of edited student account in dictionary format. 
+
+## Edit an existing instructor account
+
+* **Method**: `PUT`
+* **Path**: /api/instructors/edit
+
+Input:
+
+```json
+{
+    "name": string,
+    "email": string,
+    "address": string,
+    "phone_number": string,
+    "certification": string (optional),
+    "yoga_studio": string (optional),
+    "demo": string,
+    "instagram": string,
+}
+```
+
+Output:
+
+```json
+{
+    "id": integer,
+    "name": string,
+    "email": string,
+    "address": string,
+    "phone_number": string,
+    "certification": string (optional),
+    "yoga_studio": string (optional),
+    "demo": string,
+    "instagram": string
+}
+```
+
+Submits a PUT request to edit an existing instructor account's model fields.
+Returns the details of edited instructor account in dictionary format. 
+
+## Delete an existing class
+
+* **Method**: `DELETE`
+* **Path**: /api/classes/delete
+
+Input:
+
+
+Output:
+
+
+
+Deletes an existing class and returns nothing.
+
+## Delete an existing student account
+
+* **Method**: `DELETE`
+* **Path**: /api/students/delete
+
+Input:
+
+
+Output:
+
+
+
+Deletes an existing student account and returns nothing.
+
+## Delete an existing instructor account
+
+* **Method**: `DELETE`
+* **Path**: /api/instructors/delete
+
+Input:
+
+
+Output:
+
+
+
+Deletes an existing instructor account and returns nothing.
+
