@@ -4,7 +4,7 @@
 
 A sketch of the functionality of the website
 
-![overall project](wireframes/stretch-goals-excalidraw)
+![overall project](wireframes/stretch-goals-excalidraw.png)
 
 ## main page
 
