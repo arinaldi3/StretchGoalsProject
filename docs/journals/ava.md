@@ -1,0 +1,2 @@
+# Aug 17, 2022
+We are just getting started with the outline idea of our project. We have decided on a yoga app for instructors to make accounts and upload their own demo videos, and schedule live streams to live student audiences (with a limit of attendees). Students can create accounts and sign up for instructor classes (live streams). Now, we are taking the time to look over our outline and divvy up the work between us. I am excited to finally start building! By the end of the week, we should have clearer ideas of our roles.
