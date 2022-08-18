@@ -8,7 +8,9 @@
 
 The top web app for providing an environment to connect
 yoga instructors to students with the goal of providing
-classes for students.
+a platform for instructors to create content and a 
+place for yogis to practice their passion.
+
 
 ## Intended market
 
@@ -17,17 +19,20 @@ and yoga students. The specified groups are
 
 - Administrators
 - Yoga Instructors
-- Yoga students looking to take classes from instructors
+- Yoga students looking to take instructed classes
 
 ## Functionality
 
 - Users can register as either a student or instructor.
 
-- Yoga instructors can upload a demo video and
-  create classes consisting of a link to a scheduled livestream.
+- Non-registered users have access to demo videos.
 
-- Yoga students can find and
-  opt into taking classes by providing payment.
+- Yoga instructors can upload a demo video and
+  create classes consisting of a link to their videos.
+
+- Yoga students have access to demo videos and are able
+  to sign up for classes. A user must be signed up for a class
+  in order to access class videos.
 
 - An instructor has a expertise tier (1-4) based on amount of
   views their classess have and average views.
