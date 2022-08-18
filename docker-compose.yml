@@ -1,0 +1,101 @@
+volumes:
+  beta-data:
+    external: true
+services:
+  react:
+    image: node:lts-bullseye
+    command: /bin/bash run.sh
+    working_dir: /app
+    volumes:
+      - ./ghi/app:/app
+    ports:
+      - "3000:3000"
+    environment:
+      HOST_OS: ${OS}
+      NODE_ENV: development
+      HOST: "0.0.0.0"
+  database:
+    image: postgres:14.2-bullseye
+    volumes:
+      - beta-data:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=accounts,classes,subscription
+      - POSTGRES_PASSWORD=test-databases
+    ports:
+      - 15432:5432
+  accounts-api:
+    build:
+      context: ./accounts/api
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - "8100:8000"
+    volumes:
+      - ./accounts/api:/app
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: postgres://accounts:password@database:5432/accounts
+      WAIT_HOSTS: database:5432
+      WAIT_TIMEOUT: 240
+      PEXELS_API_KEY: ${PEXELS_API_KEY}
+  classes-api:
+    build:
+      context: ./classes/api
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - "8080:8000"
+    volumes:
+      - ./classes/api:/app
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: postgres://classes:password@database:5432/classes
+      WAIT_HOSTS: database:5432
+      WAIT_TIMEOUT: 240
+      PEXELS_API_KEY: ${PEXELS_API_KEY}
+  # classes-poller:
+  #   build:
+  #     context: ./classes/poll
+  #     dockerfile: ./Dockerfile.dev
+  #   volumes:
+  #     - ./classes/poll:/app
+  #     - ./classes/api/classes_project:/app/classes_project
+  #     - ./classes/api/classes_rest:/app/classes_rest
+  #   depends_on:
+  #     - database
+  #     - classes-api
+  #   environment:
+  #     DATABASE_URL: postgres://classes:password@database:5432/classes
+  #     WAIT_HOSTS: database:5432,classes-api:8000
+  #     WAIT_TIMEOUT: 240
+  subscription-api:
+    build:
+      context: ./subscriptions/api
+      dockerfile: ./Dockerfile.dev
+    ports:
+      - "8090:8000"
+    volumes:
+      - ./subscriptions/api:/app
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: postgres://subscriptions:password@database:5432/subscriptions
+      WAIT_HOSTS: database:5432
+      WAIT_TIMEOUT: 240
+      PEXELS_API_KEY: ${PEXELS_API_KEY}
+  subscriptions-poller:
+    build:
+      context: ./subscriptions/poll
+      dockerfile: ./Dockerfile.dev
+    volumes:
+      - ./subscriptions/poll:/app
+      - ./subscriptions/api/subscriptions_project:/app/subscriptions_project
+      - ./subscriptions/api/subscriptions_rest:/app/subscriptions_rest
+    depends_on:
+      - database
+      - subscriptions-api
+    environment:
+      DATABASE_URL: postgres://subscriptions:password@database:5432/subscriptions
+      WAIT_HOSTS: database:5432,subscriptions-api:8000
+      WAIT_TIMEOUT: 240
