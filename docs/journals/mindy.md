@@ -1,3 +1,9 @@
+## 8/18/22
+- Disccussed and established docker-compose.yml with other group members
+- Created frontend jsx files
+- Updated our README after receiving feedback from Dalonte
+- Went through project design again as a group and made sure we are on the same page
+
 ## 8/17/22
 - Our team decided to use Django for the project framework
 - Went through the Project Outline with team members
