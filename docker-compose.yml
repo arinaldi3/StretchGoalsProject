@@ -39,6 +39,7 @@ services:
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
+      DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
   classes-api:
     build:
       context: ./classes/api
@@ -54,6 +55,7 @@ services:
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
+      DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
   levels-api:
     build:
       context: ./levels/api
@@ -69,4 +71,5 @@ services:
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
+      DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
   
