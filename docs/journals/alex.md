@@ -17,3 +17,10 @@ full revamp after reinstall.
 added .env file for api keys
 downloaded django rest api framework 
 added localhost to the allowed hosts list on all 3 projects(will obviously have to fix later)
+
+react broke because file structure was nonlinear
+
+all of the django apps are broken because of some setting. working on fixing this slowly.
+
+after cross-checking every file, spelling, etc:
+I found that if you do not include urlpatterns in a urls.py file - everything breaks with a Code 1 in docker (can't find account/etc presumably because of runtime loop). Docker is now working, react is now working, can start front-end framework.

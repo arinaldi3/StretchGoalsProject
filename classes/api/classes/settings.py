@@ -25,6 +25,18 @@ SECRET_KEY = 'django-insecure-#cumhbxp70hur&e=t!@7f-12qg90%31ehz6!73^xifp28v*cv@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = [
+    "localhost",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Application definition
@@ -78,18 +90,7 @@ WSGI_APPLICATION = 'classes.wsgi.application'
 DATABASES = {}
 DATABASES["default"] = dj_database_url.config()
 
-ALLOWED_HOSTS = [
-    "localhost",
-]
 
-CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
-CORS_ALLOW_CREDENTIALS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

@@ -20,7 +20,7 @@ services:
       - stretch-data:/var/lib/postgresql/data
       - ./db:/docker-entrypoint-initdb.d
     environment:
-      - POSTGRES_MULTIPLE_DATABASES=accounts,classes,subscription
+      - POSTGRES_MULTIPLE_DATABASES=accounts,classes,levels
       - POSTGRES_PASSWORD=test-databases
     ports:
       - 15432:5432
