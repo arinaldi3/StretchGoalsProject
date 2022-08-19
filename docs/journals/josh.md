@@ -9,3 +9,6 @@ Today was mostly just making sure everyone was on the same page and what tech st
 
 ## 8/18: 
 Talked about docker compose and started designing it together as a team of 5. Then we went over a review with Dalonte and received some feedback regarding our functionality so we decided to change classes to have videos instead of livestreams and keep livestreams as a strech goal while removing a payment structure from our goals. Finally, we updated to readme to have more clarification regarding what non-registered users can do. Currently, we're still in the process of figuring out who will be in charge of what. I'm hoping for back-end work but I think I will probably have to act as a fill and try to do what other people are uncomfortable doing.
+
+## 8/19:
+Today we had to resolve a ton of docker issues. For some reason, the project containers were running fine for Alex and I but not for the rest of our group. Unfortunately, that headache took most of our time today but thanks to Dalonte, we did eventually manage to find a fix. While we were waiting, I gave a mini lecture on how to write react functional components and implementation of a search bar. We also discussed who will want to work on what area in the project so that we are ready to start working come monday. I'm feeling relieved that we fixed the docker issues.
