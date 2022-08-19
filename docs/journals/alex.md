@@ -24,3 +24,10 @@ all of the django apps are broken because of some setting. working on fixing thi
 
 after cross-checking every file, spelling, etc:
 I found that if you do not include urlpatterns in a urls.py file - everything breaks with a Code 1 in docker (can't find account/etc presumably because of runtime loop). Docker is now working, react is now working, can start front-end framework.
+
+started working on front end for visibility 
+made a quick logo, found a quick background, attempted to get a basic main page with a basic nav bar live
+
+issue with react's browser router- react-router-dom can't be found
+tried to install with a --save at end but no luck currently. still cannot see the react router. 
+

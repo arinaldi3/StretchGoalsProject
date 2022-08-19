@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.BackGround {
+  background-image: 
+  url(
+"https://i.imgur.com/tlOU12l.jpeg");
+  background-size: "inherit";
+  height: 100vh;
+  margin-top: -20px;
+  background-repeat:no-repeat;
+}

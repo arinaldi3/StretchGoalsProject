@@ -7,9 +7,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <div className="p-3 mb-2 bg-dark text-white">
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function
