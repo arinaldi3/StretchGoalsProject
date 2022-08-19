@@ -54,48 +54,33 @@ services:
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
-  # classes-poller:
-  #   build:
-  #     context: ./classes/poll
-  #     dockerfile: ./Dockerfile.dev
-  #   volumes:
-  #     - ./classes/poll:/app
-  #     - ./classes/api/classes_project:/app/classes_project
-  #     - ./classes/api/classes_rest:/app/classes_rest
-  #   depends_on:
-  #     - database
-  #     - classes-api
-  #   environment:
-  #     DATABASE_URL: postgres://classes:password@database:5432/classes
-  #     WAIT_HOSTS: database:5432,classes-api:8000
-  #     WAIT_TIMEOUT: 240
-  subscription-api:
+  levels-api:
     build:
-      context: ./subscriptions/api
+      context: ./levels/api
       dockerfile: ./Dockerfile.dev
     ports:
       - "8090:8000"
     volumes:
-      - ./subscriptions/api:/app
+      - ./levels/api:/app
     depends_on:
       - database
     environment:
-      DATABASE_URL: postgres://subscriptions:password@database:5432/subscriptions
+      DATABASE_URL: postgres://levels:password@database:5432/levels
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
-  subscriptions-poller:
+  levels-poller:
     build:
-      context: ./subscriptions/poll
+      context: ./levels/poll
       dockerfile: ./Dockerfile.dev
     volumes:
-      - ./subscriptions/poll:/app
-      - ./subscriptions/api/subscriptions_project:/app/subscriptions_project
-      - ./subscriptions/api/subscriptions_rest:/app/subscriptions_rest
+      - ./levels/poll:/app
+      - ./levels/api/levels_project:/app/levels_project
+      - ./levels/api/levels_rest:/app/levels_rest
     depends_on:
       - database
-      - subscriptions-api
+      - levels-api
     environment:
-      DATABASE_URL: postgres://subscriptions:password@database:5432/subscriptions
-      WAIT_HOSTS: database:5432,subscriptions-api:8000
+      DATABASE_URL: postgres://levels:password@database:5432/levels
+      WAIT_HOSTS: database:5432,levels-api:8000
       WAIT_TIMEOUT: 240
