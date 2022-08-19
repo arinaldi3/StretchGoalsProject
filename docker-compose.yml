@@ -1,5 +1,5 @@
 volumes:
-  beta-data:
+  stretch-data:
     external: true
 services:
   react:
@@ -17,7 +17,7 @@ services:
   database:
     image: postgres:14.2-bullseye
     volumes:
-      - beta-data:/var/lib/postgresql/data
+      - stretch-data:/var/lib/postgresql/data
       - ./db:/docker-entrypoint-initdb.d
     environment:
       - POSTGRES_MULTIPLE_DATABASES=accounts,classes,subscription
@@ -69,18 +69,4 @@ services:
       WAIT_HOSTS: database:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
-  levels-poller:
-    build:
-      context: ./levels/poll
-      dockerfile: ./Dockerfile.dev
-    volumes:
-      - ./levels/poll:/app
-      - ./levels/api/levels_project:/app/levels_project
-      - ./levels/api/levels_rest:/app/levels_rest
-    depends_on:
-      - database
-      - levels-api
-    environment:
-      DATABASE_URL: postgres://levels:password@database:5432/levels
-      WAIT_HOSTS: database:5432,levels-api:8000
-      WAIT_TIMEOUT: 240
+  
