@@ -62,15 +62,15 @@ function CreateStudent() {
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.username}placeholder="Username" required type="text" name="username" id="username" className="form-control" />
-                <label htmlFor="phone_number">Username</label>
+                <label htmlFor="user_name">Username</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.email}placeholder="Email" required type="text" name="email" id="email" className="form-control" />
-                <label htmlFor="phone_number">Email</label>
+                <label htmlFor="email">Email</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.password}placeholder="Password" required type="password" name="password" id="password" className="form-control" />
-                <label htmlFor="phone_number">Password</label>
+                <label htmlFor="password">Password</label>
             </div>
             <button className="btn btn-primary">Create</button>
             </form>

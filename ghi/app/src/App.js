@@ -4,8 +4,8 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import CreateStudent from './CreateStudent';
 import CreateInstructor from './CreateInstructor';
-import Login from './Login';
-
+// import Login from './Login';
+import CreateClass from './CreateClass';
 function App() {
   return (
     <BrowserRouter>
@@ -17,7 +17,9 @@ function App() {
           <Route path="/new" >
             <Route path="student" element={<CreateStudent/>}/>
             <Route path="instructor" element={<CreateInstructor/>}/>
+            <Route path="class" element={<CreateClass/>}/>
           </Route>
+
           {/* <Route path='login' element={<Login/>}/> */}
         </Routes>
       </div>

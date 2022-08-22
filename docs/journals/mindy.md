@@ -1,3 +1,5 @@
+
+
 ## 8/19/22
 - We roughly discussed our individual roles in the project, and we all agreed that we will keep each other updated on the progress
 - Josh did a mini lecture on React using functions instead of classes for the rest of our group as we all agreed to use functions for this project

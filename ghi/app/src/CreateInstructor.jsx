@@ -70,27 +70,27 @@ function CreateInstructor() {
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.username}placeholder="Username" required type="text" name="username" id="username" className="form-control" />
-                <label htmlFor="phone_number">Username</label>
+                <label htmlFor="user_name">Username</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.email}placeholder="Email" required type="text" name="email" id="email" className="form-control" />
-                <label htmlFor="phone_number">Email</label>
+                <label htmlFor="email">Email</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.password}placeholder="Password" required type="password" name="password" id="password" className="form-control" />
-                <label htmlFor="phone_number">Password</label>
+                <label htmlFor="password">Password</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.certification}placeholder="Certification" required type="text" name="certification" id="certification" className="form-control" />
-                <label htmlFor="phone_number">Certification (optional) </label>
+                <label htmlFor="certification">Certification (optional) </label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.yoga_studio}placeholder="Yoga Studio" type="text" name="yoga_studio" id="yoga_studio" className="form-control" />
-                <label htmlFor="phone_number">Yoga Studio (optional)</label>
+                <label htmlFor="yoga_studio">Yoga Studio (optional)</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.instagram}placeholder="Instagram Handle" type="text" name="instagram" id="instagram" className="form-control" />
-                <label htmlFor="phone_number">Instagram Handle (optional)</label>
+                <label htmlFor="instagram">Instagram Handle (optional)</label>
             </div>
             <button className="btn btn-primary">Create</button>
             </form>
