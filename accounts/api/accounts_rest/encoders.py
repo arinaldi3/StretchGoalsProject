@@ -6,11 +6,11 @@ class InstructorListEncoder(ModelEncoder):
     properties = [
         "id",
         "username",
-        "email",
+        "profile_picture",
         "first_name",
         "last_name",
-        "demo",
         "certification",
+        "demo",
     ]
 
 class InstructorCreateEncoder(ModelEncoder):
@@ -18,16 +18,17 @@ class InstructorCreateEncoder(ModelEncoder):
     properties = [
         "id",
         "username",
+        "profile_picture",
         "password",
         "email",
         "first_name",
         "last_name",
         "address",
         "phone_number",
+        "certification",
         "yoga_studio",
         "demo",
         "instagram",
-        "certification",
     ]
 
 class InstructorDetailEncoder(ModelEncoder):
@@ -35,12 +36,13 @@ class InstructorDetailEncoder(ModelEncoder):
     properties = [
         "id",
         "username",
+        "profile_picture",
         "first_name",
         "last_name",
+        "certification",
         "yoga_studio",
         "demo",
         "instagram",
-        "certification",
     ]
 
 class StudentListEncoder(ModelEncoder):
@@ -48,6 +50,18 @@ class StudentListEncoder(ModelEncoder):
     properties = [
         "id",
         "username",
+        "profile_picture",
+        "first_name",
+        "last_name",
+    ]
+
+
+class StudentDetailEncoder(ModelEncoder):
+    model = Student
+    properties = [
+        "id",
+        "username",
+        "profile_picture",
         "email",
         "first_name",
         "last_name",

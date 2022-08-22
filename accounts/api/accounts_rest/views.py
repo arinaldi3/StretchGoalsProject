@@ -3,7 +3,7 @@ from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 from accounts.api.accounts_rest.models import Instructor, Student
 import djwto.authentication as auth
-from .encoders import InstructorListEncoder, InstructorDetailEncoder, StudentEncoder 
+from .encoders import InstructorListEncoder, InstructorCreateEncoder, InstructorDetailEncoder, StudentListEncoder, StudentDetailEncoder 
 import json
 from acls import get_photo, get_photo2
 
@@ -37,6 +37,7 @@ def api_current_user(request, username):
             {
                 "id": user.id,
                 "username": user.username,
+                "profile_picture": user.profile_picture,
                 "email": user.email,
                 "first_name": user.first_name,
                 "last_name": user.last_name,
@@ -50,6 +51,7 @@ def api_current_user(request, username):
         {
             "id": user.id,
             "username": user.username,
+            "profile_picture": user.profile_picture,
             "email": user.email,
             "first_name": user.first_name,
             "last_name": user.last_name,
@@ -62,7 +64,7 @@ def api_current_user(request, username):
         })
 
 @require_http_methods(['GET', 'POST'])
-def api_instructor(request):
+def api_instructors(request):
     """
     RESTful API for instructor Object.
 
@@ -73,16 +75,18 @@ def api_instructor(request):
 
     instructor object looks like (inst_obj)
     {
-        'email': user's email,
-        'username': account username,
-        'password': account password,
-        'name': user's name,
-        'address': user's address,
-        'phone_number': user's submitted phone number,
-        certification': instructor's certification level,
-        'yoga_studio': instructor's yoga studio,
-        'demo': url link to a video demo,
-        'instagram': url link to user's instagram
+        "username": account username,
+        "profile_picture": pexels image,
+        "password": account password,
+        "email": user's email,
+        "first_name": user's first name,
+        "last_name": user's last name,
+        "address": user's address,
+        "phone_number": user's submitted phone number,
+        "certification": instructor's certification level,
+        "yoga_studio": instructor's yoga studio,
+        "demo": url link to a video demo,
+        "instagram": url link to user's instagram
     }
 
     List looks like
@@ -93,7 +97,17 @@ def api_instructor(request):
             ...
         ]
     }
-    with each tech_obj being in the format of the object described earlier
+    with each inst_obj being in the format of
+
+    {
+        "id": database id for the instructor,
+        "username": account username,
+        "profile_picture": pexels image,
+        "first_name": user's first name,
+        "last_name": user's last name,
+        "certification": instructor's certification level,
+        "demo": url link to a video demo,
+    }
     """
 
     if request.method == 'GET':
@@ -110,7 +124,7 @@ def api_instructor(request):
             instructor = instructor.objects.create(**content)
             return JsonResponse(
                 instructor,
-                encoder=InstructorDetailEncoder,
+                encoder=InstructorCreateEncoder,
                 safe=False,
             )
         except:
@@ -120,45 +134,53 @@ def api_instructor(request):
             )
 
 @require_http_methods(["DELETE", "GET", "PUT"])
-def api_detail_instructor(request, pk):
+def api_instructors(request, pk):
     """
     Single-object API for the Instructor resource.
 
     GET:
-    Returns the information for a instructor resource based
+    Returns the information for an Instructor resource based
     on the value of pk
     {
         "id": database id for the instructor,
-        email: user's email,
-        username: account username,
-        password: account password,
-        name: user's name,
-        address: user's address,
-        phone_number: user's submitted phone number,
-        certification: instructor's certification level,
-        yoga_studio: instructor's yoga studio,
-        demo: url link to a video demo,
-        instagram: url link to user's instagram
+        "username": account username,
+        "profile_picture": pexels image,
+        "first_name": user's first name,
+        "last_name": user's last name,
+        "certification": instructor's certification level,
+        "yoga_studio": instructor's yoga studio,
+        "demo": url link to a video demo,
+        "instagram": url link to user's instagram
     }
 
     PUT:
-    Updates the information for a instructor resource based
+    Updates the information for an Instructor resource based
     on the value of the pk
     {
-        "closet_name": instructor's closet name,
-        "section_number": the number of the wardrobe section,
-        "shelf_number": the number of the shelf,
+        "id": database id for the instructor,
+        "username": account username,
+        "profile_picture": pexels image,
+        "password": account password,
+        "email": user's email,
+        "first_name": user's first name,
+        "last_name": user's last name,
+        "address": user's address,
+        "phone_number": user's submitted phone number,
+        "certification": instructor's certification level,
+        "yoga_studio": instructor's yoga studio,
+        "demo": url link to a video demo,
+        "instagram": url link to user's instagram
     }
 
     DELETE:
-    Removes the instructor resource from the application
+    Removes the Instructor resource from the application
     """
     if request.method == "GET":
         try:
-            instructor = instructor.objects.get(id=pk)
+            instructor = Instructor.objects.get(id=pk)
             return JsonResponse(
                 instructor,
-                encoder=instructorEncoder,
+                encoder=InstructorDetailEncoder,
                 safe=False
             )
         except instructor.DoesNotExist:
@@ -167,11 +189,11 @@ def api_detail_instructor(request, pk):
             return response
     elif request.method == "DELETE":
         try:
-            instructor = instructor.objects.get(id=pk)
+            instructor = Instructor.objects.get(id=pk)
             instructor.delete()
             return JsonResponse(
                 instructor,
-                encoder=instructorEncoder,
+                encoder=InstructorListEncoder,
                 safe=False,
             )
         except instructor.DoesNotExist:
@@ -179,7 +201,7 @@ def api_detail_instructor(request, pk):
     else: # PUT
         try:
             content = json.loads(request.body)
-            instructor = instructor.objects.get(id=pk)
+            instructor = Instructor.objects.get(id=pk)
 
             props = ["closet_name", "shelf_number", "section_number"]
             for prop in props:
@@ -188,7 +210,7 @@ def api_detail_instructor(request, pk):
             instructor.save()
             return JsonResponse(
                 instructor,
-                encoder=instructorEncoder,
+                encoder=InstructorCreateEncoder,
                 safe=False,
             )
         except instructor.DoesNotExist:
@@ -197,7 +219,7 @@ def api_detail_instructor(request, pk):
             return response
 
 @require_http_methods(['GET', 'POST'])
-def api_student(request):
+def api_students(request):
     """
     RESTful API for Student Object.
 
@@ -208,12 +230,14 @@ def api_student(request):
 
     Student object looks like (stud_obj)
     {
-        email: user's email,
-        username: account username,
-        password: account password,
-        name: user's name,
-        address: user's address,
-        phone_number: user's submitted phone number
+        "email": user's email,
+        "username": account username,
+        "profile_picture": pexels image,
+        "password": account password,
+        "first_name": user's first name,
+        "last_name": user's last name,
+        "address": user's address,
+        "phone_number": user's submitted phone number
     }
 
     List looks like
@@ -224,14 +248,22 @@ def api_student(request):
             ...
         ]
     }
-    with each stud_obj being in the format of the object described earlier
+    with each stud_obj being in the format of 
+
+    {
+        "id": database id for the instructor,
+        "username": account username,
+        "profile_picture": pexels image,
+        "first_name": user's first name,
+        "last_name": user's last name,
+    }
     """
 
     if request.method == 'GET':
         students = Student.objects.all()
         return JsonResponse(
             {"students": students},
-            encoder=StudentEncoder
+            encoder=StudentListEncoder
         )
     else:
         try:
@@ -241,7 +273,7 @@ def api_student(request):
             student = Student.objects.create(**content)
             return JsonResponse(
                 student,
-                encoder=StudentEncoder,
+                encoder=StudentDetailEncoder,
                 safe=False,
             )
         except:
