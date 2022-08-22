@@ -203,7 +203,20 @@ def api_instructors(request, pk):
             content = json.loads(request.body)
             instructor = Instructor.objects.get(id=pk)
 
-            props = ["closet_name", "shelf_number", "section_number"]
+            props = [
+                "username",
+                "profile_picture",
+                "password",
+                "email",
+                "first_name",
+                "last_name",
+                "address",
+                "phone_number",
+                "certification",
+                "yoga_studio",
+                "demo",
+                "instagram",
+            ]
             for prop in props:
                 if prop in content:
                     setattr(instructor, prop, content[prop])
@@ -219,7 +232,7 @@ def api_instructors(request, pk):
             return response
 
 @require_http_methods(['GET', 'POST'])
-def api_students(request):
+def api_student(request):
     """
     RESTful API for Student Object.
 
@@ -230,10 +243,11 @@ def api_students(request):
 
     Student object looks like (stud_obj)
     {
-        "email": user's email,
+        "id": database id for Student,
         "username": account username,
         "profile_picture": pexels image,
         "password": account password,
+        "email": user's email,
         "first_name": user's first name,
         "last_name": user's last name,
         "address": user's address,
@@ -251,7 +265,7 @@ def api_students(request):
     with each stud_obj being in the format of 
 
     {
-        "id": database id for the instructor,
+        "id": database id for the student,
         "username": account username,
         "profile_picture": pexels image,
         "first_name": user's first name,
@@ -281,3 +295,65 @@ def api_students(request):
                 {"message": "Make sure all fields are filled out!"},
                 status=400,
             )
+
+@require_http_methods(["DELETE", "PUT"])
+def api_students(request, pk):
+    """
+    Single-object API for the Instructor resource.
+
+    PUT:
+    Updates the information for an Student resource based
+    on the value of the pk
+    {
+        "username": account username,
+        "profile_picture": pexels image,
+        "password": account password,
+        "email": user's email,
+        "first_name": user's first name,
+        "last_name": user's last name,
+        "address": user's address,
+        "phone_number": user's submitted phone number
+    }
+
+    DELETE:
+    Removes the Student resource from the application
+    """
+    if request.method == "DELETE":
+        try:
+            student = Student.objects.get(id=pk)
+            student.delete()
+            return JsonResponse(
+                student,
+                encoder=StudentListEncoder,
+                safe=False,
+            )
+        except student.DoesNotExist:
+            return JsonResponse({"message": "Does not exist"})
+    else: # PUT
+        try:
+            content = json.loads(request.body)
+            student = Student.objects.get(id=pk)
+
+            props = [
+                "username",
+                "profile_picture",
+                "password",
+                "email",
+                "first_name",
+                "last_name",
+                "address",
+                "phone_number",
+            ]
+            for prop in props:
+                if prop in content:
+                    setattr(student, prop, content[prop])
+            student.save()
+            return JsonResponse(
+                student,
+                encoder=InstructorCreateEncoder,
+                safe=False,
+            )
+        except student.DoesNotExist:
+            response = JsonResponse({"message": "Does not exist"})
+            response.status_code = 404
+            return response
