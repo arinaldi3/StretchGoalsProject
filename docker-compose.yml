@@ -1,6 +1,8 @@
 volumes:
   stretch-data:
     external: true
+  pgadmin:
+    external: true
 services:
   react:
     image: node:lts-bullseye
@@ -14,11 +16,13 @@ services:
       HOST_OS: ${OS}
       NODE_ENV: development
       HOST: "0.0.0.0"
-  database:
-    image: postgres:14.2-bullseye
+  postgres:
+    build:
+      context: ./relational-data
+      dockerfile: ./Dockerfile.dev
     volumes:
       - stretch-data:/var/lib/postgresql/data
-      - ./db:/docker-entrypoint-initdb.d
+      - ./db:/data
     environment:
       - POSTGRES_MULTIPLE_DATABASES=accounts,classes,levels
       - POSTGRES_PASSWORD=test-databases
@@ -33,10 +37,10 @@ services:
     volumes:
       - ./accounts/api:/app
     depends_on:
-      - database
+      - postgres
     environment:
-      DATABASE_URL: postgres://accounts:password@database:5432/accounts
-      WAIT_HOSTS: database:5432
+      DATABASE_URL: postgresql://accounts:password@database:5432/accounts
+      WAIT_HOSTS: postgres:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
       DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
@@ -49,10 +53,10 @@ services:
     volumes:
       - ./classes/api:/app
     depends_on:
-      - database
+      - postgres
     environment:
-      DATABASE_URL: postgres://classes:password@database:5432/classes
-      WAIT_HOSTS: database:5432
+      DATABASE_URL: postgresql://classes:password@postgres:5432/classes
+      WAIT_HOSTS: postgres:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
       DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
@@ -65,10 +69,10 @@ services:
     volumes:
       - ./levels/api:/app
     depends_on:
-      - database
+      - postgres
     environment:
-      DATABASE_URL: postgres://levels:password@database:5432/levels
-      WAIT_HOSTS: database:5432
+      DATABASE_URL: postgresql://levels:password@postgres:5432/levels
+      WAIT_HOSTS: postgres:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
       DJWTO_SIGNING_KEY: ${DJWTO_SIGNING_KEY}
