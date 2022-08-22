@@ -3,6 +3,8 @@ from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 from accounts.api.accounts_rest.models import Instructor, Student
 import djwto.authentication as auth
+from .encoders import InstructorListEncoder, InstructorDetailEncoder, StudentEncoder 
+import json
 
 @require_http_methods(["GET"])
 def api_user_token(request):
@@ -57,3 +59,188 @@ def api_current_user(request, username):
             "instagram": user.instagram,
             "certification": user.certification
         })
+
+@require_http_methods(['GET', 'POST'])
+def api_instructor(request):
+    """
+    RESTful API for instructor Object.
+
+    Get request returns a dict with key instructors that contains a
+    list of instructors and their properties.
+
+    Post request creates a instructor resource and returns its details
+
+    instructor object looks like (inst_obj)
+    {
+        'email': user's email,
+        'username': account username,
+        'password': account password,
+        'name': user's name,
+        'address': user's address,
+        'phone_number': user's submitted phone number,
+        certification': instructor's certification level,
+        'yoga_studio': instructor's yoga studio,
+        'demo': url link to a video demo,
+        'instagram': url link to user's instagram
+    }
+
+    List looks like
+    {
+        'instructors': [
+            inst_obj1,
+            inst_obj2,
+            ...
+        ]
+    }
+    with each tech_obj being in the format of the object described earlier
+    """
+
+    if request.method == 'GET':
+        instructors = Instructor.objects.all()
+        return JsonResponse(
+            {"instructors": instructors},
+            encoder=InstructorListEncoder
+        )
+    else:
+        try:
+            content = json.loads(request.body)
+            instructor = instructor.objects.create(**content)
+            return JsonResponse(
+                instructor,
+                encoder=InstructorDetailEncoder,
+                safe=False,
+            )
+        except:
+            return JsonResponse(
+                {"message": "Make sure all fields are filled out!"},
+                status=400,
+            )
+
+@require_http_methods(["DELETE", "GET", "PUT"])
+def api_detail_instructor(request, pk):
+    """
+    Single-object API for the Instructor resource.
+
+    GET:
+    Returns the information for a instructor resource based
+    on the value of pk
+    {
+        "id": database id for the instructor,
+        email: user's email,
+        username: account username,
+        password: account password,
+        name: user's name,
+        address: user's address,
+        phone_number: user's submitted phone number,
+        certification: instructor's certification level,
+        yoga_studio: instructor's yoga studio,
+        demo: url link to a video demo,
+        instagram: url link to user's instagram
+    }
+
+    PUT:
+    Updates the information for a instructor resource based
+    on the value of the pk
+    {
+        "closet_name": instructor's closet name,
+        "section_number": the number of the wardrobe section,
+        "shelf_number": the number of the shelf,
+    }
+
+    DELETE:
+    Removes the instructor resource from the application
+    """
+    if request.method == "GET":
+        try:
+            instructor = instructor.objects.get(id=pk)
+            return JsonResponse(
+                instructor,
+                encoder=instructorEncoder,
+                safe=False
+            )
+        except instructor.DoesNotExist:
+            response = JsonResponse({"message": "Does not exist"})
+            response.status_code = 404
+            return response
+    elif request.method == "DELETE":
+        try:
+            instructor = instructor.objects.get(id=pk)
+            instructor.delete()
+            return JsonResponse(
+                instructor,
+                encoder=instructorEncoder,
+                safe=False,
+            )
+        except instructor.DoesNotExist:
+            return JsonResponse({"message": "Does not exist"})
+    else: # PUT
+        try:
+            content = json.loads(request.body)
+            instructor = instructor.objects.get(id=pk)
+
+            props = ["closet_name", "shelf_number", "section_number"]
+            for prop in props:
+                if prop in content:
+                    setattr(instructor, prop, content[prop])
+            instructor.save()
+            return JsonResponse(
+                instructor,
+                encoder=instructorEncoder,
+                safe=False,
+            )
+        except instructor.DoesNotExist:
+            response = JsonResponse({"message": "Does not exist"})
+            response.status_code = 404
+            return response
+
+@require_http_methods(['GET', 'POST'])
+def api_student(request):
+    """
+    RESTful API for Student Object.
+
+    Get request returns a dict with key students that contains a
+    list of students and their properties.
+
+    Post request creates a student resource and returns its details
+
+    Student object looks like (stud_obj)
+    {
+        email: user's email,
+        username: account username,
+        password: account password,
+        name: user's name,
+        address: user's address,
+        phone_number: user's submitted phone number
+    }
+
+    List looks like
+    {
+        'students': [
+            stud_obj1,
+            stud_obj2,
+            ...
+        ]
+    }
+    with each stud_obj being in the format of the object described earlier
+    """
+
+    if request.method == 'GET':
+        students = Student.objects.all()
+        return JsonResponse(
+            {"students": students},
+            encoder=StudentEncoder
+        )
+    else:
+        try:
+            content = json.loads(request.body)
+            student = Student.objects.create(**content)
+            return JsonResponse(
+                student,
+                encoder=StudentEncoder,
+                safe=False,
+            )
+        except:
+            return JsonResponse(
+                {"message": "Make sure all fields are filled out!"},
+                status=400,
+            )
