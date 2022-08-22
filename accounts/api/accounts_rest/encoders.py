@@ -62,6 +62,7 @@ class StudentDetailEncoder(ModelEncoder):
         "id",
         "username",
         "profile_picture",
+        "password",
         "email",
         "first_name",
         "last_name",
