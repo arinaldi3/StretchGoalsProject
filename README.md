@@ -36,3 +36,8 @@ and yoga students. The specified groups are
 
 - An instructor has a expertise tier (1-4) based on amount of
   views their classess have and average views.
+
+
+## How to get project running
+- Run cmd 'Docker volume create stretch-data'
+- Run cmd 'Docker-compose up'
