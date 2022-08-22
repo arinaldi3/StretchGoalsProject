@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function CreateStudent() {
+function CreateInstructor() {
     const [state, setState] = useState({
         name: '', 
         address: '',
@@ -8,13 +8,17 @@ function CreateStudent() {
         username: '',
         email: '', 
         password: '',
+        certification: '',
+        yoga_studio: '',
+        // demo: '',
+        instagram: '',
     })
 
     const handleSubmit = async event => {
         event.preventDefault();
         const data = state;
 
-        const studentUrl = 'http://localhost:8100/api/students/'
+        const instructorUrl = 'http://localhost:8100/api/instructors/'
         const fetchConfig = {
             method: "POST",
             body: JSON.stringify(data),
@@ -22,15 +26,19 @@ function CreateStudent() {
                 'Content-Type': 'application/json'
             },
         };
-        const studentResponse = await fetch(studentUrl, fetchConfig)
-        if (studentResponse.ok) {
+        const instructorResponse = await fetch(instructorUrl, fetchConfig)
+        if (instructorResponse.ok) {
             setState({
-                name: '',
+                name: '', 
                 address: '',
                 phone_number: '',
                 username: '',
                 email: '', 
                 password: '',
+                certification: '',
+                yoga_studio: '',
+                // demo: '',
+                instagram: '',
             })
         }
     }
@@ -46,11 +54,11 @@ function CreateStudent() {
         <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4" id="to-form">
-            <h1>Student Sign Up</h1>
-            <form onSubmit={handleSubmit} id="create-student-form">
+            <h1>Instructor Sign Up</h1>
+            <form onSubmit={handleSubmit} id="create-instructor-form">
             <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {state.name}placeholder="Student Name" required type="text" name="name" id="name" className="form-control" />
-                <label htmlFor="name" >Student Name</label>
+                <input onChange={handleChange} value = {state.name}placeholder="Instructor Name" required type="text" name="name" id="name" className="form-control" />
+                <label htmlFor="name" >Instructor Name</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.address}placeholder="Address" required type="text" name="address" id="address" className="form-control" />
@@ -72,6 +80,18 @@ function CreateStudent() {
                 <input onChange={handleChange} value = {state.password}placeholder="Password" required type="password" name="password" id="password" className="form-control" />
                 <label htmlFor="phone_number">Password</label>
             </div>
+            <div className="form-floating mb-3">
+                <input onChange={handleChange} value = {state.certification}placeholder="Certification" required type="text" name="certification" id="certification" className="form-control" />
+                <label htmlFor="phone_number">Certification (optional) </label>
+            </div>
+            <div className="form-floating mb-3">
+                <input onChange={handleChange} value = {state.yoga_studio}placeholder="Yoga Studio" type="text" name="yoga_studio" id="yoga_studio" className="form-control" />
+                <label htmlFor="phone_number">Yoga Studio (optional)</label>
+            </div>
+            <div className="form-floating mb-3">
+                <input onChange={handleChange} value = {state.instagram}placeholder="Instagram Handle" type="text" name="instagram" id="instagram" className="form-control" />
+                <label htmlFor="phone_number">Instagram Handle (optional)</label>
+            </div>
             <button className="btn btn-primary">Create</button>
             </form>
         </div>
@@ -80,5 +100,4 @@ function CreateStudent() {
     )
 }
 
-export default CreateStudent;
-
+export default CreateInstructor;

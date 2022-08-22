@@ -1,11 +1,11 @@
 from dis import Instruction
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
-from accounts.api.accounts_rest.models import Instructor, Student
+from .models import Instructor, Student
 import djwto.authentication as auth
 from .encoders import InstructorListEncoder, InstructorCreateEncoder, InstructorDetailEncoder, StudentListEncoder, StudentDetailEncoder 
 import json
-from acls import get_photo, get_photo2
+from .acls import get_photo, get_photo2
 
 @require_http_methods(["GET"])
 def api_user_token(request):
@@ -134,7 +134,7 @@ def api_instructors(request):
             )
 
 @require_http_methods(["DELETE", "GET", "PUT"])
-def api_instructors(request, pk):
+def api_instructor(request, pk):
     """
     Single-object API for the Instructor resource.
 
@@ -232,7 +232,7 @@ def api_instructors(request, pk):
             return response
 
 @require_http_methods(['GET', 'POST'])
-def api_student(request):
+def api_students(request):
     """
     RESTful API for Student Object.
 
@@ -297,7 +297,7 @@ def api_student(request):
             )
 
 @require_http_methods(["DELETE", "PUT"])
-def api_students(request, pk):
+def api_student(request, pk):
     """
     Single-object API for the Instructor resource.
 
