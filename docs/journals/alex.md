@@ -31,9 +31,10 @@ made a quick logo, found a quick background, attempted to get a basic main page 
 issue with react's browser router- react-router-dom can't be found
 tried to install with a --save at end but no luck currently. still cannot see the react router. 
 
-Weekend 8/20-Monday 8/22
+# Aug 20-22 (Weekend and Monday)
 
 Restructured docker-compose.yaml to work for carlos. Needed to force the create multiple databases file to be executable by creating a unique dockerfile command for it. Consolidated the data structure and established a pgadmin volume for testing and later functionality. Started working on accounts models and views but did not make much progress because of the docker blocker. 
 
-Monday only:
+# Monday only:
 Pair programmed w/ Josh the accounts models and views for authentication purposes while designing the structure around our desired models. 
+Accounts views/models 
