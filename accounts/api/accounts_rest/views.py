@@ -5,6 +5,7 @@ from accounts.api.accounts_rest.models import Instructor, Student
 import djwto.authentication as auth
 from .encoders import InstructorListEncoder, InstructorDetailEncoder, StudentEncoder 
 import json
+from acls import get_photo, get_photo2
 
 @require_http_methods(["GET"])
 def api_user_token(request):
@@ -104,6 +105,8 @@ def api_instructor(request):
     else:
         try:
             content = json.loads(request.body)
+            photo = get_photo(content["profile_pic"])
+            content.update(photo)
             instructor = instructor.objects.create(**content)
             return JsonResponse(
                 instructor,
@@ -233,6 +236,8 @@ def api_student(request):
     else:
         try:
             content = json.loads(request.body)
+            photo = get_photo2(content["profile_pic"])
+            content.update(photo)
             student = Student.objects.create(**content)
             return JsonResponse(
                 student,

@@ -8,14 +8,13 @@ from django.core.validators import int_list_validator
 
 class Student(AbstractUser):
     email = models.EmailField(unique=True)
-    username = models.CharField(max_length=50)
+    username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=25)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
-    phone_number = models.CharField(max_length=50)
-
-
+    phone_number = models.CharField(max_length=50, unique=True)
+    profile_picture = models.CharField(max_length=40)
 
     def __str__(self):
         return f"{self.email}"
@@ -23,15 +22,17 @@ class Student(AbstractUser):
 
 class Instructor(AbstractUser):
     email = models.EmailField(unique=True)
-    username = models.CharField(max_length=50)
+    username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=25)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
-    phone_number = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50, unique=True)
     certification = models.CharField(max_length=100)
     yoga_studio = models.CharField(max_length=50)
     demo = models.URLField()
-    instagram = models.URLField()
+    instagram = models.URLField(unique=True)
+    profile_picture = models.CharField(max_length=40)
+
     def __str__(self):
         return f"{self.email}"
