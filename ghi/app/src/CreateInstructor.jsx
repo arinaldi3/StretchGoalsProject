@@ -82,11 +82,11 @@ function CreateInstructor() {
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.certification}placeholder="Certification" required type="text" name="certification" id="certification" className="form-control" />
-                <label htmlFor="phone_number">Certification</label>
+                <label htmlFor="phone_number">Certification (optional) </label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.yoga_studio}placeholder="Yoga Studio" type="text" name="yoga_studio" id="yoga_studio" className="form-control" />
-                <label htmlFor="phone_number">Yoga Studio</label>
+                <label htmlFor="phone_number">Yoga Studio (optional)</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.instagram}placeholder="Instagram Handle" type="text" name="instagram" id="instagram" className="form-control" />
