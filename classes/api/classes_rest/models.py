@@ -1,15 +1,30 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
+
+class InstructorVO(models.Model):
+    import_href = models.CharField(max_length=100, null=True, blank=True)
+    username = models.CharField(max_length=50, unique=True)
+    yoga_studio = models.CharField(max_length=50)
+    demo = models.URLField()
+    profile_picture = models.CharField(max_length=40)
+
 class Class(models.Model):
     name = models.CharField(max_length=100)
     difficulty = models.CharField()
+    class_size = models.IntegerField()
+    class_name = models.CharField(max_length=100)
+    start = models.DateTimeField()
+    end = models.DateTimeField()
+    schedule = models.TextField()
+    instructor = models.ForeignKey(
+        InstructorVO, 
+        related_name="instructor", 
+        on_delete=models.PROTECT, 
+        null=True, blank=True
+        )
 
-    manufacturer = models.ForeignKey(
-        Manufacturer,
-        related_name="models",
-        on_delete=models.CASCADE,
-    )
+    
 
     def get_api_url(self):
         return reverse("api_vehicle_model", kwargs={"pk": self.id})
