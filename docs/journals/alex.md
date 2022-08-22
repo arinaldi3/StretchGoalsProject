@@ -34,3 +34,6 @@ tried to install with a --save at end but no luck currently. still cannot see th
 Weekend 8/20-Monday 8/22
 
 Restructured docker-compose.yaml to work for carlos. Needed to force the create multiple databases file to be executable by creating a unique dockerfile command for it. Consolidated the data structure and established a pgadmin volume for testing and later functionality. Started working on accounts models and views but did not make much progress because of the docker blocker. 
+
+Monday only:
+Pair programmed w/ Josh the accounts models and views for authentication purposes while designing the structure around our desired models. 
