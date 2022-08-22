@@ -18,6 +18,8 @@ The `class` entity contains the data about a class that an instructor is teachin
 
 | Name | Type | Unique | Optional |
 |-|-|-|-|
+| username | string | yes | no |
+| password | string | no | no |
 | name | string | no | no |
 | email | string | yes | no |
 | address | string | no | no |
@@ -29,11 +31,15 @@ The `student` entity contains the data about an student account.
 
 | Name | Type | Unique | Optional |
 |-|-|-|-|
+| username | string | yes | no |
+| password | string | no | no |
 | name | string | no | no |
 | email | string | yes | no |
 | address | string | no | no |
 | phone_number | string | yes | no |
 | certification | string | no | yes |
 | yoga_studio | string | no | yes |
+| demo | url | no | yes|
+| instagram | url | yes | yes |
 
 The `instructor` entity contains the data about an instructor account.
