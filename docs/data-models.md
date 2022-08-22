@@ -20,7 +20,8 @@ The `class` entity contains the data about a class that an instructor is teachin
 |-|-|-|-|
 | username | string | yes | no |
 | password | string | no | no |
-| name | string | no | no |
+| first_name | string | no | no |
+| last_name | string | no | no |
 | email | string | yes | no |
 | address | string | no | no |
 | phone_number | string | yes | no |
@@ -33,7 +34,8 @@ The `student` entity contains the data about an student account.
 |-|-|-|-|
 | username | string | yes | no |
 | password | string | no | no |
-| name | string | no | no |
+| first_name | string | no | no |
+| last_name | string | no | no |
 | email | string | yes | no |
 | address | string | no | no |
 | phone_number | string | yes | no |

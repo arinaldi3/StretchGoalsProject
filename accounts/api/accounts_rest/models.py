@@ -4,9 +4,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.core.validators import int_list_validator
 # Create your models here.
+from django.db import models
 
+class User(AbstractUser):
+    is_student = models.BooleanField(default=False)
+    is_teacher = models.BooleanField(default=False)
 
-class Student(AbstractUser):
+class Student(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=25)
@@ -20,7 +25,8 @@ class Student(AbstractUser):
         return f"{self.email}"
 
 
-class Instructor(AbstractUser):
+class Instructor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=25)
