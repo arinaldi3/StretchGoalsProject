@@ -39,7 +39,7 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgresql://accounts:password@database:5432/accounts
+      DATABASE_URL: postgresql://accounts:password@postgres:5432/accounts
       WAIT_HOSTS: postgres:5432
       WAIT_TIMEOUT: 240
       PEXELS_API_KEY: ${PEXELS_API_KEY}
