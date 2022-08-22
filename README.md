@@ -40,4 +40,5 @@ and yoga students. The specified groups are
 
 ## How to get project running
 - Run cmd 'Docker volume create stretch-data'
+- Run cmd 'Docker volume create pgadmin'
 - Run cmd 'Docker-compose up'
