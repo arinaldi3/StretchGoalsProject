@@ -12,3 +12,6 @@ Talked about docker compose and started designing it together as a team of 5. Th
 
 ## 8/19:
 Today we had to resolve a ton of docker issues. For some reason, the project containers were running fine for Alex and I but not for the rest of our group. Unfortunately, that headache took most of our time today but thanks to Dalonte, we did eventually manage to find a fix. While we were waiting, I gave a mini lecture on how to write react functional components and implementation of a search bar. We also discussed who will want to work on what area in the project so that we are ready to start working come monday. I'm feeling relieved that we fixed the docker issues.
+
+## 8/22:
+Today I pair programmed with Alex on creating the backend for accounts and setting up authentication using jwt. I also went ahead and updated our api.md and data-models.md file to match what we decided as good structure for the backend.

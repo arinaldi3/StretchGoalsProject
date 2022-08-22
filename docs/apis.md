@@ -92,6 +92,8 @@ Input:
 
 ```json
 {
+    "username": string,
+    "password": string,
     "name": string,
     "email": string,
     "address": string,
@@ -104,6 +106,8 @@ Output:
 ```json
 {
     "id": integer,
+    "username": string,
+    "password": string,
     "name": string,
     "email": string,
     "address": string,
@@ -123,6 +127,8 @@ Input:
 
 ```json
 {
+    "username": string,
+    "password": string,
     "name": string,
     "email": string,
     "address": string,
@@ -198,6 +204,8 @@ Input:
 
 ```json
 {
+    "username": string,
+    "password": string,
     "name": string,
     "email": string,
     "address": string,
@@ -210,6 +218,8 @@ Output:
 ```json
 {
     "id": integer,
+    "username": string,
+    "password": string,
     "name": string,
     "email": string,
     "address": string,
@@ -229,6 +239,8 @@ Input:
 
 ```json
 {
+    "username": string,
+    "password": string,
     "name": string,
     "email": string,
     "address": string,
@@ -245,6 +257,8 @@ Output:
 ```json
 {
     "id": integer,
+    "username": string,
+    "password": string,
     "name": string,
     "email": string,
     "address": string,
