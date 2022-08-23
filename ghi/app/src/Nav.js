@@ -14,8 +14,8 @@ function Nav() {
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href='#' role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" >Instructors</a> 
             <ul className="dropdown-menu"> 
-              <li><NavLink className='dropdown-item' to="list/instructor">List of Instructors</NavLink></li>
-              <li><NavLink className="dropdown-item" to="">List of Classes</NavLink></li>
+              <li><NavLink className='dropdown-item' to="list/instructors">List of Instructors</NavLink></li>
+              <li><NavLink className="dropdown-item" to="list/classes">List of Classes</NavLink></li>
               {/* Maybe create instructor here? */}
             </ul>
           </li>

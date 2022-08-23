@@ -5,6 +5,7 @@ import Nav from './Nav';
 import CreateStudent from './CreateStudent';
 import CreateInstructor from './CreateInstructor';
 import InstructorList from './InstructorsList'
+import ClassesList from './ClassesList';
 
 // import Login from './Login';
 import CreateClass from './CreateClass';
@@ -22,7 +23,8 @@ function App() {
             <Route path="class" element={<CreateClass/>}/>
           </Route>
           <Route path="/list">
-              <Route path="instructor" element={<InstructorList />} />
+              <Route path="instructors" element={<InstructorList />} />
+              <Route path="classes" element={<ClassesList />} />
             </Route>
 
           {/* <Route path='login' element={<Login/>}/> */}

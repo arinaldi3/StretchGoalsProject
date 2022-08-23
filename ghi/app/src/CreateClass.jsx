@@ -51,8 +51,14 @@ function CreateClass() {
             <h1>Create a New Class</h1>
             <form onSubmit={handleSubmit} id="create-class-form">
             <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {state.difficulty}placeholder="Difficulty" required type="text" name="difficulty" id="difficulty" className="form-control" />
-                <label htmlFor="difficulty" >Difficulty</label>
+            <select value={state.difficulty} onChange={handleChange} required id="difficulty" name="difficulty" className="form-select">
+                    <option value="">Choose a Difficulty Level</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                {/* <input onChange={handleChange} value = {state.difficulty}placeholder="Difficulty" required type="text" name="difficulty" id="difficulty" className="form-control" />
+                <label htmlFor="difficulty" >Difficulty</label> */}
+                </select>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.class_size}placeholder="Class Size" required type="number" name="class_size" id="class_size" className="form-control" />
