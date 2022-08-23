@@ -1,4 +1,7 @@
-
+## 8/22/22
+- pair programmed with Ava and Carlos on the frontend. We firts worked together on Av's screen. We worked on Nav.js, App.js, CreatStudent form, and CreateInstructor form
+- We then worked together on my screen. We created InstructorsList, ClassesList, and completed the createClass form.
+- We also spent some time to looked at the render pages that we worked on, and discussed together regarding page design and user experience. It was great working together and I think we've made quite progress today!
 
 ## 8/19/22
 - We roughly discussed our individual roles in the project, and we all agreed that we will keep each other updated on the progress
