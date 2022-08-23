@@ -5,13 +5,11 @@ function InstructorFields({InstructorInfo}) {
     <>
       <tbody>
         <tr>
-          <td>{InstructorInfo.first_name}</td>
-          <td>{InstructorInfo.last_name}</td>
+          <td>{InstructorInfo.first_name} {InstructorInfo.last_name}</td>
           {/* <td>{InstructorInfo.address}</td>
           <td>{InstructorInfo.phone_number}</td> */}
           {/* <td>{InstructorInfo.username}</td> */}
           <td>{InstructorInfo.email}</td>
-          {/* <td>{InstructorInfo.password}</td> */}
           <td>{InstructorInfo.certification}</td>
           <td>{InstructorInfo.yoga_studio}</td>
           <td>{InstructorInfo.instagram}</td>
