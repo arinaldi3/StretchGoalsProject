@@ -4,6 +4,8 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import CreateStudent from './CreateStudent';
 import CreateInstructor from './CreateInstructor';
+import InstructorList from './InstructorsList'
+
 // import Login from './Login';
 import CreateClass from './CreateClass';
 function App() {
@@ -19,6 +21,9 @@ function App() {
             <Route path="instructor" element={<CreateInstructor/>}/>
             <Route path="class" element={<CreateClass/>}/>
           </Route>
+          <Route path="/list">
+              <Route path="instructor" element={<InstructorList />} />
+            </Route>
 
           {/* <Route path='login' element={<Login/>}/> */}
         </Routes>
