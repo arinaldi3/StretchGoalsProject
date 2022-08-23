@@ -11,13 +11,14 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href='#' role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" >Instructors</a> 
-            <ul className="dropdown-menu"> 
-              <li><NavLink className='dropdown-item' to="list/instructors">List of Instructors</NavLink></li>
-              <li><NavLink className="dropdown-item" to="list/classes">List of Classes</NavLink></li>
-              {/* Maybe create instructor here? */}
-            </ul>
+          <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="list/instructors">Meet the Instructors</NavLink>
+          </li>
+          <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="list/classes">List of Classes</NavLink>
+          </li>
+          <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="new/class">Create a Class</NavLink>
           </li>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href='#' role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Sign up</a>
