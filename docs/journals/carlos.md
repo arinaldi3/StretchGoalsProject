@@ -1,3 +1,9 @@
+## 8/23
+
+- Worked on the two lists for instructors and classes
+- I am unable to code because my computer crashes so I am pair programming throughout the whole project
+- Talked about the design of the project as there was some confusion as we started working on the frontend
+
 ## 8/22
 
 - Talked about how we wanted to design the nav bar
