@@ -31,7 +31,7 @@ def api_user_token(request):
 def api_current_user(request, username):
     print(request.payload)
     if request.payload["student"]:
-        username = request.payload["user"]["username"]
+        username = request.payload["student"]["username"]
         user = Student.objects.get(username=username)
         return JsonResponse(
             {

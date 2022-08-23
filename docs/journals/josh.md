@@ -18,3 +18,5 @@ Today I pair programmed with Alex on creating the backend for accounts and setti
 
 ## 8/23:
 Currently our accounts models aren't working and am going to start the day by having an idea of what to implement and how. Going to ask Dalonte for some help translating what I have from class form to function form in django. So after spending a lot of time doing discovery today on authentication and authorization, we have determined that the frontend should be responsible for managing authorization/permissions and discussed future implementation as a group. Alex and I also spent a large chunk of time debugging the backend and after quite a bit of googling/testing, we have managed to fix our docker container and are finally comfortable with the current state of accounts. We also had a standup in the morning talking about design as a whole and modeled microservice interactions to demonstrate which I personally found quite helpful. Overall, I'm feeling a bit worn out from debugging but just glad that we have something that works now.
+
+## 8/24:
