@@ -10,7 +10,6 @@ class InstructorVO(models.Model):
     profile_picture = models.CharField(max_length=40)
 
 class Class(models.Model):
-    name = models.CharField(max_length=100)
     difficulty = models.CharField()
     class_size = models.IntegerField()
     class_name = models.CharField(max_length=100)
