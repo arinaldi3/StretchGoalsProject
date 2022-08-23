@@ -1,16 +1,16 @@
 from ctypes import addressof
 from django.db import models
 from django.db import models
-from django.contrib.auth.models import AbstractUser, PermissionsMixin
+from django.contrib.auth.models import PermissionsMixin, AbstractUser
 from django.core.validators import int_list_validator
 # Create your models here.
 from django.db import models
 
 class User(AbstractUser):
-    is_student = models.BooleanField(default=False)
-    is_teacher = models.BooleanField(default=False)
+    is_instructor = models.BooleanField()
 
 class Student(models.Model):
+    REQUIRED_FIELDS = ('user',)
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=50, unique=True)
@@ -26,9 +26,11 @@ class Student(models.Model):
 
 
 class Instructor(models.Model):
+    REQUIRED_FIELDS = ('user',)
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=50, unique=True)
+    USERNAME_FIELD = 'username'
     password = models.CharField(max_length=25)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
