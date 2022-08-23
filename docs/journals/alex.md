@@ -38,3 +38,7 @@ Restructured docker-compose.yaml to work for carlos. Needed to force the create 
 # Monday only:
 Pair programmed w/ Josh the accounts models and views for authentication purposes while designing the structure around our desired models. 
 Accounts views/models 
+
+# Aug 23, 2022
+
+Worked with Josh to fix the account model and view structure. Clarified overarching project structure in a standup and built new excalidraw to reflect the structure (from backend to frontend compatibility). We asked Dalonte for help with the docker blocker but did not have success. I built an app from scratch using pieces of our current code to find the error, and found that it was AUTH_USER_MODEL in the settings. Not sure if this is required but now we can isolate this issue moving forward. 
