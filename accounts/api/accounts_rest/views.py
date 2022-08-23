@@ -109,13 +109,18 @@ def api_instructors(request):
         "demo": url link to a video demo,
     }
     """
-
     if request.method == 'GET':
-        instructors = Instructor.objects.all()
-        return JsonResponse(
-            {"instructors": instructors},
-            encoder=InstructorListEncoder
-        )
+        try:
+            instructors = Instructor.objects.all()
+            return JsonResponse(
+                {"instructors": instructors},
+                encoder=InstructorListEncoder
+            )
+        except:
+            return JsonResponse(
+                    {"message": "Instructor list is empty!"},
+                    status=400,
+            )
     else:
         try:
             content = json.loads(request.body)
@@ -274,11 +279,17 @@ def api_students(request):
     """
 
     if request.method == 'GET':
-        students = Student.objects.all()
-        return JsonResponse(
-            {"students": students},
-            encoder=StudentListEncoder
-        )
+        try:
+            students = Student.objects.all()
+            return JsonResponse(
+                {"students": students},
+                encoder=StudentListEncoder
+            )
+        except:
+            return JsonResponse(
+                {"message": "Student list is empty!"},
+                status=400,
+            )
     else:
         try:
             content = json.loads(request.body)
