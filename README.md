@@ -1,4 +1,4 @@
-### Yoga Stretch Goals
+## Yoga Stretch Goals
 
 * Alex Adams
 * Ava Rinaldi
@@ -34,7 +34,7 @@ On this web forum, there will be 3 distinctive roles:
 
   * An instructor will exist within one of three categories based on their popularity, certification level, and activity. 
 
-### Project Setup
+## Project Setup
 * Run cmd 'Docker volume create stretch-data'
 * Run cmd 'Docker volume create pgadmin'
 * Run cmd 'Docker-compose up'
