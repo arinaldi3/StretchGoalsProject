@@ -12,11 +12,11 @@ function InstructorList() {
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Address</th>
+                {/* <th>Address</th>
                 <th>Phone Number</th>
-                <th>Username</th>
+                <th>Username</th> */}
                 <th>Email</th>
-                <th>Password</th>
+                {/* <th>Password</th> */}
                 <th>Certification</th>
                 <th>Yoga Studio</th>
                 <th>Instagram</th>
