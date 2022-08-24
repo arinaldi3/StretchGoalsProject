@@ -6,9 +6,7 @@ from .models import Instructor, Student
 import djwto.authentication as auth
 from .encoders import InstructorListEncoder, InstructorCreateEncoder, InstructorDetailEncoder, StudentListEncoder, StudentDetailEncoder 
 import json
-from .acls import get_photo, get_photo2
-from django.utils import timezone
-from datetime import datetime
+from .acls import get_photo
 
 @require_http_methods(["GET"])
 def api_user_token(request):
@@ -127,7 +125,7 @@ def api_instructors(request):
     else:
         try:
             content = json.loads(request.body)
-            photo = get_photo2(content["profile_picture"])
+            photo = get_photo(content["profile_picture"])
             content.update(photo)
             instructor = Instructor.objects.create(**content)
             return JsonResponse(
@@ -209,7 +207,7 @@ def api_instructor(request, pk):
     else: # PUT
         try:
             content = json.loads(request.body)
-            photo = get_photo2(content["profile_picture"])
+            photo = get_photo(content["profile_picture"])
             content.update(photo)
             instructor = Instructor.objects.get(id=pk)
 
@@ -299,7 +297,6 @@ def api_students(request):
         try:
             content = json.loads(request.body)
             photo = get_photo(content["profile_picture"])
-            photo = get_photo2(content["profile_picture"])
             content.update(photo)
             student = Student.objects.create(**content)
             return JsonResponse(
@@ -350,7 +347,7 @@ def api_student(request, pk):
     else: # PUT
         try:
             content = json.loads(request.body)
-            photo = get_photo2(content["profile_picture"])
+            photo = get_photo(content["profile_picture"])
             content.update(photo)
             student = Student.objects.get(id=pk)
 

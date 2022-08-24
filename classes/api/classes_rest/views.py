@@ -3,8 +3,9 @@ from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 from .models import InstructorVO, Class
 import djwto.authentication as auth
-from .encoders import 
+from .encoders import ClassEncoder, InstructorVOEncoder
 import json
+from accounts.api.accounts_rest.acls import get_photo
 
 
 # Create your views here.
@@ -20,6 +21,7 @@ def api_classes(request):
 
     class object looks like (clas_obj)
     {
+        "id": database id for class
         "difficulty": difficulty of class
         "class_size": size/number of students in class
         "class_name": name of class
@@ -37,39 +39,29 @@ def api_classes(request):
             ...
         ]
     }
-    with each inst_obj being in the format of
-
-    {
-        "id": database id for the instructor,
-        "username": account username,
-        "profile_picture": pexels image,
-        "first_name": user's first name,
-        "last_name": user's last name,
-        "certification": instructor's certification level,
-        "demo": url link to a video demo,
-    }
+    with each inst_obj being in the format of obj above
     """
     if request.method == 'GET':
         try:
-            instructors = Instructor.objects.all()
+            classes = Class.objects.all()
             return JsonResponse(
-                {"instructors": instructors},
-                encoder=InstructorListEncoder
+                {"classes": classes},
+                encoder=ClassEncoder
             )
         except:
             return JsonResponse(
-                    {"message": "Instructor list is empty!"},
+                    {"message": "Class list is empty!"},
                     status=400,
             )
     else:
         try:
             content = json.loads(request.body)
-            photo = get_photo(content["profile_pic"])
+            photo = get_photo(content["profile_picture"])
             content.update(photo)
-            instructor = instructor.objects.create(**content)
+            lesson = Class.objects.create(**content)
             return JsonResponse(
-                instructor,
-                encoder=InstructorCreateEncoder,
+                lesson,
+                encoder=ClassEncoder,
                 safe=False,
             )
         except:
@@ -79,99 +71,88 @@ def api_classes(request):
             )
 
 @require_http_methods(["DELETE", "GET", "PUT"])
-def api_instructor(request, pk):
+def api_class(request, pk):
     """
-    Single-object API for the Instructor resource.
+    Single-object API for the Class resource.
 
     GET:
-    Returns the information for an Instructor resource based
+    Returns the information for an Class resource based
     on the value of pk
     {
-        "id": database id for the instructor,
-        "username": account username,
-        "profile_picture": pexels image,
-        "first_name": user's first name,
-        "last_name": user's last name,
-        "certification": instructor's certification level,
-        "yoga_studio": instructor's yoga studio,
-        "demo": url link to a video demo,
-        "instagram": url link to user's instagram
+        "id": database id for class
+        "difficulty": difficulty of class
+        "class_size": size/number of students in class
+        "class_name": name of class
+        "start": start date/time of class
+        "end": end date/time of class
+        "schedule": days of week class occurs
+        "instructor": instructor teaching the class
     }
 
     PUT:
-    Updates the information for an Instructor resource based
+    Updates the information for an Class resource based
     on the value of the pk
     {
-        "id": database id for the instructor,
-        "username": account username,
-        "profile_picture": pexels image,
-        "password": account password,
-        "email": user's email,
-        "first_name": user's first name,
-        "last_name": user's last name,
-        "address": user's address,
-        "phone_number": user's submitted phone number,
-        "certification": instructor's certification level,
-        "yoga_studio": instructor's yoga studio,
-        "demo": url link to a video demo,
-        "instagram": url link to user's instagram
+        "id": database id for class
+        "difficulty": difficulty of class
+        "class_size": size/number of students in class
+        "class_name": name of class
+        "start": start date/time of class
+        "end": end date/time of class
+        "schedule": days of week class occurs
+        "instructor": instructor teaching the class
     }
 
     DELETE:
-    Removes the Instructor resource from the application
+    Removes the Class resource from the application
     """
     if request.method == "GET":
         try:
-            instructor = Instructor.objects.get(id=pk)
+            lesson = Class.objects.get(id=pk)
             return JsonResponse(
-                instructor,
-                encoder=InstructorDetailEncoder,
+                lesson,
+                encoder=ClassEncoder,
                 safe=False
             )
-        except instructor.DoesNotExist:
+        except lesson.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
     elif request.method == "DELETE":
         try:
-            instructor = Instructor.objects.get(id=pk)
-            instructor.delete()
+            lesson = Class.objects.get(id=pk)
+            lesson.delete()
             return JsonResponse(
-                instructor,
-                encoder=InstructorListEncoder,
+                lesson,
+                encoder=ClassEncoder,
                 safe=False,
             )
-        except instructor.DoesNotExist:
+        except lesson.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
     else: # PUT
         try:
             content = json.loads(request.body)
-            instructor = Instructor.objects.get(id=pk)
+            lesson = Class.objects.get(id=pk)
 
             props = [
+                "id",
                 "username",
                 "profile_picture",
-                "password",
-                "email",
                 "first_name",
                 "last_name",
-                "address",
-                "phone_number",
                 "certification",
-                "yoga_studio",
                 "demo",
-                "instagram",
             ]
             for prop in props:
                 if prop in content:
-                    setattr(instructor, prop, content[prop])
-            instructor.save()
+                    setattr(lesson, prop, content[prop])
+            lesson.save()
             return JsonResponse(
-                instructor,
-                encoder=InstructorCreateEncoder,
+                lesson,
+                encoder=ClassEncoder,
                 safe=False,
             )
-        except instructor.DoesNotExist:
+        except lesson.DoesNotExist:
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
