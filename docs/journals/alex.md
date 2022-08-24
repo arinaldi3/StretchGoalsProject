@@ -42,3 +42,7 @@ Accounts views/models
 # Aug 23, 2022
 
 Worked with Josh to fix the account model and view structure. Clarified overarching project structure in a standup and built new excalidraw to reflect the structure (from backend to frontend compatibility). We asked Dalonte for help with the docker blocker but did not have success. I built an app from scratch using pieces of our current code to find the error, and found that it was AUTH_USER_MODEL in the settings. Not sure if this is required but now we can isolate this issue moving forward. 
+
+# Aug 24, 2022
+
+Built out all the levels views/models/urls. Each has a symmetrical get/post/delete/update structure and will have an assigned list of requirements as well as a badge that will be placed on their profile. Then I built the pollers for classes and levels to equalize the instructorVO.
