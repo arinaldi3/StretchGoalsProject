@@ -296,9 +296,6 @@ def api_students(request):
     else:
         try:
             content = json.loads(request.body)
-            student_id = content["student_id"]
-            profile_picture = Student.objects.get(id=student_id)
-            content["profile_picture"] = profile_picture
             photo = get_photo(content["profile_picture"])
             content.update(photo)
             student = Student.objects.create(**content)
