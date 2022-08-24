@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function CreateStudent() {
     const [state, setState] = useState({
-        name: '', 
+        first_name: '', 
+        last_name: '',
         address: '',
         phone_number: '',
         username: '',
         email: '', 
         password: '',
+        profile_picture: '',
     })
 
     const handleSubmit = async event => {
@@ -16,7 +18,7 @@ function CreateStudent() {
 
         const studentUrl = 'http://localhost:8100/api/students/'
         const fetchConfig = {
-            method: "POST",
+            method: "post",
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +27,8 @@ function CreateStudent() {
         const studentResponse = await fetch(studentUrl, fetchConfig)
         if (studentResponse.ok) {
             setState({
-                name: '',
+                first_name: '',
+                last_name: '',
                 address: '',
                 phone_number: '',
                 username: '',
@@ -49,8 +52,12 @@ function CreateStudent() {
             <h1>Student Sign Up</h1>
             <form onSubmit={handleSubmit} id="create-student-form">
             <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {state.name}placeholder="Student Name" required type="text" name="name" id="name" className="form-control" />
-                <label htmlFor="name" >Student Name</label>
+                <input onChange={handleChange} value = {state.first_name}placeholder="First Name" required type="text" name="first_name" id="first_name" className="form-control" />
+                <label htmlFor="name">First Name</label>
+            </div>
+            <div className="form-floating mb-3">
+                <input onChange={handleChange} value = {state.last_name}placeholder="Last Name" required type="text" name="last_name" id="last_name" className="form-control" />
+                <label htmlFor="name">Last Name</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.address}placeholder="Address" required type="text" name="address" id="address" className="form-control" />
@@ -71,6 +78,10 @@ function CreateStudent() {
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.password}placeholder="Password" required type="password" name="password" id="password" className="form-control" />
                 <label htmlFor="password">Password</label>
+            </div>
+            <div className="form-floating mb-3">
+                <input onChange={handleChange} value = {state.profile_picture}placeholder="Password" type="text" name="profile_picture" id="profile_picture" className="form-control" />
+                <label htmlFor="profile_picture">Profile Picture (two words)</label>
             </div>
             <button className="btn btn-primary">Create</button>
             </form>
