@@ -6,7 +6,7 @@ import json
 import requests
 
 sys.path.append("")
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sales_project.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "classes.settings")
 django.setup()
 
 from classes_rest.models import InstructorVO

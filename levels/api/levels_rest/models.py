@@ -1,3 +1,4 @@
+from xmlrpc.client import Boolean
 from django.db import models
 
 # Create your models here.
@@ -10,13 +11,18 @@ class InstructorVO(models.Model):
 
 
 class Beholder(models.Model):
-    requirements = models.TextField(max_length=50)
+    requirement_met = Boolean(default=False)
     badge = models.URLField()
 
 class Yogi(models.Model):
-    requirements = models.TextField(max_length=50)
+    requirement_met = Boolean(default=False)
     badge = models.URLField()
 
 class Guru(models.Model):
-    requirements = models.TextField(max_length=50)
+    requirement_met = Boolean(default=False)
     badge = models.URLField()
+
+class Levels(models.Model):
+    beholder = models.ForeignKey(Beholder, related_name="beholder", on_delete=models.CASCADE)
+    yogi = models.ForeignKey(Yogi, related_name="yogi", on_delete=models.CASCADE)
+    guru = models.ForeignKey(Guru, related_name="guru", on_delete=models.CASCADE)

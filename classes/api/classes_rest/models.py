@@ -1,5 +1,4 @@
 from django.db import models
-from django.urls import reverse
 # Create your models here.
 
 class InstructorVO(models.Model):
@@ -25,5 +24,3 @@ class Class(models.Model):
 
     
 
-    def get_api_url(self):
-        return reverse("api_vehicle_model", kwargs={"pk": self.id})
