@@ -23,7 +23,7 @@ def get_photo2(student):
     headers = {"Authorization": PEXELS_API_KEY}
     params = {
         "per_page": 1,
-        "query": f"{student.profile_picture}",
+        "query": f"{student}",
     }
     url = "https://api.pexels.com/v1/search"
     response = requests.get(url, params=params, headers=headers)

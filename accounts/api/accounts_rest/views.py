@@ -6,6 +6,7 @@ import djwto.authentication as auth
 from .encoders import InstructorListEncoder, InstructorCreateEncoder, InstructorDetailEncoder, StudentListEncoder, StudentDetailEncoder 
 import json
 from .acls import get_photo, get_photo2
+from django.utils import timezone
 
 @require_http_methods(["GET"])
 def api_user_token(request):
@@ -296,18 +297,21 @@ def api_students(request):
     else:
         try:
             content = json.loads(request.body)
-            student_id = content["student_id"]
-            profile_picture = Student.objects.get(id=student_id)
-            content["profile_picture"] = profile_picture
-            photo = get_photo(content["profile_picture"])
+            content["last_login"] = timezone.now()
+            # student_id = content["student_id"]
+            # profile_picture = Student.objects.get(id=student_id)
+            # content["profile_picture"] = profile_picture
+            photo = get_photo2(content["profile_picture"])
             content.update(photo)
+            print("this is the content", content)
             student = Student.objects.create(**content)
             return JsonResponse(
                 student,
                 encoder=StudentDetailEncoder,
                 safe=False,
             )
-        except:
+        except Exception as e:
+            print(e)
             return JsonResponse(
                 {"message": "Make sure all fields are filled out!"},
                 status=400,

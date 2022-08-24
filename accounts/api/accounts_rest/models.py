@@ -57,6 +57,7 @@ class Student(AbstractBaseUser):
     address = models.CharField(max_length=150)
     phone_number = models.CharField(max_length=50, unique=True)
     profile_picture = models.URLField()
+    last_login = models.DateTimeField()
 
 
 
