@@ -1,3 +1,9 @@
+## 8/24
+
+- Worked on Create Classes. Got it to connect with the backend
+- Current blocker is creating instructors. Having a odd error that we are missing a field but have added it and still is not showing
+- Which was also a blocker we had in the afternoon but we got it to work but were unsuccessful with the other form which should've been identical.(createinstructor and createclass)
+
 ## 8/23
 
 - Worked on the two lists for instructors and classes
