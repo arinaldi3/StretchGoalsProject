@@ -47,7 +47,6 @@ from django.db import models
 #         return f"{self.email}"
 
 class Student(AbstractBaseUser):
-
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=50, unique=True)
     USERNAME_FIELD = 'username'
