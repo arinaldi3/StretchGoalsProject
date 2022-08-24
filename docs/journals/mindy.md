@@ -1,3 +1,9 @@
+## 8/23/22
+- Got together with all members and did a quick standup, and shared any questions and updates on the project
+- Pair programmed with Ava and Carlos, and created two lists, ClassesList and InstructorsList
+- We also reviewed our work from yesterday, and updated those files 
+- I am very happy with what we have done so far!
+
 ## 8/22/22
 - pair programmed with Ava and Carlos on the frontend. We firts worked together on Av's screen. We worked on Nav.js, App.js, CreatStudent form, and CreateInstructor form
 - We then worked together on my screen. We created InstructorsList, ClassesList, and completed the createClass form.
