@@ -47,7 +47,7 @@ from django.db import models
 #         return f"{self.email}"
 
 class Student(AbstractBaseUser):
-   
+
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=50, unique=True)
     USERNAME_FIELD = 'username'
@@ -58,8 +58,6 @@ class Student(AbstractBaseUser):
     phone_number = models.CharField(max_length=50, unique=True)
     profile_picture = models.CharField(max_length=40)
 
-    def __str__(self):
-        return f"{self.email}"
 
 
 class Instructor(AbstractBaseUser):
@@ -76,5 +74,3 @@ class Instructor(AbstractBaseUser):
     instagram = models.URLField(unique=True)
     profile_picture = models.CharField(max_length=40)
 
-    def __str__(self):
-        return f"{self.email}"

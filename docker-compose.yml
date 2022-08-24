@@ -85,3 +85,34 @@ services:
     environment:
         PGADMIN_DEFAULT_EMAIL: 'stretchgoalz@gmail.com'
         PGADMIN_DEFAULT_PASSWORD: 'password'
+  levels-poller:
+    build:
+      context: ./levels/poll
+      dockerfile: ./Dockerfile.dev
+    volumes:
+      - ./levels/poll:/app
+      - ./levels/api/levels_project:/app/levels_project
+      - ./levels/api/levels_rest:/app/levels_rest
+    depends_on:
+      - postgres
+      - levels-api
+    environment:
+      DATABASE_URL: postgresql://levels:password@postgres:5432/levels
+      WAIT_HOSTS: postgres:5432,levels-api:8000
+      WAIT_TIMEOUT: 240
+  classes-poller:
+    build:
+      context: ./classes/poll
+      dockerfile: ./Dockerfile.dev
+    volumes:
+      - ./classes/poll:/app
+      - ./classes/api/classes_project:/app/classes_project
+      - ./classes/api/classes_rest:/app/classes_rest
+    depends_on:
+      - postgres
+      - classes-api
+    environment:
+      DATABASE_URL: postgresql://classes:password@postgres:5432/classes
+      WAIT_HOSTS: postgres:5432,classes-api:8000
+      WAIT_TIMEOUT: 240
+
