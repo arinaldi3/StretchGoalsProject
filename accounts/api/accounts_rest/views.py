@@ -298,7 +298,11 @@ def api_students(request):
     else:
         try:
             content = json.loads(request.body)
+<<<<<<< HEAD
+            photo = get_photo(content["profile_picture"])
+=======
             photo = get_photo2(content["profile_picture"])
+>>>>>>> 93c107dc71ef64117747a7320b06cc70d4cd723f
             content.update(photo)
             student = Student.objects.create(**content)
             return JsonResponse(
