@@ -1,4 +1,5 @@
 from dis import Instruction
+from time import time
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 from .models import Instructor, Student
@@ -7,6 +8,7 @@ from .encoders import InstructorListEncoder, InstructorCreateEncoder, Instructor
 import json
 from .acls import get_photo, get_photo2
 from django.utils import timezone
+from datetime import datetime
 
 @require_http_methods(["GET"])
 def api_user_token(request):
@@ -125,10 +127,7 @@ def api_instructors(request):
     else:
         try:
             content = json.loads(request.body)
-            instructor_id = content["instructor_id"]
-            profile_picture = Instructor.objects.get(id=instructor_id)
-            content["profile_picture"] = profile_picture
-            photo = get_photo(content["profile_picture"])
+            photo = get_photo2(content["profile_picture"])
             content.update(photo)
             instructor = Instructor.objects.create(**content)
             return JsonResponse(
@@ -210,6 +209,8 @@ def api_instructor(request, pk):
     else: # PUT
         try:
             content = json.loads(request.body)
+            photo = get_photo2(content["profile_picture"])
+            content.update(photo)
             instructor = Instructor.objects.get(id=pk)
 
             props = [
@@ -297,13 +298,8 @@ def api_students(request):
     else:
         try:
             content = json.loads(request.body)
-            content["last_login"] = timezone.now()
-            # student_id = content["student_id"]
-            # profile_picture = Student.objects.get(id=student_id)
-            # content["profile_picture"] = profile_picture
             photo = get_photo2(content["profile_picture"])
             content.update(photo)
-            print("this is the content", content)
             student = Student.objects.create(**content)
             return JsonResponse(
                 student,
@@ -353,6 +349,8 @@ def api_student(request, pk):
     else: # PUT
         try:
             content = json.loads(request.body)
+            photo = get_photo2(content["profile_picture"])
+            content.update(photo)
             student = Student.objects.get(id=pk)
 
             props = [
@@ -369,6 +367,7 @@ def api_student(request, pk):
                 if prop in content:
                     setattr(student, prop, content[prop])
             student.save()
+            
             return JsonResponse(
                 student,
                 encoder=InstructorCreateEncoder,
