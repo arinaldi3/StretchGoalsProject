@@ -34,6 +34,7 @@ function CreateStudent() {
                 username: '',
                 email: '', 
                 password: '',
+                profile_picture: '',
             })
         }
     }
