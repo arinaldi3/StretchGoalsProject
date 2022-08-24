@@ -56,7 +56,7 @@ class Student(AbstractBaseUser):
     last_name = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
     phone_number = models.CharField(max_length=50, unique=True)
-    profile_picture = models.CharField(max_length=40)
+    profile_picture = models.URLField()
 
 
 
@@ -72,5 +72,5 @@ class Instructor(AbstractBaseUser):
     yoga_studio = models.CharField(max_length=50)
     demo = models.URLField()
     instagram = models.URLField(unique=True)
-    profile_picture = models.CharField(max_length=40)
+    profile_picture = models.URLField()
 

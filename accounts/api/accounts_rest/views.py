@@ -124,9 +124,12 @@ def api_instructors(request):
     else:
         try:
             content = json.loads(request.body)
-            photo = get_photo(content["profile_pic"])
+            instructor_id = content["instructor_id"]
+            profile_picture = Instructor.objects.get(id=instructor_id)
+            content["profile_picture"] = profile_picture
+            photo = get_photo(content["profile_picture"])
             content.update(photo)
-            instructor = instructor.objects.create(**content)
+            instructor = Instructor.objects.create(**content)
             return JsonResponse(
                 instructor,
                 encoder=InstructorCreateEncoder,
@@ -289,11 +292,14 @@ def api_students(request):
             return JsonResponse(
                 {"message": "Student list is empty!"},
                 status=400,
-            )
+            ) 
     else:
         try:
             content = json.loads(request.body)
-            photo = get_photo2(content["profile_pic"])
+            student_id = content["student_id"]
+            profile_picture = Student.objects.get(id=student_id)
+            content["profile_picture"] = profile_picture
+            photo = get_photo(content["profile_picture"])
             content.update(photo)
             student = Student.objects.create(**content)
             return JsonResponse(
