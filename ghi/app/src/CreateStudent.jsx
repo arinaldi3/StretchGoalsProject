@@ -38,20 +38,20 @@ function CreateStudent() {
             })
         }
     }
-        const handleChange = event => {
-            const value = event.target.value;
-            setState({
-                ...state,
-                [event.target.name]: value
-            })
-        }
+    const handleChange = event => {
+        const value = event.target.value;
+        setState({
+            ...state,
+            [event.target.name]: value
+        })
+    }
 
     return (
-        <div className="form-row">
-        {/* <div className="offset-3 col-6"> */}
+        <div className="row">
+        <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4" id="to-form">
             <h1>Student Sign Up</h1>
-            {/* <form onSubmit={handleSubmit} id="create-student-form">
+            <form onSubmit={handleSubmit} id="create-student-form">
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {state.first_name}placeholder="First Name" required type="text" name="first_name" id="first_name" className="form-control" />
                 <label htmlFor="name">First Name</label>
@@ -85,61 +85,7 @@ function CreateStudent() {
                 <label htmlFor="profile_picture">Profile Picture (two words)</label>
             </div>
             <button className="btn btn-primary">Create</button>
-            </form> */}
-            <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="first_name">First Name</label>
-      <input onChange={handleChange} value = {state.first_name} required type="text" class="form-control" id="first_name" placeholder="First Name">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="first_name">Last Name</label>
-      <input type="text" class="form-control" id="last_name" placeholder="Last Name">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
+            </form>
         </div>
         </div>
     </div>
@@ -147,4 +93,3 @@ function CreateStudent() {
 }
 
 export default CreateStudent;
-
