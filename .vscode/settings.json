@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./levels/api",
+        "./classes/api"
+    ]
+}

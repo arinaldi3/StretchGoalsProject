@@ -52,4 +52,6 @@ Spent the rest of the evening troubleshooting pollers on a local repo and then s
 # Aug 25, 2022
 Initialized the process of hosting on Elastic Beanstalk.
 I already acquired a domain name but getting a SSL for NGINX without paying 65/yr has been tricky.
-I've been attempting to generate an ssl CA variant through the git bash with limited luck
+I've been attempting to generate an ssl CA variant through the git bash with limited luck.
+After few hours of struggle, I haven't been able to get a consistent SSL code and Dalonte told me about amazon S3 which is in line with what I was working on but significantly less secure. 
+I updated 

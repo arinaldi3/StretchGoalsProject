@@ -30,6 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
+    "classes-api",
+    "levels-api",
 ]
 
 CSRF_TRUSTED_ORIGINS = [

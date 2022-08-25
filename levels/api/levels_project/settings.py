@@ -81,6 +81,7 @@ DATABASES["default"] = dj_database_url.config()
 
 ALLOWED_HOSTS = [
     "localhost",
+    "accounts-api",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
