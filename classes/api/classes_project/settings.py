@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
+    "accounts-api"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
