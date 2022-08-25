@@ -1,20 +1,20 @@
-import React from "react";
-import classData from './TestClassData'
+import React, { useState,useEffect } from "react";
 
 
 function ClassesList() {
-    // const [classes, setClasses] = useState([]);
+    const [classes, setClasses] = useState([]);
 
-    // async function fetch_classes() {
-    //     let classData = await fetch("http://localhost:8080/api/classes/");
-    //     let data = await classData.json();
-    //     setClasses(data.classes);
-    // }
+    async function fetch_classes() {
+        let classData = await fetch("http://localhost:8080/api/classes/");
+        let data = await classData.json();
+        setClasses(data.classes);
+    }
 
-    // useEffect(() => {
-    //     fetch_classes();
-    // }, []);
+    useEffect(() => {
+        fetch_classes();
+    }, []);
 
+    
     return (
         <>
         <h1>List of Classes</h1>
@@ -32,7 +32,7 @@ function ClassesList() {
                     </tr>
                 </thead>
                 <tbody>
-                {classData.map((lesson) => {
+                {classes.map((lesson) => {
                     return (
                         <tr key={lesson.id}>
                             <td>{lesson.difficulty}</td>
@@ -53,6 +53,7 @@ function ClassesList() {
     </>
     );
 }
+
 
 export default ClassesList;
 
