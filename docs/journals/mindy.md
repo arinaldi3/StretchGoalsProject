@@ -1,3 +1,8 @@
+## 8/24/22
+- We tested on create forms, CreateStudent and CreateInstructor. 
+- We were having problems with creating student and creating instructor. We worked together as a group and solved the problem for creating student.
+- We are going to continue working on fixing the CreateInstructor form.
+
 ## 8/23/22
 - Got together with all members and did a quick standup, and shared any questions and updates on the project
 - Pair programmed with Ava and Carlos, and created two lists, ClassesList and InstructorsList
