@@ -21,3 +21,6 @@ Currently our accounts models aren't working and am going to start the day by ha
 
 ## 8/24:
 Today I also did a lot of bug fixing, and had to clean up some of the code in the views and acls file for accounts. On top of that, I worked to help fix quite a few bugs on the frontend. I also built the basic functionality for classes in the views file today along with the encoders. I've yet to update the urls will probably get to that tomorrow but am pretty pooped out for now. Not related to the project but I also gave a short lecture on how to do the practice problem for today in an efficient way and why it works. I feel a little bad because the front-end team had a blocker caused by us on the backend and they had to kind of divert from their original schedule because of the blocker but thankfully everything is working now.
+
+## 8/24:
+Today I started off by fixing some conflicts in git. One of our files specified under git ignore wasn't being ignored so I spent some time finding a way to remove it. It ended up being a pycache file and at some point we had pushed a change to the file before it was ignored so the git remote was looking for changes to that file every time.
