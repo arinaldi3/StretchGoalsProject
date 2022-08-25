@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
+    "accounts-api",
     "classes-api",
     "levels-api",
 ]
