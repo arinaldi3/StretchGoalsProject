@@ -60,6 +60,7 @@ class Student(AbstractBaseUser):
 
 
 class Instructor(AbstractBaseUser):
+    email = models.EmailField(unique=True, null=True)
     username = models.CharField(max_length=50, unique=True)
     USERNAME_FIELD = 'username'
     password = models.CharField(max_length=25)
