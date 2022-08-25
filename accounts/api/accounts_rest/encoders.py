@@ -11,6 +11,9 @@ class InstructorListEncoder(ModelEncoder):
         "last_name",
         "certification",
         "demo",
+        "email",
+        "instagram",
+        "yoga_studio"
     ]
 
 class InstructorCreateEncoder(ModelEncoder):

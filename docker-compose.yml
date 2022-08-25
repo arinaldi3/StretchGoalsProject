@@ -1,9 +1,18 @@
+version: "3.6"
 volumes:
   stretch-data:
     external: true
   pgadmin:
     external: true
 services:
+  # nginx:
+  #     image: nginx:latest
+  #     container_name: webserver
+  #     restart: unless-stopped
+  #     ports:
+  #       - 80:80
+  #       - 443:443
+  #     volumes:
   react:
     image: node:lts-bullseye
     command: /bin/bash run.sh

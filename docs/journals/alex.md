@@ -46,3 +46,10 @@ Worked with Josh to fix the account model and view structure. Clarified overarch
 # Aug 24, 2022
 
 Built out all the levels views/models/urls. Each has a symmetrical get/post/delete/update structure and will have an assigned list of requirements as well as a badge that will be placed on their profile. Then I built the pollers for classes and levels to equalize the instructorVO.
+
+Spent the rest of the evening troubleshooting pollers on a local repo and then switched gears to studying hosting. Turns out heroku will be losing its free functionality so I am going to try to host it via AWS Elastic Beanstalk.
+
+# Aug 25, 2022
+Initialized the process of hosting on Elastic Beanstalk.
+I already acquired a domain name but getting a SSL for NGINX without paying 65/yr has been tricky.
+I've been attempting to generate an ssl CA variant through the git bash with limited luck
