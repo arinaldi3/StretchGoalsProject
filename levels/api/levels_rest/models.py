@@ -11,15 +11,15 @@ class InstructorVO(models.Model):
 
 
 class Beholder(models.Model):
-    requirement_met = Boolean(default=False)
+    requirement_met = models.BooleanField(default=False)
     badge = models.URLField()
 
 class Yogi(models.Model):
-    requirement_met = Boolean(default=False)
+    requirement_met = models.BooleanField(default=False)
     badge = models.URLField()
 
 class Guru(models.Model):
-    requirement_met = Boolean(default=False)
+    requirement_met = models.BooleanField(default=False)
     badge = models.URLField()
 
 class Levels(models.Model):
