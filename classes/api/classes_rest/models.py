@@ -9,7 +9,7 @@ class InstructorVO(models.Model):
     profile_picture = models.CharField(max_length=40)
 
 class Class(models.Model):
-    difficulty = models.CharField()
+    difficulty = models.CharField(max_length=30)
     class_size = models.IntegerField()
     class_name = models.CharField(max_length=100)
     start = models.DateTimeField()

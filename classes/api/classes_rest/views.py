@@ -2,13 +2,30 @@ from dis import Instruction
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 from .models import InstructorVO, Class
-import djwto.authentication as auth
 from .encoders import ClassEncoder, InstructorVOEncoder
 import json
-from accounts.api.accounts_rest.acls import get_photo
+from .acls import get_photo
 
 
 # Create your views here.
+@require_http_methods('GET')
+def api_instructorVO(request):
+    """
+    RESTful API for InstructorVO object.
+
+    Get request returns a dict with key instructors that contains a
+    list of instructors and their properties.
+
+    This function exists so that I can call an api route in react and 
+    get a list of instructors without holding all their sensitive information.
+    """
+    if request.method == 'GET':
+        instructors = InstructorVO.objects.all()
+        return JsonResponse(
+            {'instructors': instructors},
+            encoder=InstructorVOEncoder
+        )
+
 @require_http_methods(['GET', 'POST'])
 def api_classes(request):
     """

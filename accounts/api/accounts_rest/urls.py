@@ -1,5 +1,4 @@
 from django.urls import path
-
 from .views import api_instructor, api_student, api_current_user, api_instructors, api_students
 
 

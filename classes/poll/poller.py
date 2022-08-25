@@ -6,13 +6,13 @@ import json
 import requests
 
 sys.path.append("")
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "classes.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "classes_project.settings")
 django.setup()
 
 from classes_rest.models import InstructorVO
 
-# Import models from sales_rest, here.
-# from sales_rest.models import Something
+# Import models from classes_rest, here.
+# from classes_rest.models import InstructorVO
 def get_instructor():
     response = requests.get("http://accounts-api:8000/api/accounts/")
     content = json.loads(response.content)
