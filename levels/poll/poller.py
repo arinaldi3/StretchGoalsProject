@@ -6,7 +6,7 @@ import json
 import requests
 
 sys.path.append("")
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "levels.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "levels_project.settings")
 django.setup()
 
 from levels_rest.models import InstructorVO
