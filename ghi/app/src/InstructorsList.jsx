@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import InstructorFields from "./InstructorInfo";
-import data from './TestInstructorData'
 
 function InstructorList() {
+  const [instructors, setInstructors] = useState([]);
+
+  async function fetch_instructors() {
+    let instructorData = await fetch("http://localhost:8100/api/instructors/");
+    console.log(instructorData)
+    let {instructors} = await instructorData.json();
+    setInstructors(instructors);
+  }
+
+  useEffect(() => {
+    fetch_instructors();
+  },[]);
   return (
     <>
     <h1>List of Instructors</h1>
@@ -22,7 +33,7 @@ function InstructorList() {
                 <th>Profile Picture</th>
             </tr>
         </thead>
-        {data.map((instructor, column) => {
+        {instructors.map((instructor, column) => {
           console.log(instructor);
           return <InstructorFields key={column} InstructorInfo={instructor} />;
         })}

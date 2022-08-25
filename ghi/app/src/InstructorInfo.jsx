@@ -13,7 +13,7 @@ function InstructorFields({InstructorInfo}) {
           <td>{InstructorInfo.certification}</td>
           <td>{InstructorInfo.yoga_studio}</td>
           <td>{InstructorInfo.instagram}</td>
-          {/* <td>{props.InstructorInfo.profile_picture}</td> */}
+          <td><img src ={InstructorInfo.profile_picture}alt='' style={{maxWidth: '150px', maxHeight: '150px', objectFit: 'contain'}}/> </td>
 
           {/* <td>{props.companyInfo.Inventory.join(", ")}</td> */}
         </tr>
