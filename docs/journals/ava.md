@@ -20,3 +20,6 @@ Carlos, Mindy and I continued to work on the front end. The backend isn't up and
 
 # Aug 24, 2022
 Today was a big blocker day. We worked on connecting the backend to the frontend and had a couple errors that we had never seen before. Zach helped us quite a bit. We pretty much worked through this the entire day, and still have some left to figure out for tomorrow. We got the Create Student form to work and are now working to figure out the Create Instructor form. Our whole team worked together a lot today to help figure out all these errors on both the frontend and backend. 
+
+# Aug 25, 2022
+We had a more relaxed day today, and had a lot of discussions as a group. We are almost finished connecting a lot of frontend pages to the backend. We discussed using next week to focus on Log in/log out as well as the instructor and student profiles. Carlos, Mindy, and I also spent a large chunk of time trying to create "cards" for the instructors. We followed a Bootstrap example but for some reason could not figure out why our columns and rows were connected. We ended up just reverting back to the original page and will spend more time on that mostly as a stretch.
