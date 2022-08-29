@@ -6,9 +6,11 @@ import CreateStudent from './CreateStudent';
 import CreateInstructor from './CreateInstructor';
 import InstructorList from './InstructorsList'
 import ClassesList from './ClassesList';
-
+import StudentPortal from './StudentPortal';
+import InstructorPortal from './InstructorPortal';
 // import Login from './Login';
 import CreateClass from './CreateClass';
+
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +28,10 @@ function App() {
               <Route path="instructors" element={<InstructorList />} />
               <Route path="classes" element={<ClassesList />} />
             </Route>
+          <Route path="/portal">
+            <Route path="student" element={<StudentPortal />}/>
+            <Route path="instructor" element={<InstructorPortal />}/>
+          </Route>
 
           {/* <Route path='login' element={<Login/>}/> */}
         </Routes>

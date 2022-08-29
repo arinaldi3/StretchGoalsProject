@@ -13,7 +13,8 @@ class InstructorListEncoder(ModelEncoder):
         "demo",
         "email",
         "instagram",
-        "yoga_studio"
+        "yoga_studio",
+        "phone_number",
     ]
 
 class InstructorCreateEncoder(ModelEncoder):
@@ -56,6 +57,8 @@ class StudentListEncoder(ModelEncoder):
         "profile_picture",
         "first_name",
         "last_name",
+        "email",
+        "phone_number"
     ]
 
 
