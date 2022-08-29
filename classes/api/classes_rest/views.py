@@ -92,7 +92,8 @@ def api_classes(request):
                 encoder=ClassEncoder,
                 safe=False,
             )
-        except:
+        except Exception as e:
+            print(e)
             return JsonResponse(
                 {"message": "Make sure all fields are filled out!"},
                 status=400,

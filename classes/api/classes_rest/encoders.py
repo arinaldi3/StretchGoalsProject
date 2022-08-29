@@ -1,6 +1,16 @@
 from common.json import ModelEncoder
 from .models import Class, InstructorVO
 
+class InstructorVOEncoder(ModelEncoder):
+    model = InstructorVO
+    properties = [
+        "id",
+        "username",
+        "yoga_studio",
+        "demo",
+        "profile_picture"
+    ]
+
 class ClassEncoder(ModelEncoder):
     model = Class
     properties = [
@@ -11,15 +21,8 @@ class ClassEncoder(ModelEncoder):
         "start",
         "end",
         "schedule",
-        "instructor",
     ]
+    encoders = {
+        'instructor': InstructorVOEncoder(),
+    }
 
-class InstructorVOEncoder(ModelEncoder):
-    model = InstructorVO
-    properties = [
-        "id",
-        "username",
-        "yoga_studio",
-        "demo",
-        "profile_picture"
-    ]
