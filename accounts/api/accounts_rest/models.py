@@ -68,9 +68,9 @@ class Instructor(AbstractBaseUser):
     last_name = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
     phone_number = models.CharField(max_length=50, unique=True)
-    certification = models.CharField(max_length=100)
-    yoga_studio = models.CharField(max_length=50)
-    demo = models.URLField()
-    instagram = models.URLField(unique=True)
+    certification = models.CharField(max_length=100, null=True, blank=True)
+    yoga_studio = models.CharField(max_length=50, null=True, blank=True)
+    demo = models.URLField(null=True, blank=True)
+    instagram = models.URLField(unique=True, null=True, blank=True)
     profile_picture = models.URLField()
 
