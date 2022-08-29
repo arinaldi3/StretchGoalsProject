@@ -38,10 +38,8 @@ function ClassesList() {
                             <td>{lesson.difficulty}</td>
                             <td>{lesson.class_size}</td>
                             <td>{lesson.class_name}</td>
-                            <td>{lesson.starts}</td>
-                            <td>{lesson.ends}</td>
-                            {/* <td>{new Date(lesson.starts).toLocaleDateString() }</td>
-                            <td>{new Date(lesson.ends).toLocaleDateString() }</td> */}
+                            <td>{new Date(lesson.start).toLocaleString()}</td>
+                            <td>{new Date(lesson.end).toLocaleString()}</td>
                             {/* <td>{lesson.schedule}</td>
                             <td>{lesson.instructor}</td> */}
                         </tr>
