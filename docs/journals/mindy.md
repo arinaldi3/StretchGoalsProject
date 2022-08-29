@@ -1,3 +1,10 @@
+## 8/25/22
+- Ava, Carlos, and I continued to work on the front end and had a lot of discussions with the back end team to make sure that we are on the same page.
+- We had the instractorsList page working with real data, and we had the createInstructor page working as well.
+- We planned to make classesList and createClass work once the beck end team is finished with classes.
+- We planned to continue working on Login and authentication/authroization next week.
+
+
 ## 8/24/22
 - We tested on create forms, CreateStudent and CreateInstructor. 
 - We were having problems with creating student and creating instructor. We worked together as a group and solved the problem for creating student.
@@ -10,7 +17,7 @@
 - I am very happy with what we have done so far!
 
 ## 8/22/22
-- pair programmed with Ava and Carlos on the frontend. We firts worked together on Av's screen. We worked on Nav.js, App.js, CreatStudent form, and CreateInstructor form
+- pair programmed with Ava and Carlos on the frontend. We firts worked together on Ava's screen. We worked on Nav.js, App.js, CreatStudent form, and CreateInstructor form
 - We then worked together on my screen. We created InstructorsList, ClassesList, and completed the createClass form.
 - We also spent some time to looked at the render pages that we worked on, and discussed together regarding page design and user experience. It was great working together and I think we've made quite progress today!
 
