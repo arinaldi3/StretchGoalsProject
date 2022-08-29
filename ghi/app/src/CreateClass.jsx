@@ -8,8 +8,19 @@ function CreateClass() {
         starts: '',
         ends: '', 
         // schedule: '',
-        // instructor: '',
+        instructor: '',
     })
+    const [instructors, setInstructors] = useState([])
+
+    const fetchInstructors = async () => {
+        const instructorUrl = 'http://localhost:8100/api/instructors/'
+        const instructorResponse = await fetch(instructorUrl)
+        const instructorData = await instructorResponse.json();
+        setInstructors(instructorData.instructors)
+    }
+    useEffect(() => {
+        fetchInstructors()
+    }, []);
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -32,7 +43,7 @@ function CreateClass() {
                 starts: '',
                 ends: '', 
                 // schedule: '',
-                // instructor: '',
+                instructor: '',
             })
         }
     }
@@ -80,10 +91,16 @@ function CreateClass() {
                 <input onChange={handleChange} value = {classes.schedule}placeholder="Schedule" required type="text" name="schedule" id="schedule" className="form-control" />
                 <label htmlFor="schedule">Schedule</label>
             </div> */}
-            {/* <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {state.instructor}placeholder="Instructor" required type="text" name="instructor" id="instructor" className="form-control" />
-                <label htmlFor="instructor">Instructor</label>
-            </div> */}
+            <div className="mb-3">
+                <select onChange={handleChange} value = {classes.instructor} required name="instructor" id="instructor" className="form-select">
+                <option value="">Choose an Instructor</option>
+                {instructors.map(instructor => {
+                    return (
+                    <option key={instructor.id} value={instructor.id}>{instructor.first_name}</option>
+                    )
+                })}
+                </select>
+            </div>
             <button className="btn btn-primary">Create</button>
             </form>
         </div>

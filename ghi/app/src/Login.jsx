@@ -1,28 +1,18 @@
 // import React, { useState } from 'react';
 
 // function Login() {
-//     const [state, setState] = useState({
+//     let navigate = useNavigate();
+//     let [state, setState] = useState({
 //         username: '',
 //         password: '',
+//         error: '',
 //     });
-
-//     const handleChange = (e) => {
-//         const {id , value} = e.target   
-//         setState(prevState => ({
-//             ...prevState,
-//             [id] : value
-//         }))
 
 //     const handleSubmit = (e) => {
 //         e.preventDefault();
-//         Userfront.login({
-//             method: "password",
-//             username: this.state.username,
-//             password: this.state.password,
-//         });
-//         }
-    
+
 //     }
+
 //     return (
 //         <div className="row">
 //         <div className="offset-3 col-6">
