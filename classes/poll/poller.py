@@ -14,11 +14,14 @@ from classes_rest.models import InstructorVO
 # Import models from classes_rest, here.
 # from classes_rest.models import InstructorVO
 def get_instructor():
-    response = requests.get("http://accounts-api:8000/api/accounts/")
+    print("TESTING")
+    response = requests.get("http://accounts-api:8000/api/instructors/")
+    print(response.status_code)
     content = json.loads(response.content)
     for instructor in content["instructors"]:
+        print("instructor: ", instructor)
         InstructorVO.objects.update_or_create(
-            import_href=instructor["href"],
+            id=instructor["id"],
             defaults={
                 "username": instructor["username"],
                 "yoga_studio": instructor["yoga_studio"],
@@ -26,11 +29,11 @@ def get_instructor():
                 "profile_picture": instructor["profile_picture"]
             }
         )
-        print("instructor: ", instructor)
+
 
 def poll():
     while True:
-        print('levels polling for data')
+        print('classes polling for data')
         try:
             # Write your polling logic, here
             get_instructor()

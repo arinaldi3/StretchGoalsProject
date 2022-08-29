@@ -6,7 +6,10 @@ class InstructorVO(models.Model):
     username = models.CharField(max_length=50, unique=True)
     yoga_studio = models.CharField(max_length=50)
     demo = models.URLField()
-    profile_picture = models.CharField(max_length=40)
+    profile_picture = models.CharField(max_length=300)
+    def __str__(self):
+        return self.username
+
 
 class Class(models.Model):
     difficulty = models.CharField(max_length=30)

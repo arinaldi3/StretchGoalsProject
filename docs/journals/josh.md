@@ -24,3 +24,6 @@ Today I also did a lot of bug fixing, and had to clean up some of the code in th
 
 ## 8/24:
 Today I started off by fixing some conflicts in git. One of our files specified under git ignore wasn't being ignored so I spent some time finding a way to remove it. It ended up being a pycache file and at some point we had pushed a change to the file before it was ignored so the git remote was looking for changes to that file every time. I also finished building most of the classes microservice and made sure that the poller works as well. This was a huge jump foward today. I'm content with the progress I made and will likely spend time today trying to do some discovery on authorization to help the front end team.
+
+## 8/25:
+Today I fixed some bugs for the classes microservice, and adjusted our poller. The issue ended up being a problem with the endpoint url but spent a couple hours just trying to find it.

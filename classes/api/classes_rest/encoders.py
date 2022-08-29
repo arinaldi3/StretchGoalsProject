@@ -17,7 +17,7 @@ class ClassEncoder(ModelEncoder):
 class InstructorVOEncoder(ModelEncoder):
     model = InstructorVO
     properties = [
-        "import_href",
+        "id",
         "username",
         "yoga_studio",
         "demo",

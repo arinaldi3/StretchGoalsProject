@@ -1,4 +1,5 @@
 from dis import Instruction
+import re
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
 from .models import InstructorVO, Class
@@ -71,10 +72,20 @@ def api_classes(request):
                     status=400,
             )
     else:
+        content = json.loads(request.body)
         try:
-            content = json.loads(request.body)
-            photo = get_photo(content["profile_picture"])
-            content.update(photo)
+            inst_id = content['instructor']
+            instructor = InstructorVO.objects.get(id=inst_id)
+            content['instructor'] = instructor
+            print(content)
+        except InstructorVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "Instructor not found"},
+                status=404,
+            )
+        try:
+            # photo = get_photo(content["profile_picture"])
+            # content.update(photo)
             lesson = Class.objects.create(**content)
             return JsonResponse(
                 lesson,
