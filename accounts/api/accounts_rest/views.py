@@ -10,14 +10,6 @@ from .acls import get_photo
 
 @require_http_methods(["GET"])
 def api_user_token(request):
-    if "jwt_access_token" in request.COOKIES:
-        token = request.COOKIES["jwt_access_token"]
-        if token:
-            return JsonResponse({"token": token})
-    response = JsonResponse({"token": None})
-    return response
-
-def api_user_token(request):
     # print("request", request)
     if "jwt_access_token" in request.COOKIES:
         token = request.COOKIES["jwt_access_token"]
