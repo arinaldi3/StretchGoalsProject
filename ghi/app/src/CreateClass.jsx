@@ -5,8 +5,8 @@ function CreateClass() {
         difficulty: '', 
         class_size: '',
         class_name: '',
-        starts: '',
-        ends: '', 
+        start: '',
+        end: '', 
         // schedule: '',
         instructor: '',
     })
@@ -40,8 +40,8 @@ function CreateClass() {
                 difficulty: '', 
                 class_size: '',
                 class_name: '',
-                starts: '',
-                ends: '', 
+                start: '',
+                end: '', 
                 // schedule: '',
                 instructor: '',
             })
@@ -80,11 +80,11 @@ function CreateClass() {
                 <label htmlFor="class_name">Class Name</label>
             </div>
             <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {classes.starts}placeholder="Date, Time" required type="datetime-local" name="starts" id="starts" className="form-control" />
+                <input onChange={handleChange} value = {classes.start}placeholder="Date, Time" required type="datetime-local" name="start" id="start" className="form-control" />
                 <label htmlFor="starts">Starts</label>
             </div>
             <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {classes.ends}placeholder="Date, Time" required type="datetime-local" name="ends" id="ends" className="form-control" />
+                <input onChange={handleChange} value = {classes.end}placeholder="Date, Time" required type="datetime-local" name="end" id="end" className="form-control" />
                 <label htmlFor="ends">Ends</label>
             </div>
             {/* <div className="form-floating mb-3">
