@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
 import CreateStudent from './CreateStudent';
@@ -10,10 +10,15 @@ import StudentPortal from './StudentPortal';
 import InstructorPortal from './InstructorPortal';
 // import Login from './Login';
 import CreateClass from './CreateClass';
+import Login from './Login';
+import { AuthProvider, useToken } from './Authentication';
+
 
 function App() {
+  const [token, login] = useToken();
   return (
-    <BrowserRouter>
+    <>
+      <AuthProvider>
       <Nav />
     <div className="BackGround">
       <div className="container">
@@ -32,12 +37,17 @@ function App() {
             <Route path="student" element={<StudentPortal />}/>
             <Route path="instructor" element={<InstructorPortal />}/>
           </Route>
+          <Route>
+            <Route path="/login" element={<Login login={login} />} />
+          </Route>
+
 
           {/* <Route path='login' element={<Login/>}/> */}
         </Routes>
       </div>
     </div>
-    </BrowserRouter>
+    </AuthProvider>
+    </>
   );
 }
 

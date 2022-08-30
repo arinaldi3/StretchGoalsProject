@@ -1,7 +1,11 @@
 import './App.css';
 import React from 'react';
+import { useAuthContext } from "./Authentication";
 
 function MainPage() {
+    const { token } = useAuthContext();
+
+    
 return (
 
     <div className="px-5 py-5 my-5 text-center">

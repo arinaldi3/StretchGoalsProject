@@ -3,6 +3,7 @@ from .views import api_instructor, api_student, api_current_user, api_instructor
 
 
 urlpatterns = [
+    # path('login/', api_user_token, name='api_user_token'),
     path('instructors/', api_instructors, name='api_instructors'),
     path('instructors/<int:pk>/', api_instructor, name='api_instructor'),
     path('students/', api_students, name='api_students'),
