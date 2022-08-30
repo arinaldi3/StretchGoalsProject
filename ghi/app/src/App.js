@@ -10,6 +10,8 @@ import StudentPortal from './StudentPortal';
 import InstructorPortal from './InstructorPortal';
 // import Login from './Login';
 import CreateClass from './CreateClass';
+import InstructorsListPage from './TestInstructorsPage';
+import ClassesPage from './TestClassesPage';
 
 function App() {
   return (
@@ -25,8 +27,8 @@ function App() {
             <Route path="class" element={<CreateClass/>}/>
           </Route>
           <Route path="/list">
-              <Route path="instructors" element={<InstructorList />} />
-              <Route path="classes" element={<ClassesList />} />
+              <Route path="instructors" element={<InstructorsListPage />} />
+              <Route path="classes" element={<ClassesPage />} />
             </Route>
           <Route path="/portal">
             <Route path="student" element={<StudentPortal />}/>
