@@ -1,3 +1,9 @@
+## 8/30/22
+- The CreateClass page was not working on my end, and we made some tiny edits to have it fixed. Now everyone is on the same page.
+- We spent the day working on authentication and we expected this would be a big blocker for us.
+- We first tried to figure it out using the Authentication Cookbook on Learn as reference, and we spent a lot of time discussing and playing around with it.
+- We still could not get the authentication to work after our lunch break, and we asked our SEIRs for help. Thanks to Cooper and Zach, we were able to get this big blocker out of the way! The error messages were very annoying, but we've learned a lot through fixing those error messages. Huge thanks to our SEIRs and the team!
+
 ## 8/29/22
 - We first started with discussing with Cooper (SEIR) on our Login page and authentication, and we spent some time on our own research on it as well.
 - Ava, Carlos, and I continued to work on the front end. Josh finished making bug fixes on the backend, so we were able to test the classesList and the createClass form.
