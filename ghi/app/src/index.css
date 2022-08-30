@@ -21,3 +21,9 @@ code {
   margin-top: -20px;
   background-repeat:no-repeat; 
 }
+
+.list-card-image {
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+}

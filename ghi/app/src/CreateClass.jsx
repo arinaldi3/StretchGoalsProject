@@ -25,7 +25,7 @@ function CreateClass() {
     const handleSubmit = async event => {
         event.preventDefault();
         const data = classes;
-
+        console.log(data)
         const classUrl = 'http://localhost:8080/api/classes/'
         const fetchConfig = {
             method: "POST",

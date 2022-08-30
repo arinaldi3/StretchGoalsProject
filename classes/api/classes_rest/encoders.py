@@ -21,6 +21,7 @@ class ClassEncoder(ModelEncoder):
         "start",
         "end",
         "schedule",
+        "instructor",
     ]
     encoders = {
         'instructor': InstructorVOEncoder(),
