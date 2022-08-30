@@ -1,3 +1,8 @@
+## 8/29/22
+- We first started with discussing with Cooper (SEIR) on our Login page and authentication, and we spent some time on our own research on it as well.
+- Ava, Carlos, and I continued to work on the front end. Josh finished making bug fixes on the backend, so we were able to test the classesList and the createClass form.
+- I have created a separate branch to make cards for InstructorsList and ClassesList. The basic cards were created, but need to spend more time on them tomorrow. 
+
 ## 8/25/22
 - Ava, Carlos, and I continued to work on the front end and had a lot of discussions with the back end team to make sure that we are on the same page.
 - We had the instractorsList page working with real data, and we had the createInstructor page working as well.
