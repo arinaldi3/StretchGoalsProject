@@ -2,26 +2,21 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToken } from "./Authentication";
 
-function Login({login}) {
-    // const navigate = useNavigate();
-    // const [token, login] = useToken();
+function Login() {
+    const navigate = useNavigate();
+    const [,login] = useToken();
     const [data, setData] = useState({
         username: '',
         password: '',
-        error: '',
     });
 
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const error = await login(data.username, data.password);
-        setData({error: error})
-        setData({
-            username: '',
-            password: '',
-        })
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await login(data.username, data.password);
+        navigate('/');
     }
+
     const handleChange = event => {
         const value = event.target.value;
         setData({

@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
-
+import { AuthProvider, useToken } from './Authentication';
 
 function Nav() {
+  const [token, login, logout] = useToken();
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -26,6 +27,12 @@ function Nav() {
               <li><NavLink className="dropdown-item" to="new/student">Sign up as a student</NavLink></li>
               <li><NavLink className="dropdown-item" to="new/instructor">Sign up as an instructor</NavLink></li>
             </ul>
+          </li>
+          <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
+          </li>
+          <li>
+            <button onClick={logout} className="btn btn-primary">Logout</button>
           </li>
           </ul>
         </div>

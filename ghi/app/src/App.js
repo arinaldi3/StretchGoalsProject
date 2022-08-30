@@ -18,7 +18,7 @@ function App() {
   const [token, login] = useToken();
   return (
     <>
-      <AuthProvider>
+    <AuthProvider>
       <Nav />
     <div className="BackGround">
       <div className="container">
@@ -44,6 +44,7 @@ function App() {
 
           {/* <Route path='login' element={<Login/>}/> */}
         </Routes>
+        
       </div>
     </div>
     </AuthProvider>

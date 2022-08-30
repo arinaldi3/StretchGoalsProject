@@ -8,6 +8,6 @@ urlpatterns = [
     path('instructors/<int:pk>/', api_instructor, name='api_instructor'),
     path('students/', api_students, name='api_students'),
     path('students/<int:pk>/', api_student, name='api_student'),
-    path('account/<str:username>', api_current_user, name="api_current_user"),
-    path('api/tokens/mine/', api_user_token, name="api_user_token")
+    path('account/<str:username>/', api_current_user, name="api_current_user"),
+    path('tokens/mine/', api_user_token, name="api_user_token")
 ]

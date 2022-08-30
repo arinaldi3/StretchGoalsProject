@@ -7,7 +7,7 @@ export function getToken() {
 }
 
 export async function getTokenInternal() {
-  const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/accounts/me/token/`;
+  const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/api/tokens/mine`;
   try {
     const response = await fetch(url, {
       credentials: "include",
@@ -79,7 +79,7 @@ export function useToken() {
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
-      navigate("/");
+      navigate("/login");
     }
   }
 
@@ -93,9 +93,16 @@ export function useToken() {
       credentials: "include",
       body: form,
     });
+    const tokens = await response.json()
+    console.log(tokens)
+    console.log(response)
+    console.log(form)
+
     if (response.ok) {
       const token = await getTokenInternal();
+      console.log(token)
       setToken(token);
+      navigate("/list/instructors/")
       return;
     }
     let error = await response.json();

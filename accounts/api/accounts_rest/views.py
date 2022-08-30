@@ -7,6 +7,7 @@ import djwto.authentication as auth
 from .encoders import InstructorListEncoder, InstructorCreateEncoder, InstructorDetailEncoder, StudentListEncoder, StudentDetailEncoder 
 import json
 from .acls import get_photo
+from django.contrib.auth import get_user_model
 
 @require_http_methods(["GET"])
 def api_user_token(request):
@@ -117,9 +118,13 @@ def api_instructors(request):
     else:
         try:
             content = json.loads(request.body)
+            print(content)
             photo = get_photo(content["profile_picture"])
             content.update(photo)
             instructor = Instructor.objects.create(**content)
+            User = get_user_model()
+            user = User.objects.create_user(content['username'], content['email'], content['password'])
+            user.save()
             return JsonResponse(
                 instructor,
                 encoder=InstructorCreateEncoder,
@@ -288,9 +293,13 @@ def api_students(request):
     else:
         try:
             content = json.loads(request.body)
+            print(content)
             photo = get_photo(content["profile_picture"])
             content.update(photo)
             student = Student.objects.create(**content)
+            User = get_user_model()
+            user = User.objects.create_user(content['username'], content['email'], content['password'])
+            user.save()
             return JsonResponse(
                 student,
                 encoder=StudentDetailEncoder,
