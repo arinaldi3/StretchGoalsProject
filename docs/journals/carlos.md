@@ -1,3 +1,11 @@
+## 8/30
+
+- Day two of working on the login page. Using the cookbook auth provided on learn, we were able to get further. Update after working on it in the afternoon we were able to connect the necessary endpoints and generate the cookies for each user. Additionally added the functionality to be able to logout.
+
+## 8/29
+
+- Not much coding done. Spent the day doing some discovery on how to get the login page to submit successfully using authentication. Did some testing but was unable to get it to work
+
 ## 8/24
 
 - Worked on Create students. Got it to connect with the backend
