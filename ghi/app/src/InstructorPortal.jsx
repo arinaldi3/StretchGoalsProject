@@ -3,11 +3,13 @@ import React, { useState,useEffect } from "react";
 
 function InstructorPortal() {
     const [instructors, setInstructors] = useState([]);
+    
 
     async function fetch_instructor_user() {
-        let classData = await fetch(`http://localhost:8100/api/instructors/`);
-        let data = await classData.json();
+        let instructorData = await fetch(`http://localhost:8100/api/instructors/`);
+        let data = await instructorData.json();
         setInstructors(data.instructors);
+        
     }
 
     useEffect(() => {
@@ -17,7 +19,7 @@ function InstructorPortal() {
     
     return (
         <>
-        <h1>Student Profile</h1>
+        <h1>Instructor Profile</h1>
         <div className="table table-striped">
             <table>
                 <thead>
