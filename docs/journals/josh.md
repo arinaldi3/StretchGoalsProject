@@ -25,8 +25,11 @@ Today I also did a lot of bug fixing, and had to clean up some of the code in th
 ## 8/24:
 Today I started off by fixing some conflicts in git. One of our files specified under git ignore wasn't being ignored so I spent some time finding a way to remove it. It ended up being a pycache file and at some point we had pushed a change to the file before it was ignored so the git remote was looking for changes to that file every time. I also finished building most of the classes microservice and made sure that the poller works as well. This was a huge jump foward today. I'm content with the progress I made and will likely spend time today trying to do some discovery on authorization to help the front end team.
 
-## 8/25:
+## 8/29:
 Today I fixed some bugs for the classes microservice, and adjusted our poller. The issue ended up being a problem with the endpoint url but spent a couple hours just trying to find it. To be specific, I fixed the encoders which were causing problems in the create view, and fixed a url in the poller. Also doing some more discovery on authentication/authorization. Content with today, lot of planning and talking in stand up today. Tomorrow I think we will all have a more fleshed out idea of our end goal given current timelines for our project.
 
-## 8/26:
+## 8/30:
 Today apart from yet again cleaning up some of the code, this time in accounts microservice, we as a group spent most of our time going through authentication. We had Zach and Cooper helping us today and it was pretty much a peer learning/developing environment. Really proud of Ava too, she was taking a lot of the intiative with authentication and I think she did an awesome job. After that process, we seem to have finally got the login working with the tokens, just need to do a little tinkering for the logout and we're good to go on authentication. We'll see how feasible implementing authorization/permissions after finishing this is. I imagine tomorrow we will talk more about deployment, which Alex has primarily been working on.
+
+## 8/31:
+Today we worked more on authorization/authentication. We've run into quite a few blockers today and I have some thoughts for what to try tomorrow but am a little worn out from trying different things without much success. I also discussed deployment options for a while with Alex as we are considering what to do since Heroku's free services will be not free starting November. Not feeling the best today but will see what I can do.
