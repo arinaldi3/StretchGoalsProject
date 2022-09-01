@@ -1,3 +1,8 @@
+## 8/31
+
+- Success: We were able to implement functionality to where if someone is logged in, they are able to see certain buttons on the Nav bar.
+- Blocker: Major blocker is to distinguish between our two potential users. For instance if instructor or student signed in we would want that user to only have options relating to them. Not sure how we will implement this functionality but further discovery will be done. Talked as a group if we want to implement it only on the front-end or using the backend. Either route we choose will involve implementations to certain already functional pages so weighing the pros and cons.
+
 ## 8/30
 
 - Day two of working on the login page. Using the cookbook auth provided on learn, we were able to get further. Update after working on it in the afternoon we were able to connect the necessary endpoints and generate the cookies for each user. Additionally added the functionality to be able to logout.

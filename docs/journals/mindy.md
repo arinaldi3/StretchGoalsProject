@@ -1,3 +1,7 @@
+## 8/31/22
+- We were able to make only signup and login buttons to show on the Nav bar if the user is not logged in or does not have a account with us
+- We tried to show the specific user (a student or an instructor) of their personal profile page and we had some blockers. After discussing with Cooper and Dalonte, we realized that we could implement it on the front end or combined with the back end. We planed to have more discussion tomorrow regarding which routes we are going to use.
+
 ## 8/30/22
 - The CreateClass page was not working on my end, and we made some tiny edits to have it fixed. Now everyone is on the same page.
 - We spent the day working on authentication and we expected this would be a big blocker for us.
