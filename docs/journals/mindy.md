@@ -1,3 +1,6 @@
+## 9/1/22
+- We did not split into two team, instead, all of us were together and tried to pass our blocker. Josh updated the App.js file to have a global state for the user's username. He also implemented the filter on the student portal and the setUser function into the login page to show the profile oage for the logged in user. We will continue working on it tomorrow as well.
+
 ## 8/31/22
 - We were able to make only signup and login buttons to show on the Nav bar if the user is not logged in or does not have a account with us
 - We tried to show the specific user (a student or an instructor) of their personal profile page and we had some blockers. After discussing with Cooper and Dalonte, we realized that we could implement it on the front end or combined with the back end. We planed to have more discussion tomorrow regarding which routes we are going to use.
@@ -18,7 +21,6 @@
 - We had the instractorsList page working with real data, and we had the createInstructor page working as well.
 - We planned to make classesList and createClass work once the beck end team is finished with classes.
 - We planned to continue working on Login and authentication/authroization next week.
-
 
 ## 8/24/22
 - We tested on create forms, CreateStudent and CreateInstructor. 
