@@ -47,6 +47,7 @@ class InstructorDetailEncoder(ModelEncoder):
         "yoga_studio",
         "demo",
         "instagram",
+        # "email",
     ]
 
 class StudentListEncoder(ModelEncoder):
