@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useToken } from "./Authentication";
 
-function Login() {
+function Login({ login, setUser }) {
     const navigate = useNavigate();
-    const [,login] = useToken();
+    // const [,login] = useToken();
     const [data, setData] = useState({
         username: '',
         password: '',
     });
-    const [user, setUser] = useState({})
 
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setUser(data.username)
         await login(data.username, data.password);
         navigate('/');
-        // const currentUserUrl = `http://localhost:8100/api/account/${data.username}`
-        // await fetch(currentUserUrl)
-        // let currentUser = await setUser.json();
-        // setUser(currentUser);
     }
 
     const handleChange = event => {

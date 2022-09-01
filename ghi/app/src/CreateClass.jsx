@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function CreateClass() {
+function CreateClass({ user }) {
     const [classes, setClasses] = useState({
         difficulty: '', 
         class_size: '',

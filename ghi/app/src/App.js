@@ -12,13 +12,13 @@ import InstructorPortal from './InstructorPortal';
 import CreateClass from './CreateClass';
 import Login from './Login';
 import { AuthProvider, useToken } from './Authentication';
-import { useEffect,  } from 'react';
+import { useEffect, useState  } from 'react';
 
 
 
 function App() {
   const [token, login] = useToken();
-
+  const [user, setUser] = useState('')
 
   return (
     <>
@@ -27,22 +27,22 @@ function App() {
     <div className="BackGround">
       <div className="container">
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<MainPage user={user} />} />
           <Route path="/new" >
             <Route path="student" element={<CreateStudent/>}/>
             <Route path="instructor" element={<CreateInstructor/>}/>
-            <Route path="class" element={<CreateClass/>}/>
+            <Route path="class" element={<CreateClass user={user}/>}/>
           </Route>
           <Route path="/list">
               <Route path="instructors" element={<InstructorList />} />
-              <Route path="classes" element={<ClassesList />} />
+              <Route path="classes" element={<ClassesList user={user} />} />
             </Route>
           <Route path="/portal">
-            <Route path="student" element={<StudentPortal />}/>
-            <Route path="instructor" element={<InstructorPortal />}/>
+            <Route path="student" element={<StudentPortal user={user} />}/>
+            <Route path="instructor" element={<InstructorPortal user={user} />}/>
           </Route>
           <Route>
-            <Route path="/login" element={<Login login={login} />} />
+            <Route path="/login" element={<Login login={login} setUser={setUser} />} />
           </Route>
 
         </Routes>

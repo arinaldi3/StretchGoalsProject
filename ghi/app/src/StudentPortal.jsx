@@ -1,12 +1,13 @@
 import React, { useState,useEffect } from "react";
 
 
-function StudentPortal() {
+function StudentPortal({ user }) {
     const [students, setStudents] = useState([]);
 
     async function fetch_student_user() {
         let classData = await fetch(`http://localhost:8100/api/students/`);
         let data = await classData.json();
+        console.log(user)
         setStudents(data.students);
     }
 
@@ -14,6 +15,9 @@ function StudentPortal() {
         fetch_student_user();
     }, []);
 
+    const studentFilter = (student) => {
+        return student.username === user;
+    }
     
     return (
         <>
@@ -22,7 +26,7 @@ function StudentPortal() {
             <table>
                 <thead>
                     <tr>
-                        <th>Profile Picture</th>
+                        <th>Profile Picture HELLO</th>
                         <th>Name</th>
                         <th>Username</th>
                         <th>Email</th>
@@ -31,7 +35,7 @@ function StudentPortal() {
                     </tr>
                 </thead>
                 <tbody>
-                {students.map((student) => {
+                {students.filter(studentFilter).map(student => {
                     return (
                         <tr key={student.id}>
                             <td><img src ={student.profile_picture}alt='' style={{maxWidth: '150px', maxHeight: '150px', objectFit: 'contain'}}/> </td>

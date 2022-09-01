@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 
 
-function InstructorPortal() {
+function InstructorPortal({ user }) {
     const [instructors, setInstructors] = useState([]);
     
 

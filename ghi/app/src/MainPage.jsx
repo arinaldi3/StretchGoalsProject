@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import { useAuthContext } from "./Authentication";
 
-function MainPage() {
+function MainPage({ user }) {
     const { token } = useAuthContext();
 
     

@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 
 
-function ClassesList() {
+function ClassesList({ user }) {
     const [classes, setClasses] = useState([]);
 
     async function fetch_classes() {
