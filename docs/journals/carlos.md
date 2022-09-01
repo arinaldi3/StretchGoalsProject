@@ -1,3 +1,7 @@
+## 9/1
+
+- Today we got passed our blocker where the user logged should only see information related to the user. Josh, was able to figure it out using a global state for the user's username. He also implemented a filter on the portal's and a function into the login page so that it could store the username to reference from the filter.
+
 ## 8/31
 
 - Success: We were able to implement functionality to where if someone is logged in, they are able to see certain buttons on the Nav bar.
