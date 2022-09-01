@@ -12,10 +12,14 @@ import InstructorPortal from './InstructorPortal';
 import CreateClass from './CreateClass';
 import Login from './Login';
 import { AuthProvider, useToken } from './Authentication';
+import { useEffect,  } from 'react';
+
 
 
 function App() {
   const [token, login] = useToken();
+
+
   return (
     <>
     <AuthProvider>
@@ -41,8 +45,6 @@ function App() {
             <Route path="/login" element={<Login login={login} />} />
           </Route>
 
-
-          {/* <Route path='login' element={<Login/>}/> */}
         </Routes>
         
       </div>

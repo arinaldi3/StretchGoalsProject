@@ -7,6 +7,23 @@ function Nav() {
   // const [students, setStudents] = useState();
   const [instructors, setInstructors] = useState();
 
+
+
+  const StudentNav = () => {
+    return (
+        <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="portal/student">My Profile</NavLink>
+        </li>
+    )
+  }
+  const InstructorNav = () => {
+    return (
+        <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="portal/instructor">Instructor Profile</NavLink>
+        </li>
+    )
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -46,15 +63,13 @@ function Nav() {
           <li>
             <button onClick={logout} className="btn btn-primary">Logout</button>
           </li>}
-          {token &&
-          <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="portal/student">My Profile</NavLink>
-          </li>}
+          {token && 
+          <StudentNav/>
+          }
           
           {token &&
-          <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="portal/instructor">Instructor Profile</NavLink>
-          </li>}
+          <InstructorNav/>
+          }
           </ul>
         </div>
       </div>

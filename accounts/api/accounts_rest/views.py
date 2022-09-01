@@ -20,6 +20,7 @@ def api_user_token(request):
     response = JsonResponse({"token": None})
     return response
 
+
 @require_http_methods(["GET"])
 @auth.jwt_login_required
 def api_current_user(request, username):

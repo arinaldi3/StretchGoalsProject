@@ -9,12 +9,18 @@ function Login() {
         username: '',
         password: '',
     });
+    const [user, setUser] = useState({})
+
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         await login(data.username, data.password);
         navigate('/');
+        // const currentUserUrl = `http://localhost:8100/api/account/${data.username}`
+        // await fetch(currentUserUrl)
+        // let currentUser = await setUser.json();
+        // setUser(currentUser);
     }
 
     const handleChange = event => {
