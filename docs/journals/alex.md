@@ -54,4 +54,25 @@ Initialized the process of hosting on Elastic Beanstalk.
 I already acquired a domain name but getting a SSL for NGINX without paying 65/yr has been tricky.
 I've been attempting to generate an ssl CA variant through the git bash with limited luck.
 After few hours of struggle, I haven't been able to get a consistent SSL code and Dalonte told me about amazon S3 which is in line with what I was working on but significantly less secure. 
-I updated 
+
+# Aug 26-28, 2022 (weekend)
+I spent another 5-6 hours working on this SSL cert and have hit a bit of a wall trying to intepret the linux bash structure. 
+
+# August 29, 2022
+Going to finalize the structure for AWS S3, starting with completing the requirements.txt.
+
+https://073993208930.signin.aws.amazon.com/console amazon console signin location
+Got aws s3 console set up. set up settings enpoints and installed all the necessary apps in all 3 microservices. Set up the domain stretchgoalz(purchased on godaddy) root host and the subdomain (www.stretchgoalz.com) on aws terminal. 
+
+# August 30, 2022
+Spent the day investigating AWS connection and determined that though most of it free, domain hosting and the final steps of the way are blocked by a cost barrier. I may revisit this and move forward anyways and just pay the fee but I made limited progress trying to get anything to work. I branched out to 
+
+# August 31, 2022
+Discovered a hosting service called Render. Spend day troubleshooting some backend issues with docker and will probably start tomorrow with a fresh repo before pushing anything out. 
+
+# September 1st, 2022
+Attempted to get render working but it feels like heroku and discovered a service called Vercel - going to test it tomorrow but it seems extremely simple.
+Spent the rest of the day troubleshooting backend for nginx and getting the docker container to work on a seperate repo (which is why I can't push). It'll be nice to finally be able to push updates after a full week of struggling with deployment.  
+
+# September 2nd, 2022
+Tried Vercel, I'm surprised with how insanely easy it is to use. 
