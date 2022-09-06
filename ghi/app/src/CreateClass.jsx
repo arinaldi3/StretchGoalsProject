@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-function CreateClass() {
+function CreateClass( user ) {
     const [classes, setClasses] = useState({
         difficulty: '', 
         class_size: '',
         class_name: '',
-        starts: '',
-        ends: '', 
+        start: '',
+        end: '', 
         // schedule: '',
         instructor: '',
     })
@@ -40,8 +40,8 @@ function CreateClass() {
                 difficulty: '', 
                 class_size: '',
                 class_name: '',
-                starts: '',
-                ends: '', 
+                start: '',
+                end: '', 
                 // schedule: '',
                 instructor: '',
             })
@@ -69,7 +69,7 @@ function CreateClass() {
                     <option value="Hard">Hard</option>
                 {/* <input onChange={handleChange} value = {state.difficulty}placeholder="Difficulty" required type="text" name="difficulty" id="difficulty" className="form-control" />
                 <label htmlFor="difficulty" >Difficulty</label> */}
-                </select>
+            </select>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {classes.class_size}placeholder="Class Size" required type="number" name="class_size" id="class_size" className="form-control" />
@@ -80,12 +80,12 @@ function CreateClass() {
                 <label htmlFor="class_name">Class Name</label>
             </div>
             <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {classes.starts}placeholder="Date, Time" required type="datetime-local" name="starts" id="starts" className="form-control" />
-                <label htmlFor="starts">Starts</label>
+                <input onChange={handleChange} value = {classes.start}placeholder="Date, Time" required type="datetime-local" name="start" id="start" className="form-control" />
+                <label htmlFor="start">Start</label>
             </div>
             <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {classes.ends}placeholder="Date, Time" required type="datetime-local" name="ends" id="ends" className="form-control" />
-                <label htmlFor="ends">Ends</label>
+                <input onChange={handleChange} value = {classes.end}placeholder="Date, Time" required type="datetime-local" name="end" id="end" className="form-control" />
+                <label htmlFor="end">End</label>
             </div>
             {/* <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {classes.schedule}placeholder="Schedule" required type="text" name="schedule" id="schedule" className="form-control" />
@@ -96,7 +96,7 @@ function CreateClass() {
                 <option value="">Choose an Instructor</option>
                 {instructors.map(instructor => {
                     return (
-                    <option key={instructor.id} value={instructor.id}>{instructor.first_name}</option>
+                    <option key={instructor.id} value={instructor.id}>{instructor.first_name} {instructor.last_name}</option>
                     )
                 })}
                 </select>

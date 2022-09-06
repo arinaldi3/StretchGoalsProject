@@ -24,7 +24,7 @@ class ClassesPage extends React.Component {
                 // add all of the requests to it
                 const requests = [];
                 for (let lesson of data.classes) {
-                    const detailUrl = `http://localhost:8080${lesson.id}`;
+                    const detailUrl = `http://localhost:8080/api/classes/${lesson.id}`;
                     requests.push(fetch(detailUrl));
                 }
         
@@ -65,7 +65,7 @@ class ClassesPage extends React.Component {
         return (
             <>
                 <div className="px-4 py-5 my-5 mt-0 text-center bg-info">
-                    <img className="bg-white rounded shadow d-block mx-auto mb-4" src="https://static.businessworld.in/article/article_extra_large_image/1560859917_Yqz5H0_sneaker2_470.jpg" alt="" width="600" />
+                    <img className="bg-white rounded shadow d-block mx-auto mb-4" />
                     <h1 className="display-5 fw-bold">List of Classes</h1>
                     <div className="col-lg-6 mx-auto">
                         {/* <p className="lead mb-4">

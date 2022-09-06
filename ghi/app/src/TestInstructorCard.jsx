@@ -6,13 +6,12 @@ function InstructorColumn(props) {
         <div className="col">
             {props.list.map(data => {
                 const instructor = data;
-                
+                const detailUrl = '/list/instructor_detail/' + instructor.id
                 return (
                     <div key={instructor.id} className="card mb-3 shadow">
                         
-                        {/* <Link to = {InstructorDetail}> */}
+                        <Link to = {detailUrl}>
                         <img src={instructor.profile_picture} className="card-img-top list-card-image" width="50" alt="img" />
-                        {/* </Link> */}
                         {/* <img src={data.picture_url} className="card-img-top" alt="This is a discription"/> */}
                         <div className="card-body">
                             <h5 className="card-title instructor_name">{instructor.first_name} {instructor.last_name}</h5>
@@ -26,6 +25,7 @@ function InstructorColumn(props) {
                         <div className="card-footer">
                         {instructor.email}
                         </div>
+                        </Link>
                     </div>
                 );
             })}

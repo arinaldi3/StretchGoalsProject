@@ -8,7 +8,9 @@ class InstructorVOEncoder(ModelEncoder):
         "username",
         "yoga_studio",
         "demo",
-        "profile_picture"
+        "profile_picture",
+        "first_name",
+        "last_name",
     ]
 
 class ClassEncoder(ModelEncoder):

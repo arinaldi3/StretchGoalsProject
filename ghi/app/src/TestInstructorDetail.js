@@ -17,7 +17,7 @@ function InstructorDetail() {
     }
     useEffect(() => {
         getInstructorDetail()
-    });
+    }, []);
 
     return (
         <div className="mt-5">

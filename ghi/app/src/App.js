@@ -13,6 +13,7 @@ import CreateClass from './CreateClass';
 import InstructorsListPage from './TestInstructorsPage';
 import ClassesPage from './TestClassesPage';
 import InstructorDetail from './TestInstructorDetail';
+import ClassDetail from './TestClassDetail';
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
           <Route path="/list">
               <Route path="instructors" element={<InstructorsListPage />} />
               <Route path="classes" element={<ClassesPage />} />
-              <Route path="detail/:id" element={<InstructorDetail />} />
+              <Route path="instructor_detail/:id" element={<InstructorDetail />} />
+              <Route path="class_detail/:id" element={<ClassDetail />} />
           </Route>
 
           <Route path="/portal">
