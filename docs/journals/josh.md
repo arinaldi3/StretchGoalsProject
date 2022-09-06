@@ -36,3 +36,6 @@ Today we worked more on authorization/authentication. We've run into quite a few
 
 ## 9/1:
 Today I updated the React App to have a more global state for the user's username and passed that in as props for all the components requiring that information. I also implemented a filter on the student portal and passed the setUser function into the login page so that it stores the username to reference for our filter.
+
+## 9/6:
+We spent most of our time dealing with a blocker that we thought we fixed last week regarding holding current user state and updating the navbar after login. I also spent a portion of my time updating the class model so that it can be linked to students using a foreign key with the end goal being to let students sign up for classes.
