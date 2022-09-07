@@ -33,3 +33,6 @@ Today was an AMAZING DAY!! The We were able to figure out Auth - which we expect
 
 # Aug 31, 2022
 Carlos, Mindy and I started off the morning sketching an outline of what we have left to do. Carlos opened up an Excalidraw and we mapped out what we wanted some of the pages to look like and what we wanted them to include. We started by changing the Nav.js to only show certain components when the user is logged in, or when there is a token. We started to encounter a blocker when trying to show the profile of the logged in user. We spent a majority of the day after lunch working with Dalonte and Cooper working around how to figure that out, and we are still stuck going into tomorrow. We will spend more time tomorrow discussing how we are going to go about login functionalities.
+
+# Sept 1, 2022
+Today, we met as a full group and continued our discussion on how to make the profile pages show for the current user. Josh had a good idea of how to implement it, so he shared his screen and worked on lifting the state of the user. He created a filter that filtered to the current user, and by the end of the day he finally got it working! We still have a lot of places that we need to implement filters, but with this one working I feel confident in tackling those tomorrow.
