@@ -36,3 +36,9 @@ Carlos, Mindy and I started off the morning sketching an outline of what we have
 
 # Sept 1, 2022
 Today, we met as a full group and continued our discussion on how to make the profile pages show for the current user. Josh had a good idea of how to implement it, so he shared his screen and worked on lifting the state of the user. He created a filter that filtered to the current user, and by the end of the day he finally got it working! We still have a lot of places that we need to implement filters, but with this one working I feel confident in tackling those tomorrow.
+
+
+# Sept 6, 2022
+We have had less time to work on the project, so progress has been moving a bit slower. We thought at the end of the week last week that we had the student profiles figured out, but it turns out that we missed something and they were not working today. I spent a lot of time with Cooper trying to figure it out, but for some reason when I refresh the page everything resets and the user data is no longer saved. We spent the entire afternoon trying to figure this out with no luck so far, but we're getting there. Tomorrow we will start where we left off and hopefully have this all figured out. Once it is, we should be able to pick up the pace and get everything else done rather quickly. Josh spent some time working on the backend which will help us working on the frontend create a button that will allow students to sign up for classes. We have some design changes we want to implement on the front end as well, but we are saving those until after we have our functionality figured out.
+
+# Sept 7, 2022
