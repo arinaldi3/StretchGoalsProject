@@ -1,3 +1,6 @@
+## 9/6/22
+- Our user profile page is not working, and we could not figure it out by ourselves. We spent hours with Cooper and could not figure it out. We are planning to spend more time on it tomorrow. 
+
 ## 9/1/22
 - We did not split into two team, instead, all of us were together and tried to pass our blocker. Josh updated the App.js file to have a global state for the user's username. He also implemented the filter on the student portal and the setUser function into the login page to show the profile oage for the logged in user. We will continue working on it tomorrow as well.
 
