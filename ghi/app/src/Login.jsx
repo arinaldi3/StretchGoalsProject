@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { useToken } from './Authentication';
+import Nav from './Nav';
 
 function Login() {
     const navigate = useNavigate();
@@ -29,6 +30,8 @@ function Login() {
 
 
     return (
+        <>
+        <Nav/>
         <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4" id="to-form">
@@ -47,6 +50,7 @@ function Login() {
         </div>
         </div>
     </div>
+    </>
     )
 }
 

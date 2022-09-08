@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Nav from './Nav';
 
 function CreateClass({ user }) {
     const [classes, setClasses] = useState({
@@ -56,6 +57,8 @@ function CreateClass({ user }) {
         }
 
     return (
+        <>
+        <Nav/>
         <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4" id="to-form">
@@ -106,6 +109,7 @@ function CreateClass({ user }) {
         </div>
         </div>
     </div>
+    </>
     )
 }
 

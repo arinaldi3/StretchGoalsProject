@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Nav from './Nav';
 
 function CreateInstructor() {
     const [instructor, setInstructor] = useState({
@@ -52,6 +53,8 @@ function CreateInstructor() {
             })
         }
     return (
+        <>
+        <Nav/>
         <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4" id="to-form">
@@ -110,6 +113,7 @@ function CreateInstructor() {
         </div>
         </div>
     </div>
+    </>
     )
 }
 export default CreateInstructor;

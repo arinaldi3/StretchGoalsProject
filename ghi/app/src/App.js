@@ -20,7 +20,7 @@ function App(key) {
   return (
     <>
       <AuthProvider>
-        <Nav/>
+        {/* <Nav/> */}
         <div className="BackGround">
           <div className="">
             <Routes>

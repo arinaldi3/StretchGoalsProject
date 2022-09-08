@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Nav from './Nav';
 
 function StudentPortal() {
     const [students, setStudents] = useState([]);
@@ -30,6 +31,7 @@ function StudentPortal() {
 
     return (
         <>
+        <Nav/>
         <h1 className='mt-4'>Student Profile</h1>
         <div className="table table-striped">
             <table>

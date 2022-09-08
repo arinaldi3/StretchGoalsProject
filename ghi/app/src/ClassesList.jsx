@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-
+import Nav from './Nav';
 
 function ClassesList({ user }) {
     const [classes, setClasses] = useState([]);
@@ -17,6 +17,7 @@ function ClassesList({ user }) {
     
     return (
         <>
+        <Nav/>
         <h1>List of Classes</h1>
         <div className="table table-striped">
             <table>
