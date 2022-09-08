@@ -1,3 +1,6 @@
+## 9/7/22
+- Today we contunied working with what we left from yesterday and tried to pass the authentication blocker as a group. We spent so much time on it, discussed with our SEIRs and Will, and we finally have it working. Thanks to our SEIRs, Will, Josh, and everyone in the group! We can finally move on to other parts tomorrow. 
+
 ## 9/6/22
 - Our user profile page is not working, and we could not figure it out by ourselves. We spent hours with Cooper and could not figure it out. We are planning to spend more time on it tomorrow. 
 
