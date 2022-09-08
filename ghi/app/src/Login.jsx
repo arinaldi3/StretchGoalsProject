@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { useToken } from './Authentication';
 
-function Login({ login, setUser }) {
+function Login() {
     const navigate = useNavigate();
-    // const [,login] = useToken();
+    const [,login] = useToken();
     const [data, setData] = useState({
         username: '',
         password: '',
+        error: '',
     });
 
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setUser(data.username)
         await login(data.username, data.password);
         navigate('/');
     }
+
 
     const handleChange = event => {
         const value = event.target.value;
@@ -33,14 +35,14 @@ function Login({ login, setUser }) {
             <h1>Login</h1>
             <form onSubmit={handleSubmit} id="login-form">
             <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {data.username}placeholder="Username" required type="text" name="username" id="username" className="form-control" />
+                <input onChange={handleChange} value = {data.username} placeholder="Username" required type="text" name="username" id="username" className="form-control" />
                 <label htmlFor="username" >Username</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {data.password}placeholder="Password" required type="password" name="password" id="password" className="form-control" />
                 <label htmlFor="password">Password</label>
             </div>
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-primary">Login <NavLink className='navbar-brand' to='/' /> </button>
             </form>
         </div>
         </div>
