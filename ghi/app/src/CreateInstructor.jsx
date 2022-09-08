@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 
 function CreateInstructor() {
+    const navigate = useNavigate();
     const [instructor, setInstructor] = useState({
         first_name: '',
         last_name: '',
@@ -44,6 +46,7 @@ function CreateInstructor() {
                 profile_picture: '',
             })
         }
+        navigate('/login/')
     }
         const handleChange = event => {
             const value = event.target.value;
