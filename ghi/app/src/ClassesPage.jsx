@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ClassColumn from './TestClassCard';
+import ClassCard from './ClassCard';
 
 
 class ClassesPage extends React.Component {

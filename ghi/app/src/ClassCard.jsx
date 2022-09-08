@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import ClassDetail from "./TestClassDetail";
+import ClassDetail from "./ClassDetail";
 
 
-function ClassColumn(props) {
+function ClassCard(props) {
     return (
         <div className="col">
             {props.list.map(data => {
@@ -32,4 +32,4 @@ function ClassColumn(props) {
     )
 }
 
-export default ClassColumn;
+export default ClassCard;
