@@ -39,3 +39,6 @@ Today I updated the React App to have a more global state for the user's usernam
 
 ## 9/6:
 We spent most of our time dealing with a blocker that we thought we fixed last week regarding holding current user state and updating the navbar after login. I also spent a portion of my time updating the class model so that it can be linked to students using a foreign key with the end goal being to let students sign up for classes.
+
+## 9/7:
+Today I spent 90% of my time resolving the aformentioned blocker and I finally managed to do it! I feel bittersweet because it took so many man hours but also I did it and I feel like a much more knowledgable person on authentication. I also figured out how to fix the navbar reloads and conditional statements in it so while there is a little more work to do, the front end side of things has a clear path foward. For tomorrow, I plan to implement a custom view function to sign students up for classes and I'll be good to go. I've also added to the data-models documentation and edited the models within the classes microservice today. Feeling good :)
