@@ -45,3 +45,6 @@ Today I spent 90% of my time resolving the aformentioned blocker and I finally m
 
 ## 9/8:
 Today I helped figure out a way to refresh the navbar on the front end once the user logs in and indicate a way for certain navbar links to show when the user is a student or instructor. I also was in the process of creating and testing a custom view function for attending/signing up for the classes to use for a sign up page.
+
+## 9/9:
+Today I spent time helping resolve some git issues and the rest of my time trying to do more discovery for testing in django. I'd say that today was definitely a day where I feel like I didn't get as much done because of the git blocker and didn't write much code either because it was mostly discovery but I'm getting closer to figuring out how to do things.
