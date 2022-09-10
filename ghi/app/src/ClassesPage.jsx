@@ -60,7 +60,7 @@ class ClassesPage extends React.Component {
                     <div className="row">
                         {this.state.classColumns.map((classesList, index) => {
                             return (
-                                <ClassColumn key={index} list={classesList} />
+                                <ClassCard key={index} list={classesList} />
                             );
                         })}
                     </div>

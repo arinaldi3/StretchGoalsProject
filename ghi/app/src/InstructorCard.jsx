@@ -23,7 +23,7 @@ function InstructorCard(props) {
                             </h6> */}
                         </div>
                         <div className="card-footer">
-                        {instructor.email}
+                        <p>Click here for More Details</p>
                         </div>
                         </Link>
                     </div>

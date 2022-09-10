@@ -13,10 +13,10 @@ import CreateClass from './CreateClass';
 import Login from './Login';
 import { AuthProvider } from './Authentication';
 import { useState } from 'react';
+import InstructorsListPage from './InstructorsPage';
 
 
 function App(key) {
-
   return (
     <>
       <AuthProvider>
@@ -31,6 +31,8 @@ function App(key) {
                 <Route path="class" element={<CreateClass />} />
               </Route>
               <Route path="/list">
+                {/* <Route path="instructors" element={<InstructorsListPage />} />
+                <Route path="instructor_detail/:id" element={<InstructorDetail />} /> */}
                 <Route path="instructors" element={<InstructorList />} />
                 <Route path="classes" element={<ClassesList />} />
               </Route>

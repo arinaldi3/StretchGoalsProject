@@ -1,3 +1,7 @@
+## 9/9/22
+- We tried to rebuild our Docker and test functions we have. After rebuilding our Docker, the authentication seems not working: the website indentified we as a logged in users before we create an account. We thought something wrong with the files I created last night, and we tried to go back to out last git commit before I created thoes files.
+- I found out that cached cookies were the reason for the authentication fail. We fixed the authentication problem by clearing cached cookies and data. I think it's very userful tip to remember to clear cached cookies and data for any future projects when we rebuild our database.
+
 ## 9/8/22
 - We found a problem with Navbar, and we were able to fix it with Cooper's help. We are able to show different links on the navbar for different users.
 - I created different files on a separate branch to change the Class List and Instructors List from table to cards. We all think cards look better and will improve the user experience, so adding these files to our main branch. We plan to work (styles and adding more details) on these files tomorrow.

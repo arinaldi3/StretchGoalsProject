@@ -78,7 +78,7 @@ class InstructorsListPage extends React.Component {
                     <div className="row">
                         {this.state.instructorColumns.map((instructorsList, index) => {
                             return (
-                                <InstructorColumn key={index} list={instructorsList} />
+                                <InstructorCard key={index} list={instructorsList} />
                             );
                         })}
                     </div>
