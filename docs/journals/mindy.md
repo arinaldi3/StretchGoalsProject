@@ -1,3 +1,15 @@
+## 9/9/22
+- We tried to rebuild our Docker and test functions we have. After rebuilding our Docker, the authentication seems not working: the website indentified we as a logged in users before we create an account. We thought something wrong with the files I created last night, and we tried to go back to out last git commit before I created thoes files.
+- I found out that cached cookies were the reason for the authentication fail. We fixed the authentication problem by clearing cached cookies and data. I think it's very userful tip to remember to clear cached cookies and data for any future projects when we rebuild our database.
+
+## 9/8/22
+- We found a problem with Navbar, and we were able to fix it with Cooper's help. We are able to show different links on the navbar for different users.
+- I created different files on a separate branch to change the Class List and Instructors List from table to cards. We all think cards look better and will improve the user experience, so adding these files to our main branch. We plan to work (styles and adding more details) on these files tomorrow.
+- Talked with Ava and Carlos about things we want to work on tomorrow. 
+
+## 9/7/22
+- Today we contunied working with what we left from yesterday and tried to pass the authentication blocker as a group. We spent so much time on it, discussed with our SEIRs and Will, and we finally have it working. Thanks to our SEIRs, Will, Josh, and everyone in the group! We can finally move on to other parts tomorrow. 
+
 ## 9/6/22
 - Our user profile page is not working, and we could not figure it out by ourselves. We spent hours with Cooper and could not figure it out. We are planning to spend more time on it tomorrow. 
 

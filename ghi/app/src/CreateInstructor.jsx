@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import Nav from './Nav';
 
 function CreateInstructor() {
+    const navigate = useNavigate();
     const [instructor, setInstructor] = useState({
         first_name: '',
         last_name: '',
@@ -43,6 +46,7 @@ function CreateInstructor() {
                 profile_picture: '',
             })
         }
+        navigate('/login/')
     }
         const handleChange = event => {
             const value = event.target.value;
@@ -52,6 +56,8 @@ function CreateInstructor() {
             })
         }
     return (
+        <>
+        <Nav/>
         <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4" id="to-form">
@@ -110,6 +116,7 @@ function CreateInstructor() {
         </div>
         </div>
     </div>
+    </>
     )
 }
 export default CreateInstructor;

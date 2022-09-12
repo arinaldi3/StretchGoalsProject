@@ -79,11 +79,12 @@ export function useToken() {
       await fetch(url, { method: "delete", credentials: "include" });
       internalToken = null;
       setToken(null);
+      localStorage.clear();
       navigate("/login");
     }
   }
 
-  async function login(username, password) {
+  async function login(username, password, navigate = () => null) {
     const url = `${process.env.REACT_APP_ACCOUNTS_HOST}/login/`;
     const form = new FormData();
     form.append("username", username);
@@ -102,7 +103,9 @@ export function useToken() {
       const token = await getTokenInternal();
       console.log(token)
       setToken(token);
-      navigate("/list/instructors/")
+      window.localStorage.setItem('key', JSON.stringify(username))
+      window.localStorage.setItem('token', JSON.stringify(token))
+      navigate("/")
       return;
     }
     let error = await response.json();
@@ -150,6 +153,7 @@ export function useToken() {
     }
     return false;
   }
+
 
   return [token, login, logout, signup, update];
 }

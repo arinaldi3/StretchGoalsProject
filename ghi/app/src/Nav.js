@@ -1,28 +1,84 @@
-import { NavLink } from 'react-router-dom';
-import { AuthProvider, useToken } from './Authentication';
-import React, { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
+import { AuthProvider, useToken, AuthContext, getToken, useAuthContext } from './Authentication';
+import React, { useEffect, useState, useContext} from 'react';
 
 function Nav() {
-  const [token, login, logout] = useToken();
-  // const [students, setStudents] = useState();
-  const [instructors, setInstructors] = useState();
+  const [x, login, logout] = useToken();
+  const [instructors, setInstructors] = useState([]);
+  const [students, setStudents] = useState([])
+  const [item, setItem] = useState();
 
+  const { token } = useAuthContext(); 
+  
+  async function fetch_student_user() {
+    let classData = await fetch(`http://localhost:8100/api/students/`);
+    let data = await classData.json();
+    setStudents(data.students);
+}
 
-
-  const StudentNav = () => {
-    return (
-        <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="portal/student">My Profile</NavLink>
-        </li>
-    )
+  async function fetch_instructor_user() {
+    let instructorData = await fetch('http://localhost:8100/api/instructors/');
+    let theData = await instructorData.json();
+    setInstructors(theData.instructors);
   }
-  const InstructorNav = () => {
-    return (
-        <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="portal/instructor">Instructor Profile</NavLink>
-        </li>
-    )
+
+useEffect(() => {
+    const item = JSON.parse(localStorage.getItem('key'));
+    if (item) {
+    setItem(item);
+    fetch_instructor_user();
+    fetch_student_user();
+    // console.log(item)
+    }
+   }, []); 
+
+useEffect(() => {
+  const itemString = localStorage.getItem("key");
+  if (itemString) {
+      const item = JSON.parse(itemString);
+      setItem(item);
   }
+  function storageEventHandler(event) {
+      if (event.key === "key") {
+          const item = JSON.parse(event.newValue);
+          setItem(item);
+      }
+  }
+  window.addEventListener("storage", storageEventHandler);
+  return () => {
+      window.removeEventListener("storage", storageEventHandler);
+  };
+}, []);
+
+
+const isStudent = (() => {
+  for (const student of students) {
+    if (student.username === item) {
+
+      return(
+        <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/portal/student" >My profile</NavLink>
+        </li>
+      )
+    } else {
+      continue 
+    }
+  }
+})
+
+const isInstructor = (() => {
+  for (const instructor of instructors) {
+    if (instructor.username === item) {
+      return(
+        <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/portal/instructor" >My profile</NavLink>
+        </li>
+      )
+    } else {
+      continue 
+    }
+  }
+})
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,43 +89,37 @@ function Nav() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            { token &&
+          { token ?
+          <>
           <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="list/instructors">Meet the Instructors</NavLink>
+              <Link className="nav-link" aria-current="page" to="/list/instructors">Meet the Instructors</Link>
           </li>
-          }
-          { token &&
           <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="list/classes">List of Classes</NavLink>
-          </li>}
-          {token &&
+              <NavLink className="nav-link" aria-current="page" to="/list/classes">List of Classes</NavLink>
+          </li>
           <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="new/class">Create a Class</NavLink>
-          </li>}
-          { !token &&
+              <NavLink className="nav-link" aria-current="page" to="/new/class">Create a Class</NavLink>
+          </li>
+          <li>
+            <button onClick={logout} className="btn btn-primary">Logout</button>
+          </li>
+          {isStudent()}
+          {isInstructor()}
+          </> 
+          :
+          <>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href='#' role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Sign up</a>
             <ul className="dropdown-menu">
-              <li><NavLink className="dropdown-item" to="new/student">Sign up as a student</NavLink></li>
-              <li><NavLink className="dropdown-item" to="new/instructor">Sign up as an instructor</NavLink></li>
+              <li><NavLink className="dropdown-item" to="/new/student">Sign up as a student</NavLink></li>
+              <li><NavLink className="dropdown-item" to="/new/instructor">Sign up as an instructor</NavLink></li>
             </ul>
           </li>
-          }
-          { !token &&
           <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
-          </li>}
-          { token &&
-          <li>
-            <button onClick={logout} className="btn btn-primary">Logout</button>
-          </li>}
-          {token && 
-          <StudentNav/>
-          }
-          
-          {token &&
-          <InstructorNav/>
-          }
+          </li>
+          </>
+}
           </ul>
         </div>
       </div>

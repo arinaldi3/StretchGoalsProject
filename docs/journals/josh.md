@@ -36,3 +36,15 @@ Today we worked more on authorization/authentication. We've run into quite a few
 
 ## 9/1:
 Today I updated the React App to have a more global state for the user's username and passed that in as props for all the components requiring that information. I also implemented a filter on the student portal and passed the setUser function into the login page so that it stores the username to reference for our filter.
+
+## 9/6:
+We spent most of our time dealing with a blocker that we thought we fixed last week regarding holding current user state and updating the navbar after login. I also spent a portion of my time updating the class model so that it can be linked to students using a foreign key with the end goal being to let students sign up for classes.
+
+## 9/7:
+Today I spent 90% of my time resolving the aformentioned blocker and I finally managed to do it! I feel bittersweet because it took so many man hours but also I did it and I feel like a much more knowledgable person on authentication. I also figured out how to fix the navbar reloads and conditional statements in it so while there is a little more work to do, the front end side of things has a clear path foward. For tomorrow, I plan to implement a custom view function to sign students up for classes and I'll be good to go. I've also added to the data-models documentation and edited the models within the classes microservice today. Feeling good :)
+
+## 9/8:
+Today I helped figure out a way to refresh the navbar on the front end once the user logs in and indicate a way for certain navbar links to show when the user is a student or instructor. I also was in the process of creating and testing a custom view function for attending/signing up for the classes to use for a sign up page.
+
+## 9/9:
+Today I spent time helping resolve some git issues and the rest of my time trying to do more discovery for testing in django. I'd say that today was definitely a day where I feel like I didn't get as much done because of the git blocker and didn't write much code either because it was mostly discovery but I'm getting closer to figuring out how to do things.
