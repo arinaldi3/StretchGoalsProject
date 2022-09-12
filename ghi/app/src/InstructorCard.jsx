@@ -22,6 +22,9 @@ function InstructorCard(props) {
                                 {instructor.email}
                             </h6> */}
                         </div>
+                        {/* <div>
+                            <button>Attend This Class</button>
+                        </div> */}
                         <div className="card-footer">
                         <p>Click here for More Details</p>
                         </div>

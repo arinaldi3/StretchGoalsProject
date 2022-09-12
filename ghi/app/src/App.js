@@ -14,6 +14,7 @@ import Login from './Login';
 import { AuthProvider } from './Authentication';
 import { useState } from 'react';
 import InstructorsListPage from './InstructorsPage';
+import InstructorDetail from './InstructorDetail';
 
 
 function App(key) {
