@@ -1,5 +1,5 @@
 from common.json import ModelEncoder
-from .models import Class, InstructorVO
+from .models import Class, InstructorVO, StudentVO
 
 class InstructorVOEncoder(ModelEncoder):
     model = InstructorVO
@@ -11,6 +11,17 @@ class InstructorVOEncoder(ModelEncoder):
         "profile_picture",
         "first_name",
         "last_name",
+    ]
+
+class StudentVOEncoder(ModelEncoder):
+    model = StudentVO
+    properties = [
+        'id',
+        'username',
+        'first_name',
+        'last_name',
+        'email',
+        'phone_number'
     ]
 
 class ClassEncoder(ModelEncoder):
@@ -27,5 +38,6 @@ class ClassEncoder(ModelEncoder):
     ]
     encoders = {
         'instructor': InstructorVOEncoder(),
+        'student': StudentVOEncoder(),
     }
 

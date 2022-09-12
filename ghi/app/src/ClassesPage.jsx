@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ClassColumn from './TestClassCard';
+import ClassCard from './ClassCard';
 
 
 class ClassesPage extends React.Component {
@@ -9,7 +9,6 @@ class ClassesPage extends React.Component {
         this.state = {
             classColumns: [[], [], [], []],
         };
-        
     
     }
     async componentDidMount() {
@@ -17,28 +16,16 @@ class ClassesPage extends React.Component {
         try {
             const response = await fetch(url);
             if (response.ok) {
-                // Get the list of conferences
                 const data = await response.json();
-        
-                // Create a list of for all the requests and
-                // add all of the requests to it
                 const requests = [];
                 for (let lesson of data.classes) {
                     const detailUrl = `http://localhost:8080/api/classes/${lesson.id}`;
                     requests.push(fetch(detailUrl));
                 }
-        
-                // Wait for all of the requests to finish
-                // simultaneously
+
                 const responses = await Promise.all(requests);
-        
-                // Set up the "columns" to put the conference
-                // information into
                 const classColumns = [[], [], [], []];
-        
-                // Loop over the conference detail responses and add
-                // each to to the proper "column" if the response is
-                // ok
+
                 let i = 0;
                 for (const classResponse of responses) {
                     if (classResponse.ok) {
@@ -52,15 +39,13 @@ class ClassesPage extends React.Component {
                         console.error(classResponse);
                     }
                 }
-                // Set the state to the new list of three lists of
-                // conferences
+
                 this.setState({classColumns: classColumns});
             }
         } catch (e) {
             console.error(e);
         }        
     }
-
     render() {
         return (
             <>
@@ -68,19 +53,14 @@ class ClassesPage extends React.Component {
                     <img className="bg-white rounded shadow d-block mx-auto mb-4" />
                     <h1 className="display-5 fw-bold">List of Classes</h1>
                     <div className="col-lg-6 mx-auto">
-                        {/* <p className="lead mb-4">
-                            The only resource you'll ever need to keep track of your shoes.
-                        </p>
-                        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                            <Link to="/new_shoes" className="btn btn-primary btn-lg px-4 gap-3">Store new shoes!</Link>
-                        </div> */}
+
                     </div>
                 </div>
                 <div className="container">
                     <div className="row">
                         {this.state.classColumns.map((classesList, index) => {
                             return (
-                                <ClassColumn key={index} list={classesList} />
+                                <ClassCard key={index} list={classesList} />
                             );
                         })}
                     </div>

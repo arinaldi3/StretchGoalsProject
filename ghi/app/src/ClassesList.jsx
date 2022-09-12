@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
+import Nav from './Nav';
 
-
-function ClassesList() {
+function ClassesList({ user }) {
     const [classes, setClasses] = useState([]);
 
     async function fetch_classes() {
@@ -17,6 +17,7 @@ function ClassesList() {
     
     return (
         <>
+        <Nav/>
         <h1>List of Classes</h1>
         <div className="table table-striped">
             <table>

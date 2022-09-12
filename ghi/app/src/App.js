@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
 import CreateStudent from './CreateStudent';
@@ -10,42 +10,47 @@ import StudentPortal from './StudentPortal';
 import InstructorPortal from './InstructorPortal';
 // import Login from './Login';
 import CreateClass from './CreateClass';
-import InstructorsListPage from './TestInstructorsPage';
-import ClassesPage from './TestClassesPage';
-import InstructorDetail from './TestInstructorDetail';
-import ClassDetail from './TestClassDetail';
+import Login from './Login';
+import { AuthProvider } from './Authentication';
+import { useState } from 'react';
+import InstructorsListPage from './InstructorsPage';
+import InstructorDetail from './InstructorDetail';
 
-function App() {
+
+function App(key) {
   return (
-    <BrowserRouter>
-      <Nav />
-    <div className="BackGround">
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/new" >
-            {/* <Route path="detail/:id" element={<InstructorDetail />} /> */}
-            <Route path="student" element={<CreateStudent/>}/>
-            <Route path="instructor" element={<CreateInstructor/>}/>
-            <Route path="class" element={<CreateClass/>}/>
-          </Route>
-          <Route path="/list">
-              <Route path="instructors" element={<InstructorsListPage />} />
-              <Route path="classes" element={<ClassesPage />} />
-              <Route path="instructor_detail/:id" element={<InstructorDetail />} />
-              <Route path="class_detail/:id" element={<ClassDetail />} />
-          </Route>
+    <>
+      <AuthProvider>
+        {/* <Nav/> */}
+        <div className="BackGround">
+          <div className="">
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/new" >
+                <Route path="student" element={<CreateStudent />} />
+                <Route path="instructor" element={<CreateInstructor />} />
+                <Route path="class" element={<CreateClass />} />
+              </Route>
+              <Route path="/list">
+                {/* <Route path="instructors" element={<InstructorsListPage />} />
+                <Route path="instructor_detail/:id" element={<InstructorDetail />} /> */}
+                <Route path="instructors" element={<InstructorList />} />
+                <Route path="classes" element={<ClassesList />} />
+              </Route>
+              <Route path="/portal">
+                <Route path="student" element={<StudentPortal />} />
+                <Route path="instructor" element={<InstructorPortal />} />
+              </Route>
+              <Route>
+                <Route path="/login" element={<Login />} />
+              </Route>
 
-          <Route path="/portal">
-            <Route path="student" element={<StudentPortal />}/>
-            <Route path="instructor" element={<InstructorPortal />}/>
-          </Route>
+            </Routes>
 
-          {/* <Route path='login' element={<Login/>}/> */}
-        </Routes>
-      </div>
-    </div>
-    </BrowserRouter>
+          </div>
+        </div>
+      </AuthProvider>
+    </>
   );
 }
 

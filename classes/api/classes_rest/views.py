@@ -2,8 +2,8 @@ from dis import Instruction
 import re
 from django.views.decorators.http import require_http_methods
 from django.http import JsonResponse
-from .models import InstructorVO, Class
-from .encoders import ClassEncoder, InstructorVOEncoder
+from .models import InstructorVO, Class, StudentVO
+from .encoders import ClassEncoder, InstructorVOEncoder, StudentVOEncoder
 import json
 from .acls import get_photo
 
@@ -25,6 +25,24 @@ def api_instructorVO(request):
         return JsonResponse(
             {'instructors': instructors},
             encoder=InstructorVOEncoder
+        )
+
+@require_http_methods('GET')
+def api_studentVO(request):
+    """
+    RESTful API for StudentVO object.
+
+    Get request returns a dict with key students that contains a
+    list of students and their properties.
+
+    This function exists so that I can call an api route in react and 
+    get a list of students without holding all their sensitive information.
+    """
+    if request.method == 'GET':
+        students = StudentVO.objects.all()
+        return JsonResponse(
+            {'instructors': students},
+            encoder=StudentVOEncoder
         )
 
 @require_http_methods(['GET', 'POST'])
@@ -84,8 +102,6 @@ def api_classes(request):
                 status=404,
             )
         try:
-            # photo = get_photo(content["profile_picture"])
-            # content.update(photo)
             lesson = Class.objects.create(**content)
             return JsonResponse(
                 lesson,
@@ -116,6 +132,7 @@ def api_class(request, pk):
         "end": end date/time of class
         "schedule": days of week class occurs
         "instructor": instructor teaching the class
+        "students": students in the class
     }
 
     PUT:
@@ -130,6 +147,7 @@ def api_class(request, pk):
         "end": end date/time of class
         "schedule": days of week class occurs
         "instructor": instructor teaching the class
+        "students": students in the class
     }
 
     DELETE:
@@ -165,16 +183,66 @@ def api_class(request, pk):
 
             props = [
                 "id",
-                "username",
-                "profile_picture",
-                "first_name",
-                "last_name",
-                "certification",
-                "demo",
+                "difficulty",
+                "class_size",
+                "class_name",
+                "start",
+                "end",
+                "schedule",
             ]
             for prop in props:
                 if prop in content:
                     setattr(lesson, prop, content[prop])
+            lesson.save()
+            return JsonResponse(
+                lesson,
+                encoder=ClassEncoder,
+                safe=False,
+            )
+        except lesson.DoesNotExist:
+            response = JsonResponse({"message": "Does not exist"})
+            response.status_code = 404
+            return response
+        
+
+@require_http_methods("PUT")
+def api_attend_class(request, pk):
+    """
+    Single-object API for the Class resource to allow students to signup for classes.
+
+    PUT:
+    Updates the information for an Class resource based
+    on the value of the pk
+    {
+        "id": database id for class
+        "difficulty": difficulty of class
+        "class_size": size/number of students in class
+        "class_name": name of class
+        "start": start date/time of class
+        "end": end date/time of class
+        "schedule": days of week class occurs
+        "instructor": instructor teaching the class
+        "students": students taking the class
+    }
+    I'll be taking the studentVO objects and linking them to classes throught the foreign key.
+
+    """
+    
+    if request.method == "PUT": # PUT
+        content = json.loads(request.body)
+        lesson = Class.objects.get(id=pk)
+
+        try:
+            stu_id = content['student']
+            student = StudentVO.objects.get(id=stu_id)
+            content['student'] = student
+            print(content)
+        except StudentVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "student not found"},
+                status=404,
+            )
+        try:
             lesson.save()
             return JsonResponse(
                 lesson,

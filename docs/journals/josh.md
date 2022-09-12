@@ -25,5 +25,26 @@ Today I also did a lot of bug fixing, and had to clean up some of the code in th
 ## 8/24:
 Today I started off by fixing some conflicts in git. One of our files specified under git ignore wasn't being ignored so I spent some time finding a way to remove it. It ended up being a pycache file and at some point we had pushed a change to the file before it was ignored so the git remote was looking for changes to that file every time. I also finished building most of the classes microservice and made sure that the poller works as well. This was a huge jump foward today. I'm content with the progress I made and will likely spend time today trying to do some discovery on authorization to help the front end team.
 
-## 8/25:
-Today I fixed some bugs for the classes microservice, and adjusted our poller. The issue ended up being a problem with the endpoint url but spent a couple hours just trying to find it.
+## 8/29:
+Today I fixed some bugs for the classes microservice, and adjusted our poller. The issue ended up being a problem with the endpoint url but spent a couple hours just trying to find it. To be specific, I fixed the encoders which were causing problems in the create view, and fixed a url in the poller. Also doing some more discovery on authentication/authorization. Content with today, lot of planning and talking in stand up today. Tomorrow I think we will all have a more fleshed out idea of our end goal given current timelines for our project.
+
+## 8/30:
+Today apart from yet again cleaning up some of the code, this time in accounts microservice, we as a group spent most of our time going through authentication. We had Zach and Cooper helping us today and it was pretty much a peer learning/developing environment. Really proud of Ava too, she was taking a lot of the intiative with authentication and I think she did an awesome job. After that process, we seem to have finally got the login working with the tokens, just need to do a little tinkering for the logout and we're good to go on authentication. We'll see how feasible implementing authorization/permissions after finishing this is. I imagine tomorrow we will talk more about deployment, which Alex has primarily been working on.
+
+## 8/31:
+Today we worked more on authorization/authentication. We've run into quite a few blockers today and I have some thoughts for what to try tomorrow but am a little worn out from trying different things without much success. I also discussed deployment options for a while with Alex as we are considering what to do since Heroku's free services will be not free starting November. Not feeling the best today but will see what I can do.
+
+## 9/1:
+Today I updated the React App to have a more global state for the user's username and passed that in as props for all the components requiring that information. I also implemented a filter on the student portal and passed the setUser function into the login page so that it stores the username to reference for our filter.
+
+## 9/6:
+We spent most of our time dealing with a blocker that we thought we fixed last week regarding holding current user state and updating the navbar after login. I also spent a portion of my time updating the class model so that it can be linked to students using a foreign key with the end goal being to let students sign up for classes.
+
+## 9/7:
+Today I spent 90% of my time resolving the aformentioned blocker and I finally managed to do it! I feel bittersweet because it took so many man hours but also I did it and I feel like a much more knowledgable person on authentication. I also figured out how to fix the navbar reloads and conditional statements in it so while there is a little more work to do, the front end side of things has a clear path foward. For tomorrow, I plan to implement a custom view function to sign students up for classes and I'll be good to go. I've also added to the data-models documentation and edited the models within the classes microservice today. Feeling good :)
+
+## 9/8:
+Today I helped figure out a way to refresh the navbar on the front end once the user logs in and indicate a way for certain navbar links to show when the user is a student or instructor. I also was in the process of creating and testing a custom view function for attending/signing up for the classes to use for a sign up page.
+
+## 9/9:
+Today I spent time helping resolve some git issues and the rest of my time trying to do more discovery for testing in django. I'd say that today was definitely a day where I feel like I didn't get as much done because of the git blocker and didn't write much code either because it was mostly discovery but I'm getting closer to figuring out how to do things.

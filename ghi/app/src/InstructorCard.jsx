@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import InstructorDetail from "./TestInstructorDetail";
+import InstructorDetail from "./InstructorDetail";
 
-function InstructorColumn(props) {
+function InstructorCard(props) {
     return (
         <div className="col">
             {props.list.map(data => {
@@ -22,8 +22,11 @@ function InstructorColumn(props) {
                                 {instructor.email}
                             </h6> */}
                         </div>
+                        {/* <div>
+                            <button>Attend This Class</button>
+                        </div> */}
                         <div className="card-footer">
-                        {instructor.email}
+                        <p>Click here for More Details</p>
                         </div>
                         </Link>
                     </div>
@@ -33,4 +36,4 @@ function InstructorColumn(props) {
     )
 }
 
-export default InstructorColumn;
+export default InstructorCard;

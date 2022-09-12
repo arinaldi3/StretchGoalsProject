@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import Nav from './Nav';
 
-function CreateClass( user ) {
+function CreateClass({ user }) {
     const [classes, setClasses] = useState({
         difficulty: '', 
         class_size: '',
@@ -56,6 +57,8 @@ function CreateClass( user ) {
         }
 
     return (
+        <>
+        <Nav/>
         <div className="row">
         <div className="offset-3 col-6">
         <div className="shadow p-4 mt-4" id="to-form">
@@ -81,11 +84,11 @@ function CreateClass( user ) {
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {classes.start}placeholder="Date, Time" required type="datetime-local" name="start" id="start" className="form-control" />
-                <label htmlFor="start">Start</label>
+                <label htmlFor="starts">Starts</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {classes.end}placeholder="Date, Time" required type="datetime-local" name="end" id="end" className="form-control" />
-                <label htmlFor="end">End</label>
+                <label htmlFor="ends">Ends</label>
             </div>
             {/* <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {classes.schedule}placeholder="Schedule" required type="text" name="schedule" id="schedule" className="form-control" />
@@ -106,6 +109,7 @@ function CreateClass( user ) {
         </div>
         </div>
     </div>
+    </>
     )
 }
 

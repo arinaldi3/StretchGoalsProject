@@ -14,7 +14,7 @@ from levels_rest.models import InstructorVO
 # Import models from sales_rest, here.
 # from sales_rest.models import Something
 def get_instructor():
-    response = requests.get("http://accounts-api:8000/api/accounts/")
+    response = requests.get("http://accounts-api:8000/api/instructors/")
     content = json.loads(response.content)
     for instructor in content["instructors"]:
         InstructorVO.objects.update_or_create(

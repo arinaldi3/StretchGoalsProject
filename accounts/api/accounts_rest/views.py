@@ -7,16 +7,9 @@ import djwto.authentication as auth
 from .encoders import InstructorListEncoder, InstructorCreateEncoder, InstructorDetailEncoder, StudentListEncoder, StudentDetailEncoder 
 import json
 from .acls import get_photo
+from django.contrib.auth import get_user_model
 
 @require_http_methods(["GET"])
-def api_user_token(request):
-    if "jwt_access_token" in request.COOKIES:
-        token = request.COOKIES["jwt_access_token"]
-        if token:
-            return JsonResponse({"token": token})
-    response = JsonResponse({"token": None})
-    return response
-
 def api_user_token(request):
     # print("request", request)
     if "jwt_access_token" in request.COOKIES:
@@ -26,6 +19,7 @@ def api_user_token(request):
             return JsonResponse({"token": token})
     response = JsonResponse({"token": None})
     return response
+
 
 @require_http_methods(["GET"])
 @auth.jwt_login_required
@@ -125,9 +119,13 @@ def api_instructors(request):
     else:
         try:
             content = json.loads(request.body)
+            print(content)
             photo = get_photo(content["profile_picture"])
             content.update(photo)
             instructor = Instructor.objects.create(**content)
+            User = get_user_model()
+            user = User.objects.create_user(content['username'], content['email'], content['password'])
+            user.save()
             return JsonResponse(
                 instructor,
                 encoder=InstructorCreateEncoder,
@@ -296,9 +294,13 @@ def api_students(request):
     else:
         try:
             content = json.loads(request.body)
+            print(content)
             photo = get_photo(content["profile_picture"])
             content.update(photo)
             student = Student.objects.create(**content)
+            User = get_user_model()
+            user = User.objects.create_user(content['username'], content['email'], content['password'])
+            user.save()
             return JsonResponse(
                 student,
                 encoder=StudentDetailEncoder,
