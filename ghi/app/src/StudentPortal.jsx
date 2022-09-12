@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
+import MyClassList from "./MyClassList";
 
 function StudentPortal() {
     const [students, setStudents] = useState([]);
@@ -62,6 +63,10 @@ function StudentPortal() {
                 </tbody>
             </table>
         </div>
+        <div>
+            <MyClassList />
+        </div>
+        
     </>
     );
 }
