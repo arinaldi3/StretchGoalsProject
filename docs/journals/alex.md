@@ -75,4 +75,12 @@ Attempted to get render working but it feels like heroku and discovered a servic
 Spent the rest of the day troubleshooting backend for nginx and getting the docker container to work on a seperate repo (which is why I can't push). It'll be nice to finally be able to push updates after a full week of struggling with deployment.  
 
 # September 2nd, 2022
-Tried Vercel, I'm surprised with how insanely easy it is to use. 
+Tried Vercel, I'm surprised with how insanely easy it is to use. Didn't have much time to do anything but prelim setup but was also troubleshooting auth on the backend.
+
+# September 6th, 2022
+Began preliminary configuration and got Vercel to have a live deployment (without the containers working properly)
+
+# September 7th, 2022
+After extensive research, found that Vercel is compatible with a live deployment without the use of docker and have been testing on a GitHub repo (to not conflict with the original one).
+
+# September 8th, 2022

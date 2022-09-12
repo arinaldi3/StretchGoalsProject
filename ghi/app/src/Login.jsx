@@ -5,8 +5,8 @@ function Login({ login, setUser }) {
     const navigate = useNavigate();
     // const [,login] = useToken();
     const [data, setData] = useState({
-        username: '',
-        password: '',
+        // username: '',
+        // password: '',
     });
 
 

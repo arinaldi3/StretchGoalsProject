@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "localhost",
-    "accounts-api"
+    "accounts-api",
+    "vercel.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
