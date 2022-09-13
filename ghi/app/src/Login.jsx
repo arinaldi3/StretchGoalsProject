@@ -7,14 +7,9 @@ function Login() {
     const navigate = useNavigate();
     const [,login] = useToken();
     const [data, setData] = useState({
-<<<<<<< HEAD
-        // username: '',
-        // password: '',
-=======
         username: '',
         password: '',
         error: '',
->>>>>>> 4103c34808e874c86ad11a7c16b07db68fc162fb
     });
 
 
