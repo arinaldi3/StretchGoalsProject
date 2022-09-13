@@ -84,3 +84,13 @@ Began preliminary configuration and got Vercel to have a live deployment (withou
 After extensive research, found that Vercel is compatible with a live deployment without the use of docker and have been testing on a GitHub repo (to not conflict with the original one).
 
 # September 8th, 2022
+I tried to help figure out a way to refresh the navbar on the front end after the user does a log in submission. I then hit a blocker with vercel because it did not like us using a group environment (our gitlab team) without paying. I had to try to deploy an independent repo but had issues with git and the transfer.
+
+# September 9th, 2022
+Spent the day helping fix a git issue and doing further deployment research. I've decided that if I can't deploy a semi-finished product today I will just do a recording of the project and call it a day. Deployment without heroku is a pain.
+
+# September 12th, 2022
+Spent most of the day reviewing the information in the practice exam and did not make significant progress on the project.I think I will switch gears and move to CSS and finishing making the project look nice. Started unit tests and will hopefully finish them tomorrow.
+
+# September 13th, 2022
+Worked through unit tests for the Student and Instructor models to see if they are properly being created. 
