@@ -46,8 +46,15 @@ function Login() {
                 <label htmlFor="password">Password</label>
             </div>
             <button className="btn btn-primary">Login <NavLink className='navbar-brand' to='/' /> </button>
+
+            <div>
+                Don't have an account?
+                <div><a href="/new/student" className="link-primary"> Sign up as a student here.</a></div>
+                <div><a href="/new/instructor" className="link-primary"> Sign up as an instructor here.</a></div>
+            </div>
             </form>
         </div>
+
         </div>
     </div>
     </>
