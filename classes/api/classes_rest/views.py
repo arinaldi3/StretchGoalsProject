@@ -41,7 +41,7 @@ def api_studentVO(request):
     if request.method == 'GET':
         students = StudentVO.objects.all()
         return JsonResponse(
-            {'instructors': students},
+            {'students': students},
             encoder=StudentVOEncoder
         )
 
@@ -84,7 +84,8 @@ def api_classes(request):
                 {"classes": classes},
                 encoder=ClassEncoder
             )
-        except:
+        except Exception as e:
+            print("This is the error", e)
             return JsonResponse(
                     {"message": "Class list is empty!"},
                     status=400,
@@ -95,14 +96,16 @@ def api_classes(request):
             inst_id = content['instructor']
             instructor = InstructorVO.objects.get(id=inst_id)
             content['instructor'] = instructor
-            print(content)
+            print("content view", content)
         except InstructorVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Instructor not found"},
                 status=404,
             )
         try:
+            print("content", content)
             lesson = Class.objects.create(**content)
+            print("class created!", lesson)
             return JsonResponse(
                 lesson,
                 encoder=ClassEncoder,
@@ -230,26 +233,34 @@ def api_attend_class(request, pk):
     
     if request.method == "PUT": # PUT
         content = json.loads(request.body)
-        lesson = Class.objects.get(id=pk)
+        
 
         try:
+            lesson = Class.objects.get(id=pk)
             stu_id = content['student']
             student = StudentVO.objects.get(id=stu_id)
+            lesson.students.add(student)
             content['student'] = student
             print(content)
-        except StudentVO.DoesNotExist:
-            return JsonResponse(
-                {"message": "student not found"},
-                status=404,
-            )
-        try:
             lesson.save()
             return JsonResponse(
                 lesson,
                 encoder=ClassEncoder,
                 safe=False,
             )
-        except lesson.DoesNotExist:
-            response = JsonResponse({"message": "Does not exist"})
-            response.status_code = 404
-            return response
+        except StudentVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "student not found"},
+                status=404,
+            )
+        # try:
+        #     lesson.save()
+        #     return JsonResponse(
+        #         lesson,
+        #         encoder=ClassEncoder,
+        #         safe=False,
+        #     )
+        # except lesson.DoesNotExist:
+        #     response = JsonResponse({"message": "Does not exist"})
+        #     response.status_code = 404
+        #     return response

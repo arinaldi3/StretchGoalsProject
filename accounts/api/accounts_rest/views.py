@@ -25,24 +25,10 @@ def api_user_token(request):
 @auth.jwt_login_required
 def api_current_user(request, username):
     print(request.payload)
-    if request.payload["student"]:
-        username = request.payload["user"]["username"]
-        user = Student.objects.get(username=username)
-        return JsonResponse(
-            {
-                "id": user.id,
-                "username": user.username,
-                "profile_picture": user.profile_picture,
-                "email": user.email,
-                "first_name": user.first_name,
-                "last_name": user.last_name,
-                "address": user.address,
-                "phone_number": user.phone_number,
-            })
-    else:
-        username = request.payload["instructor"]["username"]
-        user = Instructor.objects.get(username=username)
-        return JsonResponse(
+    # if request.payload["student"]:
+        # username = request.payload["user"]["username"]
+    user = Student.objects.get(username=username)
+    return JsonResponse(
         {
             "id": user.id,
             "username": user.username,
@@ -52,11 +38,25 @@ def api_current_user(request, username):
             "last_name": user.last_name,
             "address": user.address,
             "phone_number": user.phone_number,
-            "yoga_studio": user.yoga_studio,
-            "demo": user.demo,
-            "instagram": user.instagram,
-            "certification": user.certification
         })
+    # else:
+    #     username = request.payload["instructor"]["username"]
+    #     user = Instructor.objects.get(username=username)
+    #     return JsonResponse(
+    #     {
+    #         "id": user.id,
+    #         "username": user.username,
+    #         "profile_picture": user.profile_picture,
+    #         "email": user.email,
+    #         "first_name": user.first_name,
+    #         "last_name": user.last_name,
+    #         "address": user.address,
+    #         "phone_number": user.phone_number,
+    #         "yoga_studio": user.yoga_studio,
+    #         "demo": user.demo,
+    #         "instagram": user.instagram,
+    #         "certification": user.certification
+    #     })
 
 @require_http_methods(['GET', 'POST'])
 def api_instructors(request):

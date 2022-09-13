@@ -70,9 +70,14 @@ const isInstructor = (() => {
   for (const instructor of instructors) {
     if (instructor.username === item) {
       return(
-        <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/portal/instructor" >My profile</NavLink>
-        </li>
+        <>
+          <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="/portal/instructor" >My profile</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="/new/class">Create a Class</NavLink>
+          </li>
+        </>
       )
     } else {
       continue 
@@ -97,14 +102,13 @@ const isInstructor = (() => {
           <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/list/classes">List of Classes</NavLink>
           </li>
-          <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/new/class">Create a Class</NavLink>
-          </li>
+          
+          
+          {isStudent()}
+          {isInstructor()}
           <li>
             <button onClick={logout} className="btn btn-primary">Logout</button>
           </li>
-          {isStudent()}
-          {isInstructor()}
           </> 
           :
           <>
