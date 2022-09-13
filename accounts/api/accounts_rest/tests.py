@@ -9,16 +9,27 @@ from models import Student, Instructor
 
 class StudentTestCase(TestCase):
     def setUp(self):
-        Student.objects.create(username="username")
         Student.objects.create(username="username1")
+        Student.objects.create(username="username2")
 
     def test_username_gets_created(self):
 
-        student1 = Student.objects.get(name="username")
-        student2 = Student.objects.get(name="username1")
-        self.assertEqual(student1, "username")
-        self.assertEqual(student2, "username1")
+        student1 = Student.objects.get(name="username1")
+        student2 = Student.objects.get(name="username2")
+        self.assertEqual(student1, "username1")
+        self.assertEqual(student2, "username2")
 
+class InstructorTestCase(TestCase):
+    def setUp(self):
+        Instructor.objects.create(username="username3")
+        Instructor.objects.create(username="username4")
+
+    def test_username_gets_created(self):
+
+        instructor1 = Instructor.objects.get(name="username3")
+        instructor2 = Instructor.objects.get(name="username4")
+        self.assertEqual(instructor1, "username3")
+        self.assertEqual(instructor2, "username4")
 
 
 
