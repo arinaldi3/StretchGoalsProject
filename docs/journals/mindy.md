@@ -1,3 +1,8 @@
+## 9/13
+- Today Ava, Carlos, and I continued working on the MyClassList from yesterday. We thought we had it working before the end of the day; however, it turned out that only work for the student user we used and didn't work for a new student user we just created. We stayed until 7:30 and still couldn't make it work. We are for sure going to continue working on that tomorrow.
+- We planned to have a similar MyClassList for instructor users, where the instructor will be able to see a list of classes that he/she created inside the profile page. We discussed how to make it work, but we did not have enough time to complete it during our group project time. I spent some time working on it after class, and I am very pleased that the MyClassList for an instructor is working!
+- I also spent some time working on the InstructorProfile page and tried to change the table to a user profile page for a better user experience. The page is showing some tiny problems, plan to continue working on that tomorrow. 
+
 ## 9/12
 - Today we were working on adding attend button to each class on the classeslist page, and tried to add classes that the current user clicked on to the user's profile page. We had some problems with adding these classes to the profile page, and Zach came to help us with it. We did not finish this function by the end of the day as we not only need to implement the handleAttend function on the front-end but also need to change some stuff on the back-end such as changing Class models' student property from one-to-many relationship to many-to-many relationship. We are going to continue working on this tomorrow.
 
