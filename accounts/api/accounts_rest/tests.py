@@ -1,32 +1,91 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
+from django.test import Client
+import json
+import requests
 
 # Create your tests here.
 from unittest import TestCase
-from models import Student, Instructor
-# from recipes.templatetags.servings_mod import modify
+from .models import Student, Instructor
+
+def login(self):
+    url = 'http://localhost:8000/login/'
+
+    session = requests.Session()
+    session.verify = False
+
+    response = session.post(
+        url,
+        data={
+            "username": "test_username",
+            "password": "test_password",
+        }
+    )
+    response.json()
+    cookies = session.cookies.get_dict()
+    if response.ok:
+        url = 'http://localhost:8000/api/tokens/mine/'
+        token_response = session.get(
+            url,
+            cookies={
+                'jwt_access_token': cookies['jwt_access_payload']
+                },
+        )
+        if token_response:
+            token = token_response.json()
+            return token.get('token')
 
 
 
 class StudentTestCase(TestCase):
     def setUp(self):
-        Student.objects.create(username="username")
         Student.objects.create(username="username1")
+        Student.objects.create(username="username2")
 
     def test_username_gets_created(self):
 
-        student1 = Student.objects.get(name="username")
-        student2 = Student.objects.get(name="username1")
-        self.assertEqual(student1, "username")
-        self.assertEqual(student2, "username1")
+        student1 = Student.objects.get(name="username1")
+        student2 = Student.objects.get(name="username2")
+        self.assertEqual(student1, "username1")
+        self.assertEqual(student2, "username2")
+
+class InstructorTestCase(TestCase):
+    def setUp(self):
+        Instructor.objects.create(username="username3")
+        Instructor.objects.create(username="username4")
+
+    def test_username_gets_created(self):
+
+        instructor1 = Instructor.objects.get(name="username3")
+        instructor2 = Instructor.objects.get(name="username4")
+        self.assertEqual(instructor1, "username3")
+        self.assertEqual(instructor2, "username4")
 
 
+def create_instructor_account_token(self):
+    url = 'http://localhost:8000/api/instructors'
+    session = requests.Session()
+    session.verify = False
 
+    response = session.post(
+        url,
+        body={
+        "id": "test_id",
+        "username": "test_username",
+        "profile_picture": "test_profile_picture",
+        "password": "test_password",
+        "email": "test_email",
+        "first_name": "test_first_name",
+        "last_name": "test_last_name",
+        "address": "test_address",
+        "phone_number": "test_phone_number",
+        "certification": "test_certification",
+        "yoga_studio": "test_yoga_studio",
+        "demo": "test_demo",
+        "instagram": "test_instagram",
+        }
+    )
 
-# class ProblemTests(TestCase):
-#     def test_returns_min_value_if_first_parameter(self):
-#         value = minimum_value(1, 3)
-#         self.assertEqual(1, value)
-
-#     def test_returns_min_value_if_second_parameter(self):
-#         value = minimum_value(3, 2)
-#         self.assertEqual(2, value)
+    if response.ok:
+        token = login(self)
+        return token

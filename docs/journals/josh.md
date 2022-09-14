@@ -48,3 +48,9 @@ Today I helped figure out a way to refresh the navbar on the front end once the 
 
 ## 9/9:
 Today I spent time helping resolve some git issues and the rest of my time trying to do more discovery for testing in django. I'd say that today was definitely a day where I feel like I didn't get as much done because of the git blocker and didn't write much code either because it was mostly discovery but I'm getting closer to figuring out how to do things.
+
+## 9/12:
+Today I spent more time doing discovery for testing, and also helped clarify some things for the attendance functionality in the front end. Tomorrow I should begin writing some more tests for token authentication.
+
+## 9/13:
+Today I wrote some tests to test token authentication in the morning as well as give some input for getting the current user in the backend. Zach was helping out a lot on the latter. I still think my understanding of tests is a bit hazy but it's improving.
