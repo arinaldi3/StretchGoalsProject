@@ -96,12 +96,9 @@ export function useToken() {
     });
     const tokens = await response.json()
     console.log(tokens)
-    console.log(response)
-    console.log(form)
 
     if (response.ok) {
       const token = await getTokenInternal();
-      console.log(token)
       setToken(token);
       window.localStorage.setItem('key', JSON.stringify(username))
       window.localStorage.setItem('token', JSON.stringify(token))

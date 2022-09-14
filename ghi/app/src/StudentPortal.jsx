@@ -5,7 +5,7 @@ import MyClassList from "./StudentClassList";
 function StudentPortal() {
     const [students, setStudents] = useState([]);
 
-    async function fetch_student_user() {
+    async function fetchStudentUser() {
         let classData = await fetch(`http://localhost:8100/api/students/`);
         let data = await classData.json();
         setStudents(data.students);
@@ -21,14 +21,12 @@ function StudentPortal() {
     }, []); 
 
     useEffect(() => {
-        fetch_student_user();
+        fetchStudentUser();
     }, []);
 
     const studentFilter = (student) => {
         return student.username === items;
     }
-
-
 
     return (
         <>
@@ -43,10 +41,8 @@ function StudentPortal() {
                         <th>Username</th>
                         <th>Email</th>
                         <th>Phone Number</th>
-                        {/* <th>Classes I'm Signed up For</th> */}
                     </tr>
                 </thead>
-
                 <tbody>
                 {students.filter(studentFilter).map(student => {
                     return (
@@ -59,14 +55,12 @@ function StudentPortal() {
                         </tr>
                     );
                 })}
-
                 </tbody>
             </table>
         </div>
         <div>
             <MyClassList />
         </div>
-        
     </>
     );
 }

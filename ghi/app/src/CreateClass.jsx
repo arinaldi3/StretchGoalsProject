@@ -9,7 +9,6 @@ function CreateClass({ user }) {
         class_name: '',
         start: '',
         end: '', 
-        // schedule: '',
         instructor: '',
     })
     const [instructors, setInstructors] = useState([])
@@ -44,7 +43,6 @@ function CreateClass({ user }) {
                 class_name: '',
                 start: '',
                 end: '', 
-                // schedule: '',
                 instructor: '',
             })
         }
@@ -71,9 +69,7 @@ function CreateClass({ user }) {
                     <option value="Easy">Easy</option>
                     <option value="Medium">Medium</option>
                     <option value="Hard">Hard</option>
-                {/* <input onChange={handleChange} value = {state.difficulty}placeholder="Difficulty" required type="text" name="difficulty" id="difficulty" className="form-control" />
-                <label htmlFor="difficulty" >Difficulty</label> */}
-                </select>
+            </select>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {classes.class_size}placeholder="Class Size" required type="number" name="class_size" id="class_size" className="form-control" />
@@ -91,10 +87,6 @@ function CreateClass({ user }) {
                 <input onChange={handleChange} value = {classes.end}placeholder="Date, Time" required type="datetime-local" name="end" id="end" className="form-control" />
                 <label htmlFor="ends">Ends</label>
             </div>
-            {/* <div className="form-floating mb-3">
-                <input onChange={handleChange} value = {classes.schedule}placeholder="Schedule" required type="text" name="schedule" id="schedule" className="form-control" />
-                <label htmlFor="schedule">Schedule</label>
-            </div> */}
             <div className="mb-3">
                 <select onChange={handleChange} value = {classes.instructor} required name="instructor" id="instructor" className="form-select">
                 <option value="">Choose an Instructor</option>

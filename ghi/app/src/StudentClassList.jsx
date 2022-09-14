@@ -5,14 +5,11 @@ import { useToken } from "./Authentication";
 
 function MyClassList({ user }) {
     const [classes, setClasses] = useState([]);
-    // const currentUser = window.localStorage.getItem('key')
-    // const updatedUser = currentUser.split('"').join('')
-    
     const [studentData, setStudentData] = useState(null);
     console.log(studentData)
     const [token] = useToken();
 
-    async function fetch_classes() {
+    async function fetchClasses() {
         
         let classData = await fetch("http://localhost:8080/api/classes/");
         let {classes} = await classData.json();
@@ -38,7 +35,7 @@ function MyClassList({ user }) {
         console.log(classes)
     }
 
-    async function fetch_studentInfo() {
+    async function fetchStudentInfo() {
         let username = localStorage.getItem('key');
         username = username.replaceAll('"', '');
         let userData = await fetch(`http://localhost:8100/api/account/${username}/`, {credentials: "include",
@@ -54,16 +51,13 @@ function MyClassList({ user }) {
     }
 
     useEffect(() => {
-
-        fetch_studentInfo();
-
+        fetchStudentInfo();
     }, []);
 
     useEffect(() => {
         if (studentData !== null) {
-            fetch_classes();
+            fetchClasses();
         } 
-        
     }, [studentData])
 
     const handleAttend = async (cData) => {
@@ -77,8 +71,6 @@ function MyClassList({ user }) {
         }
         const attendClassUrl = `http://localhost:8080/api/classes/${cData.id}/attend/`
         const res = await fetch(attendClassUrl, fetchConfig)
-    
-
     };
 
     

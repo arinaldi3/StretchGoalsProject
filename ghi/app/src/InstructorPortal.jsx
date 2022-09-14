@@ -11,7 +11,7 @@ function InstructorPortal() {
   const [classes, setClasses] = useState([]);
 
 
-  async function fetch_instructor_user() {
+  async function fetchInstructorUser() {
     let instructorData = await fetch(`http://localhost:8100/api/instructors/`);
     let data = await instructorData.json();
     setInstructors(data.instructors);
@@ -34,7 +34,7 @@ function InstructorPortal() {
   }, []);
 
   useEffect(() => {
-    fetch_instructor_user();
+    fetchInstructorUser();
   }, []);
 
   const InstructorFilter = (instructor) => {

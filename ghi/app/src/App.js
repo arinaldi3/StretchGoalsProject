@@ -8,20 +8,15 @@ import InstructorList from './InstructorsList'
 import ClassesList from './ClassesList';
 import StudentPortal from './StudentPortal';
 import InstructorPortal from './InstructorPortal';
-// import Login from './Login';
 import CreateClass from './CreateClass';
 import Login from './Login';
 import { AuthProvider } from './Authentication';
-import { useState } from 'react';
-import InstructorsListPage from './InstructorsPage';
-import InstructorDetail from './InstructorDetail';
 
 
 function App(key) {
   return (
     <>
       <AuthProvider>
-        {/* <Nav/> */}
         <div className="BackGround">
           <div className="">
             <Routes>
@@ -32,8 +27,6 @@ function App(key) {
                 <Route path="class" element={<CreateClass />} />
               </Route>
               <Route path="/list">
-                {/* <Route path="instructors" element={<InstructorsListPage />} />
-                <Route path="instructor_detail/:id" element={<InstructorDetail />} /> */}
                 <Route path="instructors" element={<InstructorList />} />
                 <Route path="classes" element={<ClassesList />} />
               </Route>
@@ -44,9 +37,7 @@ function App(key) {
               <Route>
                 <Route path="/login" element={<Login />} />
               </Route>
-
             </Routes>
-
           </div>
         </div>
       </AuthProvider>

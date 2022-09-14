@@ -9,13 +9,13 @@ function ClassesList({ user }) {
     const [studentData, setStudentData] = useState([]);
     const [token] = useToken();
 
-    async function fetch_classes() {
+    async function fetchClasses() {
         let classData = await fetch("http://localhost:8080/api/classes/");
         let {classes} = await classData.json();
         setClasses(classes);
     }
 
-    async function fetch_studentInfo() {
+    async function fetchStudentInfo() {
         let username = localStorage.getItem('key');
         username = username.replaceAll('"', '');
         let userData = await fetch(`http://localhost:8100/api/account/${username}/`, {credentials: "include",
@@ -29,8 +29,8 @@ function ClassesList({ user }) {
     }
 
     useEffect(() => {
-        fetch_classes();
-        fetch_studentInfo();
+        fetchClasses();
+        fetchStudentInfo();
     }, []);
 
     const handleAttend = async (cData) => {
@@ -45,10 +45,7 @@ function ClassesList({ user }) {
         }
         const attendClassUrl = `http://localhost:8080/api/classes/${cData.id}/attend/`
         const res = await fetch(attendClassUrl, fetchConfig)
-    
-
     };
-
     
     return (
         <>

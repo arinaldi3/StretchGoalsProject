@@ -10,13 +10,13 @@ function Nav() {
 
   const { token } = useAuthContext(); 
   
-  async function fetch_student_user() {
+  async function fetchStudentUser() {
     let classData = await fetch(`http://localhost:8100/api/students/`);
     let data = await classData.json();
     setStudents(data.students);
 }
 
-  async function fetch_instructor_user() {
+  async function fetchInstructorUser() {
     let instructorData = await fetch('http://localhost:8100/api/instructors/');
     let theData = await instructorData.json();
     setInstructors(theData.instructors);
@@ -26,9 +26,8 @@ useEffect(() => {
     const item = JSON.parse(localStorage.getItem('key'));
     if (item) {
     setItem(item);
-    fetch_instructor_user();
-    fetch_student_user();
-    // console.log(item)
+    fetchInstructorUser();
+    fetchStudentUser();
     }
    }, []); 
 
@@ -104,9 +103,7 @@ const isInstructor = (() => {
           <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/list/instructors">Meet the Instructors</Link>
           </li>
-          
-          
-          
+
           {isStudent()}
           {isInstructor()}
           <li>
