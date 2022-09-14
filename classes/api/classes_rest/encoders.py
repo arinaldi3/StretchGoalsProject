@@ -2,6 +2,7 @@ from common.json import ModelEncoder
 from .models import Class, InstructorVO, StudentVO
 
 class InstructorVOEncoder(ModelEncoder):
+    print("InstructorVO!!!")
     model = InstructorVO
     properties = [
         "id",
@@ -12,6 +13,7 @@ class InstructorVOEncoder(ModelEncoder):
     ]
 
 class StudentVOEncoder(ModelEncoder):
+    print("StudentVO!!!")
     model = StudentVO
     properties = [
         'id',
@@ -32,9 +34,11 @@ class ClassEncoder(ModelEncoder):
         "start",
         "end",
         "schedule",
+        "students",
+        "instructor",
     ]
     encoders = {
         'instructor': InstructorVOEncoder(),
-        'student': StudentVOEncoder(),
+        'students': StudentVOEncoder(),
     }
 

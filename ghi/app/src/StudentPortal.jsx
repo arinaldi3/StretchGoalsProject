@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
-import MyClassList from "./MyClassList";
+import MyClassList from "./StudentClassList";
 
 function StudentPortal() {
     const [students, setStudents] = useState([]);

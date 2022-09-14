@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
 
+
 function CreateClass({ user }) {
     const [classes, setClasses] = useState({
         difficulty: '', 
@@ -12,7 +13,7 @@ function CreateClass({ user }) {
         instructor: '',
     })
     const [instructors, setInstructors] = useState([])
-
+    
     const fetchInstructors = async () => {
         const instructorUrl = 'http://localhost:8100/api/instructors/'
         const instructorResponse = await fetch(instructorUrl)

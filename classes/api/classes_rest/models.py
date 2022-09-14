@@ -7,9 +7,26 @@ class InstructorVO(models.Model):
     yoga_studio = models.CharField(max_length=50)
     demo = models.URLField()
     profile_picture = models.CharField(max_length=300)
+    
     def __str__(self):
         return self.username
 
+class StudentVO(models.Model):
+    username = models.CharField(max_length=50, unique=True)
+    email = models.EmailField(unique=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=50, unique=True)
+    # _class = models.ForeignKey(
+    #     Class,
+    #     related_name='lesson',
+    #     on_delete=models.PROTECT,
+    #     null=True, blank=True
+    # )
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+    
 
 class Class(models.Model):
     difficulty = models.CharField(max_length=30)
@@ -24,21 +41,9 @@ class Class(models.Model):
         on_delete=models.PROTECT, 
         null=True, blank=True
         )
+    students = models.ManyToManyField(StudentVO)
     
-class StudentVO(models.Model):
-    username = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(unique=True)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=50, unique=True)
-    _class = models.ForeignKey(
-        Class,
-        related_name='lesson',
-        on_delete=models.PROTECT,
-        null=True, blank=True
-    )
 
-    def __str__(self):
-        return f'{self.first_name} {self.last_name}'
-    
+
+
 

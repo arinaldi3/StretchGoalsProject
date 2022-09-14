@@ -3,8 +3,10 @@ import React from 'react';
 import { useAuthContext } from "./Authentication";
 import Nav from './Nav';
 
+
 function MainPage() {
     const { token } = useAuthContext();
+    
 
     
 return (

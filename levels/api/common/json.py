@@ -25,11 +25,13 @@ class DecimalEncoder(JSONEncoder):
             return str(o)
         return super(DecimalEncoder, self).default(o)
 
-class ModelEncoder(DateEncoder, QuerySetEncoder, DecimalEncoder, JSONEncoder) :
+class ModelEncoder(DateEncoder, QuerySetEncoder, JSONEncoder):
     encoders = {}
 
     def default(self, o):
+        print("Entered model encoder")
         if isinstance(o, self.model):
+            print("ModelEncoder")
             d = {}
             if hasattr(o, "get_api_url"):
                 try:
@@ -37,15 +39,20 @@ class ModelEncoder(DateEncoder, QuerySetEncoder, DecimalEncoder, JSONEncoder) :
                 except NoReverseMatch:
                     pass
             for property in self.properties:
+                print("This is property info!!!",property)
+                encoder = self.encoders.get(property)
+                
                 value = getattr(o, property)
-                if property in self.encoders:
-                    encoder = self.encoders[property]
+                if hasattr(value, "all") and callable(value.all):
+                    value = map(
+                        encoder.default if encoder else lambda x: x,
+                        list(value.all()),
+                    )
+                    value = list(value)
+                elif encoder:
                     value = encoder.default(value)
                 d[property] = value
             d.update(self.get_extra_data(o))
             return d
         else:
             return super().default(o)
-
-    def get_extra_data(self, o):
-        return {}

@@ -3,16 +3,39 @@ import Nav from './Nav';
 import ClassListItem from "./ClassListItem";
 import { useToken } from "./Authentication";
 
-
-function ClassesList({ user }) {
+function MyClassList({ user }) {
     const [classes, setClasses] = useState([]);
-    const [studentData, setStudentData] = useState([]);
+    // const currentUser = window.localStorage.getItem('key')
+    // const updatedUser = currentUser.split('"').join('')
+    
+    const [studentData, setStudentData] = useState(null);
+    console.log(studentData)
     const [token] = useToken();
 
     async function fetch_classes() {
+        
         let classData = await fetch("http://localhost:8080/api/classes/");
         let {classes} = await classData.json();
-        setClasses(classes);
+        
+        let filteredClasses = classes.filter(lesson => {
+            let owns = false;
+            if (lesson.students.length > 0) {
+                lesson.students.every(student => {
+                    owns = (student.id === studentData.id)
+                    console.log(owns)
+                    if (owns) {
+                        return false;
+                    }
+                    return true;
+                })
+                console.log(owns)
+                return owns;
+            }
+            return owns;
+        });
+        setClasses(filteredClasses)
+        
+        console.log(classes)
     }
 
     async function fetch_studentInfo() {
@@ -26,16 +49,25 @@ function ClassesList({ user }) {
         let student = await userData.json();
         console.log(student)
         setStudentData(student);
+        console.log(student)
+        
     }
 
     useEffect(() => {
-        fetch_classes();
+
         fetch_studentInfo();
+
     }, []);
 
+    useEffect(() => {
+        if (studentData !== null) {
+            fetch_classes();
+        } 
+        
+    }, [studentData])
+
     const handleAttend = async (cData) => {
-        cData = {...cData, student:studentData.id}
-    
+        cData = {...cData, student:studentData.username}
         const fetchConfig = {
             method: 'PUT',
             body: JSON.stringify(cData),
@@ -52,8 +84,7 @@ function ClassesList({ user }) {
     
     return (
         <>
-        <Nav/>
-        <h1>List of Classes</h1>
+        <h3>My Class List</h3>
         <div className="table table-striped">
             <table>
                 <thead>
@@ -64,30 +95,12 @@ function ClassesList({ user }) {
                         <th>Starts</th>
                         <th>Ends</th>
                         <th>Instructor</th>
-                        <th>Interested?</th>
                     </tr>
                 </thead>
                 <tbody>
                 {classes.map((lesson) => {
-                    console.log(lesson)
-                    let owns = false;
-                    if (lesson.students.length > 0) {
-                        lesson.students.every(student => {
-                            console.log(student.id, studentData.id)
-                            owns = (student.id === studentData.id)
-                            if (owns) {
-                                return false;
-                            }
-                            return true;
-                        })
-                    }
-                    if (owns) {
-                        return (
-                            <ClassListItem hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
-                        );
-                    }
                     return (
-                        <ClassListItem lesson={lesson} handleAttend={handleAttend}/>
+                        <ClassListItem hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
                     );
                 })}
                 </tbody>
@@ -98,5 +111,5 @@ function ClassesList({ user }) {
 }
 
 
-export default ClassesList;
+export default MyClassList;
 
