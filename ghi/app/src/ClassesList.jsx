@@ -55,12 +55,12 @@ function ClassesList({ user }) {
             <table>
                 <thead>
                     <tr>
-                        <th>Difficulty</th>
-                        <th>Class Size</th>
                         <th>Class Name</th>
+                        <th>Class Size</th>
+                        <th>Difficulty</th>
+                        <th>Instructor</th>
                         <th>Starts</th>
                         <th>Ends</th>
-                        <th>Instructor</th>
                         <th>Interested?</th>
                     </tr>
                 </thead>

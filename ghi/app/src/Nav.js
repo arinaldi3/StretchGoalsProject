@@ -57,7 +57,7 @@ const isStudent = (() => {
       return(
         <>
           <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/portal/student" >My profile</NavLink>
+            <NavLink className="nav-link" aria-current="page" to="/portal/student" >My Profile</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/list/classes">List of Classes</NavLink>

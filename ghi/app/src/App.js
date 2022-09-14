@@ -11,6 +11,8 @@ import InstructorPortal from './InstructorPortal';
 import CreateClass from './CreateClass';
 import Login from './Login';
 import { AuthProvider } from './Authentication';
+import InstructorDetailPage from './InstructorDetailProfile';
+import InstructorDetail from './InstructorDetail';
 
 
 function App(key) {
@@ -28,6 +30,7 @@ function App(key) {
               </Route>
               <Route path="/list">
                 <Route path="instructors" element={<InstructorList />} />
+                <Route path="instructor" element={<InstructorDetailPage />} />
                 <Route path="classes" element={<ClassesList />} />
               </Route>
               <Route path="/portal">
