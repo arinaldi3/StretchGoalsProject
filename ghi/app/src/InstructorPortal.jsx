@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
+import InstructorClassList from "./InstructorClassList";
+import InstructorClasses from "./TestInstructorClassList";
 
 
 // deleted curly brackets user in parameter
 function InstructorPortal() {
   const [instructors, setInstructors] = useState([]);
+  // added for testing
+  const [classes, setClasses] = useState([]);
+
 
   async function fetch_instructor_user() {
     let instructorData = await fetch(`http://localhost:8100/api/instructors/`);
     let data = await instructorData.json();
     setInstructors(data.instructors);
+    // added for testing
+    let classData = await fetch("http://localhost:8080/api/classes/");
+    let {classes} = await classData.json();
+    setClasses(classes);
+    console.log(classes)
   }
+  
 
   const [items, setItems] = useState([]);
 
@@ -18,6 +29,7 @@ function InstructorPortal() {
     const items = JSON.parse(localStorage.getItem("key"));
     if (items) {
       setItems(items);
+      console.log(items)
     }
   }, []);
 
@@ -72,6 +84,7 @@ function InstructorPortal() {
           </tbody>
         </table>
       </div>
+      <InstructorClasses classes={classes} items={items}/>       
     </>
   );
 }

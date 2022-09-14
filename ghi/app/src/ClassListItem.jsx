@@ -14,7 +14,7 @@ function ClassListItem ({lesson, handleAttend, hideButton}) {
             <td>{lesson.class_name}</td>
             <td>{new Date(lesson.start).toLocaleString()}</td>
             <td>{new Date(lesson.end).toLocaleString()}</td>
-            {/* <td>{lesson.instructor}</td> */}
+            <td>{lesson.instructor.username}</td>
             {active ? '': <td><button onClick = {handleClick}>Attend This Class</button></td>}
             
         </tr>

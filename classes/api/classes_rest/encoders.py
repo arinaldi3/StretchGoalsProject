@@ -35,9 +35,10 @@ class ClassEncoder(ModelEncoder):
         "end",
         "schedule",
         "students",
+        "instructor",
     ]
     encoders = {
-        # 'instructor': InstructorVOEncoder(),
+        'instructor': InstructorVOEncoder(),
         'students': StudentVOEncoder(),
     }
 
