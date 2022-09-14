@@ -51,4 +51,4 @@ Today's journals are combined because we had a lot of commit / reverting issues 
 Today, Carlos, Mindy, and I got to work on the attend button. It was a lot more complicated than we anticipated, and we had to change some of the models on the backend to have many-to-many relationships. We needed a many-to-many relationship so one specific class could have many students, so one class object can have a student field that represents a list of students, and students have a field called class that references a list of classes. We almost have that figured out with Zach's help and we'll continue to fix that tomorrow.
 
 # Sept 14, 2022
-We kept working today on that issue yesterday, and we finally figured it out.
+We kept working today on that issue yesterday, and we are very close to figuring it out. Tomorrow hopefully we will finish in the morning and get started writing unit tests on the front end. 
