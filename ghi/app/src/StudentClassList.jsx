@@ -5,18 +5,23 @@ import { useToken } from "./Authentication";
 
 function MyClassList({ user }) {
     const [classes, setClasses] = useState([]);
-    const [studentData, setStudentData] = useState({id:1});
+    const currentUser = window.localStorage.getItem('key')
+    const updatedUser = currentUser.split('"').join('')
+    
+    const [studentData, setStudentData] = useState({username: updatedUser});
+    console.log(studentData)
     const [token] = useToken();
 
     async function fetch_classes() {
         
         let classData = await fetch("http://localhost:8080/api/classes/");
         let {classes} = await classData.json();
+        
         let filteredClasses = classes.filter(lesson => {
             if (lesson.students.length > 0) {
                 let owns = false;
                 lesson.students.forEach(student => {
-                    owns = (student.id === studentData.id)
+                    owns = (student.username == studentData.username)
                     if (owns) {
                         return owns;
                     }
@@ -53,7 +58,7 @@ function MyClassList({ user }) {
     }, []);
 
     const handleAttend = async (cData) => {
-        cData = {...cData, student:studentData.id}
+        cData = {...cData, student:studentData.username}
         const fetchConfig = {
             method: 'PUT',
             body: JSON.stringify(cData),
