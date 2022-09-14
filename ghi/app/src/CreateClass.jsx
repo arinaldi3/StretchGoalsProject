@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Nav from './Nav';
+import { useNavigate, NavLink } from 'react-router-dom';
 
 
 function CreateClass({ user }) {
@@ -12,7 +13,7 @@ function CreateClass({ user }) {
         instructor: '',
     })
     const [instructors, setInstructors] = useState([])
-    
+    const navigate = useNavigate();
     const fetchInstructors = async () => {
         const instructorUrl = 'http://localhost:8100/api/instructors/'
         const instructorResponse = await fetch(instructorUrl)
@@ -46,6 +47,7 @@ function CreateClass({ user }) {
                 instructor: '',
             })
         }
+        navigate('/portal/instructor')
     }
         const handleChange = event => {
             const value = event.target.value;
