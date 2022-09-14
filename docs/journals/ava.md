@@ -47,8 +47,11 @@ Today, we finally fixed our big blocker! The NavBar wasn't changing when a user 
 # Sept 8 & 9, 2022
 Today's journals are combined because we had a lot of commit / reverting issues and some things got lost in the mix. Josh helped us fix that. Overall, the last two days have ben spent debugging and getting auth figured out. We discovered yesterday that one of our functions was in fact not working, so we spent the day figuring that out.We have had a lot of debugging and catching up to do, so we are a little behind. Now, everything is back functioning the way we want and we will spend next week getting started ont he "Attend a class" functionality, that Josh created a view for, on the front end.
 
-# Sept 13, 2022
+# Sept 12, 2022
 Today, Carlos, Mindy, and I got to work on the attend button. It was a lot more complicated than we anticipated, and we had to change some of the models on the backend to have many-to-many relationships. We needed a many-to-many relationship so one specific class could have many students, so one class object can have a student field that represents a list of students, and students have a field called class that references a list of classes. We almost have that figured out with Zach's help and we'll continue to fix that tomorrow.
 
-# Sept 14, 2022
+# Sept 13, 2022
 We kept working today on that issue yesterday, and we are very close to figuring it out. Tomorrow hopefully we will finish in the morning and get started writing unit tests on the front end. 
+
+# Sept 14, 2022
+Victory! Everything is finally functioning the way we want it to. Such a relief! It's been crunch time this week, so it's nice to be able to go into tomorrow only needing to make minor design changes. Dalonte helped us get started writing front-end unit tests, and once we got the hang of it we were able to write a couple simple ones out and start to get the hang of it. Tomorrow we'll write a few more on the frontend and wrap up the project.
