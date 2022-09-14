@@ -85,7 +85,7 @@ function MyClassList({ user }) {
                         <th>Class Name</th>
                         <th>Starts</th>
                         <th>Ends</th>
-                        {/* <th>Instructor</th> */}
+                        <th>Instructor</th>
                     </tr>
                 </thead>
                 <tbody>
