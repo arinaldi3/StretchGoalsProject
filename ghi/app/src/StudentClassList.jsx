@@ -5,10 +5,10 @@ import { useToken } from "./Authentication";
 
 function MyClassList({ user }) {
     const [classes, setClasses] = useState([]);
-    const currentUser = window.localStorage.getItem('key')
-    const updatedUser = currentUser.split('"').join('')
+    // const currentUser = window.localStorage.getItem('key')
+    // const updatedUser = currentUser.split('"').join('')
     
-    const [studentData, setStudentData] = useState({username: updatedUser});
+    const [studentData, setStudentData] = useState(null);
     console.log(studentData)
     const [token] = useToken();
 
@@ -18,17 +18,20 @@ function MyClassList({ user }) {
         let {classes} = await classData.json();
         
         let filteredClasses = classes.filter(lesson => {
+            let owns = false;
             if (lesson.students.length > 0) {
-                let owns = false;
-                lesson.students.forEach(student => {
-                    owns = (student.username == studentData.username)
+                lesson.students.every(student => {
+                    owns = (student.id === studentData.id)
+                    console.log(owns)
                     if (owns) {
-                        return owns;
+                        return false;
                     }
+                    return true;
                 })
+                console.log(owns)
                 return owns;
             }
-            return false;
+            return owns;
         });
         setClasses(filteredClasses)
         
@@ -53,9 +56,15 @@ function MyClassList({ user }) {
     useEffect(() => {
 
         fetch_studentInfo();
-        fetch_classes();
-        
+
     }, []);
+
+    useEffect(() => {
+        if (studentData !== null) {
+            fetch_classes();
+        } 
+        
+    }, [studentData])
 
     const handleAttend = async (cData) => {
         cData = {...cData, student:studentData.username}

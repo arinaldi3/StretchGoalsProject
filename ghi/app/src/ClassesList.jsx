@@ -69,16 +69,16 @@ function ClassesList({ user }) {
                 </thead>
                 <tbody>
                 {classes.map((lesson) => {
+                    console.log(lesson)
                     let owns = false;
                     if (lesson.students.length > 0) {
-                        lesson.students.forEach(student => {
+                        lesson.students.every(student => {
+                            console.log(student.id, studentData.id)
                             owns = (student.id === studentData.id)
                             if (owns) {
-                                return;
-                                {/* return (
-                                    <ClassListItem lesson={lesson} handleAttend={handleAttend}/>
-                                ); */}
+                                return false;
                             }
+                            return true;
                         })
                     }
                     if (owns) {

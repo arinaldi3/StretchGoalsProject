@@ -56,9 +56,14 @@ const isStudent = (() => {
     if (student.username === item) {
 
       return(
-        <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/portal/student" >My profile</NavLink>
-        </li>
+        <>
+          <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="/portal/student" >My profile</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="/list/classes">List of Classes</NavLink>
+          </li>
+        </>  
       )
     } else {
       continue 
@@ -99,9 +104,7 @@ const isInstructor = (() => {
           <li className="nav-item">
               <Link className="nav-link" aria-current="page" to="/list/instructors">Meet the Instructors</Link>
           </li>
-          <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/list/classes">List of Classes</NavLink>
-          </li>
+          
           
           
           {isStudent()}

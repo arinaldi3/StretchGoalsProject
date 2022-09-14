@@ -7,6 +7,7 @@ function ClassListItem ({lesson, handleAttend, hideButton}) {
         setActive(true);
         handleAttend(lesson)
     }
+    useState(() => {setActive(hideButton)}, [hideButton])
     return (
         <tr key={lesson.id}>
             <td>{lesson.difficulty}</td>
