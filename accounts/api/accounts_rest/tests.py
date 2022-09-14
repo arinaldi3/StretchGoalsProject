@@ -1,56 +1,91 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
+from django.test import Client
+import json
+import requests
 
 # Create your tests here.
-# from unittest import TestCase
-# from recipes.models import Ingredient, Recipe
-# from recipes.templatetags.servings_mod import modify
+from unittest import TestCase
+from .models import Student, Instructor
 
-# class ResizeToTests(TestCase):
-#     def test_error_when_ingredient_is_none(self):
-#         with self.assertRaises(AttributeError):
-#             modify(None, 5)
+def login(self):
+    url = 'http://localhost:8000/login/'
 
-#     def test_recipe_has_no_serving(self):
-#         # arranging values
-#         # setting the serving value in recipe class to none 
-#         # and calling it recipe (for our ingredient.servings call)
-#         recipe = Recipe(servings=None)
-#         # ingredient amount set to 5
-#         ingredient = Ingredient(recipe=recipe, amount=5)
+    session = requests.Session()
+    session.verify = False
 
-#         # Act by using modify function
-#         expected = 5
-#         result = modify(ingredient, None)
-
-#         # Assert
-#         self.assertEqual(result, expected)
-
-#     def test_values_for_servings_amount_and_target(self):
-#         recipe = Recipe(servings=2)
-#         ingredient = Ingredient(recipe=recipe, amount=5)
-
-#         expected = 25
-#         result = modify(ingredient, 10)
-
-#         self.assertEqual(result, expected)
-
-#     def test_target_is_letters(self):
-#         recipe = Recipe(servings=2)
-#         ingredient = Ingredient(recipe=recipe, amount=5)
-
-#         expected = 5
-#         result = modify(ingredient, "abc")
-
-#         self.assertEqual(result, expected)
+    response = session.post(
+        url,
+        data={
+            "username": "test_username",
+            "password": "test_password",
+        }
+    )
+    response.json()
+    cookies = session.cookies.get_dict()
+    if response.ok:
+        url = 'http://localhost:8000/api/tokens/mine/'
+        token_response = session.get(
+            url,
+            cookies={
+                'jwt_access_token': cookies['jwt_access_payload']
+                },
+        )
+        if token_response:
+            token = token_response.json()
+            return token.get('token')
 
 
 
+class StudentTestCase(TestCase):
+    def setUp(self):
+        Student.objects.create(username="username1")
+        Student.objects.create(username="username2")
 
-# class ProblemTests(TestCase):
-#     def test_returns_min_value_if_first_parameter(self):
-#         value = minimum_value(1, 3)
-#         self.assertEqual(1, value)
+    def test_username_gets_created(self):
 
-#     def test_returns_min_value_if_second_parameter(self):
-#         value = minimum_value(3, 2)
-#         self.assertEqual(2, value)
+        student1 = Student.objects.get(name="username1")
+        student2 = Student.objects.get(name="username2")
+        self.assertEqual(student1, "username1")
+        self.assertEqual(student2, "username2")
+
+class InstructorTestCase(TestCase):
+    def setUp(self):
+        Instructor.objects.create(username="username3")
+        Instructor.objects.create(username="username4")
+
+    def test_username_gets_created(self):
+
+        instructor1 = Instructor.objects.get(name="username3")
+        instructor2 = Instructor.objects.get(name="username4")
+        self.assertEqual(instructor1, "username3")
+        self.assertEqual(instructor2, "username4")
+
+
+def create_instructor_account_token(self):
+    url = 'http://localhost:8000/api/instructors'
+    session = requests.Session()
+    session.verify = False
+
+    response = session.post(
+        url,
+        body={
+        "id": "test_id",
+        "username": "test_username",
+        "profile_picture": "test_profile_picture",
+        "password": "test_password",
+        "email": "test_email",
+        "first_name": "test_first_name",
+        "last_name": "test_last_name",
+        "address": "test_address",
+        "phone_number": "test_phone_number",
+        "certification": "test_certification",
+        "yoga_studio": "test_yoga_studio",
+        "demo": "test_demo",
+        "instagram": "test_instagram",
+        }
+    )
+
+    if response.ok:
+        token = login(self)
+        return token

@@ -82,6 +82,7 @@ DATABASES["default"] = dj_database_url.config()
 ALLOWED_HOSTS = [
     "localhost",
     "accounts-api",
+    "vercel.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [

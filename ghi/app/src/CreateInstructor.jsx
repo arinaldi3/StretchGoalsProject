@@ -111,7 +111,11 @@ function CreateInstructor() {
                 <input onChange={handleChange} value = {instructor.profile_picture}placeholder="Profile Picture" type="text" name="profile_picture" id="profile_picture" className="form-control" />
                 <label htmlFor="profile_picture">Profile Picture (two words)</label>
             </div>
-            <button className="btn btn-primary">Create</button>
+            <button className="btn btn-primary">Sign Up</button>
+            <div>
+                Already Have an Account?
+                <a href="/login" className="link-primary"> Sign in</a>
+            </div>
             </form>
         </div>
         </div>
