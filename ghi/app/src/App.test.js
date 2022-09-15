@@ -41,7 +41,7 @@ test('tests student profile picture when page renders', () => {
 });
 // LOGIN TESTS
 
-test('tests that login form renders', () => {
+test('tests that student portal renders with a div', () => {
   const { container } = render(
   <BrowserRouter>
     <Routes>   
@@ -80,7 +80,7 @@ expect(h1.length).toEqual(1)
 
 });
 
-test('tests h1 tag in mainpage', () => {
+test('tests p tag in mainpage', () => {
   const { container } = render(
     <BrowserRouter>
       <Routes>   
