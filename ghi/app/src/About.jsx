@@ -11,8 +11,8 @@ return (
         <p>We are a team of software engineers that wanted to achieve our stretch-goals more consistently.</p>
         <p>In order to do this, we created a yoga application.</p>
     </div>
-        <h2 style={{ textAlign: "center"}}>Our Team</h2><div classNameName="row">
-            <div classNameName="column">
+        <h2 style={{ textAlign: "center"}}>Our Team</h2><div className="row">
+            <div className="column">
                 <div className="card">
                     <img src="https://i.imgur.com/WaMgfce.png" alt="Ava" style={{width:" 100%"}}/>
                         <div className="container">
