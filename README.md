@@ -10,7 +10,7 @@ A web application that provides an environment designed to connect yoga instruct
 
 The platform allocates virtual classes to instructors where they can host and teach classes of easy/medium/hard difficulties.
 
-Students can sign up for 3 different tiers of membership that will allow them additional/extended access to the platform.
+Students can access and signup for classes which will be displayed on their profile pages.
 
 
 ## Intended market
@@ -26,13 +26,15 @@ On this web forum, there will be 3 distinctive roles:
 
   * Users can register as either a student or instructor.
 
-  * Non-registered users have access to demo videos and the main page.
+  * Non-registered users have access to an about us page, login page, signup pages, and the main page.
 
   * Yoga instructors can upload a demo video to their instructor portal which will reflect on their profile and create classes.
 
-  * Yoga students have access to demo videos and are able to sign up for an instructor's specific classes. A user must be signed up for a class in order to access class videos.
+  * Yoga students are able to sign up for an instructor's specific classes. A user must be signed in for a class in order to access class videos.
 
-  * An instructor will exist within one of three categories based on their popularity, certification level, and activity. 
+  * Yoga students will have access to a list of instructors. In the list, there will be a button that directs to each instructors individual page containing a list of classes they are teaching and their demo video.
+
+  * Both students and instructors will have their own individual profile pages
 
 ## Project Setup
 * Run cmd 'Docker volume create stretch-data'
