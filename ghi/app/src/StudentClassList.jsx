@@ -6,7 +6,7 @@ import { useToken } from "./Authentication";
 function MyClassList({ user }) {
     const [classes, setClasses] = useState([]);
     const [studentData, setStudentData] = useState(null);
-    console.log(studentData)
+    // console.log(studentData)
     const [token] = useToken();
 
     async function fetchClasses() {
@@ -19,13 +19,13 @@ function MyClassList({ user }) {
             if (lesson.students.length > 0) {
                 lesson.students.every(student => {
                     owns = (student.id === studentData.id)
-                    console.log(owns)
+                    // console.log(owns)
                     if (owns) {
                         return false;
                     }
                     return true;
                 })
-                console.log(owns)
+                // console.log(owns)
                 return owns;
             }
             return owns;
@@ -43,9 +43,9 @@ function MyClassList({ user }) {
             Authorization: `Bearer ${token}`,
         }});
         let student = await userData.json();
-        console.log(student)
+        // console.log(student)
         setStudentData(student);
-        console.log(student)
+        // console.log(student)
     }
 
     useEffect(() => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
 import InstructorClassList from "./InstructorClassList";
-import InstructorClasses from "./TestInstructorClassList";
+import InstructorClasses from "./InstructorClassList";
 
 
 // deleted curly brackets user in parameter

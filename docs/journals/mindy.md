@@ -1,3 +1,8 @@
+## 9/14
+- We made quit a progress today! Ava, Carlos, and I continued working on MyClassList for StudentProfile and it is finally working! We created multiple instructors and students to test the functionalities (MyClassList for both instructor and student) are working for all users. 
+- We started working on writing unit tests, and thanks to Dalonte's help.
+- I fixed the problem on the InstructorProfile page and change the StudentProfile page to the same format for a better user experience. 
+
 ## 9/13
 - Today Ava, Carlos, and I continued working on the MyClassList from yesterday. We thought we had it working before the end of the day; however, it turned out that only work for the student user we used and didn't work for a new student user we just created. We stayed until 7:30 and still couldn't make it work. We are for sure going to continue working on that tomorrow.
 - We planned to have a similar MyClassList for instructor users, where the instructor will be able to see a list of classes that he/she created inside the profile page. We discussed how to make it work, but we did not have enough time to complete it during our group project time. I spent some time working on it after class, and I am very pleased that the MyClassList for an instructor is working!

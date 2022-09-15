@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
-import InstructorClasses from "./TestInstructorClassList";
+import InstructorClasses from "./InstructorClassList";
 
 
 // deleted curly brackets user in parameter
@@ -8,7 +8,6 @@ function InstructorPortal() {
   const [instructors, setInstructors] = useState([]);
   // added for testing
   const [classes, setClasses] = useState([]);
-
 
   async function fetchInstructorUser() {
     let instructorData = await fetch(`http://localhost:8100/api/instructors/`);
@@ -42,13 +41,13 @@ function InstructorPortal() {
   return (
     <> 
     <Nav/> 
-    <div className="instructorProfile">
+    <div className="userProfile">
     {instructors.filter(InstructorFilter).map((instructor) => {
       return (
         <div key={instructor.id}>
           <div className="left">
             <div className="leftImg">
-              <img className="instructorImg" src={instructor.profile_picture} alt="" />{" "}
+              <img className="profileImg" src={instructor.profile_picture} alt="" />{" "}
             </div>
             <div>
             {instructor.username}
@@ -63,13 +62,11 @@ function InstructorPortal() {
             
           </div>
         </div>
-        
       )
     } )}
       <div className="bottom">
         <InstructorClasses classes={classes} items={items}/>  
       </div>
-    
     </div>
     </>
   );

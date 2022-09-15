@@ -52,7 +52,7 @@
 }
 
 /* ----------------------------------- */
-.instructorProfile {
+.userProfile {
   width: 80%;
   margin: 30px 10%;
   background-color: white;
@@ -92,7 +92,7 @@
   padding-left: 50px;
 }
 
-.instructorImg {
+.profileImg {
   width: 200px;
   border-radius: 50%;
   height: 200px;

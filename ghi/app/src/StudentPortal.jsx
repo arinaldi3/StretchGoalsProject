@@ -31,13 +31,13 @@ function StudentPortal() {
     return (
         <>
         <Nav/> 
-        <div className="instructorProfile">
+        <div className="userProfile">
         {students.filter(studentFilter).map((student) => {
             return (
                 <div key={student.id}>
                     <div  className="left">
                         <div className="leftImg">
-                            <img className="instructorImg" src={student.profile_picture} alt="" />{" "}
+                            <img className="profileImg" src={student.profile_picture} alt="" />{" "}
                         </div>
                         <div>
                             {student.username}
