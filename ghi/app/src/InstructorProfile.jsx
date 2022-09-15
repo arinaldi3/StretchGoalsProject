@@ -5,11 +5,11 @@ import InstructorClasses from "./InstructorClassList";
 
 // deleted curly brackets user in parameter
 function InstructorPortal() {
-  const [instructors, setInstructors] = useState([]);
+const [instructors, setInstructors] = useState([]);
   // added for testing
-  const [classes, setClasses] = useState([]);
+const [classes, setClasses] = useState([]);
 
-  async function fetchInstructorUser() {
+async function fetchInstructorUser() {
     let instructorData = await fetch(`http://localhost:8100/api/instructors/`);
     let data = await instructorData.json();
     setInstructors(data.instructors);
@@ -18,58 +18,62 @@ function InstructorPortal() {
     let {classes} = await classData.json();
     setClasses(classes);
     // console.log(classes)
-  }
-  
-  const [items, setItems] = useState([]);
+}
 
-  useEffect(() => {
+const [items, setItems] = useState([]);
+
+useEffect(() => {
     const items = JSON.parse(localStorage.getItem("key"));
     if (items) {
-      setItems(items);
+    setItems(items);
       // console.log(items)
     }
-  }, []);
+}, []);
 
-  useEffect(() => {
+useEffect(() => {
     fetchInstructorUser();
-  }, []);
+}, []);
 
-  const InstructorFilter = (instructor) => {
+const InstructorFilter = (instructor) => {
     return instructor.username === items;
-  };
+};
 
-  return (
+return (
     <> 
     <Nav/> 
     <div className="userProfile">
     {instructors.filter(InstructorFilter).map((instructor) => {
-      return (
+    return (
         <div key={instructor.id}>
-          <div className="left">
+        <div className="left">
             <div className="leftImg">
-              <img className="profileImg" src={instructor.profile_picture} alt="" />{" "}
+            <img className="profileImg" src={instructor.profile_picture} alt="" />{" "}
             </div>
             <div>
-            <NavLink className="navbar-brand" to="/instructorprofile">{instructor.username}</NavLink>
+            {instructor.username}
             </div>
-          </div>
-          <div className="right">
-          <h1>Instructor Profile</h1>
+        </div>
+        <div className="right">
+        <h1>Instructor Profile</h1>
             <p>Name: {instructor.first_name} {instructor.last_name}</p>
             <p>Email: {instructor.email}</p>
             <p>Phone: {instructor.phone_number}</p>
             {/* <p>Yoga Studio: {instructor.yoga_studio}</p> */}
             
-          </div>
         </div>
-      )
+        <div class="container">
+            
+        </div>
+        </div>
+        
+    )
     } )}
-      <div className="bottom">
+    <div className="bottom">
         <InstructorClasses classes={classes} items={items}/>  
-      </div>
+    </div>
     </div>
     </>
-  );
+);
 }
 
 export default InstructorPortal;
