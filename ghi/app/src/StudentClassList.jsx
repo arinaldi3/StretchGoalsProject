@@ -8,6 +8,7 @@ function MyClassList({ user }) {
     const [studentData, setStudentData] = useState(null);
     // console.log(studentData)
     const [token] = useToken();
+    const [noClasses, setNoClasses] = useState("none");
 
     async function fetchClasses() {
         
@@ -58,6 +59,14 @@ function MyClassList({ user }) {
         } 
     }, [studentData])
 
+    useEffect(() => {
+        if (classes.length === 0) {
+            setNoClasses("block")
+        } else {
+            setNoClasses("none")
+        }
+    }, [classes]);
+
     const handleAttend = async (cData) => {
         cData = {...cData, student:studentData.username}
         const fetchConfig = {
@@ -87,6 +96,7 @@ function MyClassList({ user }) {
                     </tr>
                 </thead>
                 <tbody>
+                <div style={{display:noClasses}}>You have not picked any class.</div>
                 {classes.map((lesson) => {
                     return (
                         <ClassListItem key={lesson.id} hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
