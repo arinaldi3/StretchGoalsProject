@@ -1,6 +1,14 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom';
 
 function InstructorFields({InstructorInfo}) {
+
+  let navigate = useNavigate(); 
+  const routeChange = (id) => { 
+    let path = `/profile/${id}`; 
+    navigate(path);
+  }
+
   return (
     <>
       <tbody>
@@ -11,6 +19,7 @@ function InstructorFields({InstructorInfo}) {
           <td>{InstructorInfo.yoga_studio}</td>
           <td>{InstructorInfo.instagram}</td>
           <td><img src ={InstructorInfo.profile_picture}alt='' style={{maxWidth: '150px', maxHeight: '150px', objectFit: 'contain'}}/> </td>
+          <td><button onClick={() => routeChange(InstructorInfo.id)}>View Profile</button></td>
         </tr>
       </tbody>
     </>

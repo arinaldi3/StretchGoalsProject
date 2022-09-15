@@ -101,7 +101,7 @@ function CreateInstructor() {
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {instructor.demo}placeholder="Demo" type="text" name="demo" id="demo" className="form-control" />
-                <label htmlFor="demo">Demo Video</label>
+                <label htmlFor="demo">Demo Video !!!MUST BE EMBED!!!</label>
             </div>
             <div className="form-floating mb-3">
                 <input onChange={handleChange} value = {instructor.instagram}placeholder="Instagram Handle" type="text" name="instagram" id="instagram" className="form-control" />

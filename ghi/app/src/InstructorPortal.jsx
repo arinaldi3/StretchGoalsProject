@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
 import InstructorClasses from "./InstructorClassList";
+import { NavLink } from 'react-router-dom';
 
 
 // deleted curly brackets user in parameter
@@ -50,7 +51,7 @@ function InstructorPortal() {
               <img className="profileImg" src={instructor.profile_picture} alt="" />{" "}
             </div>
             <div>
-            {instructor.username}
+            <NavLink className="navbar-brand" to="/instructorprofile">{instructor.username}</NavLink>
             </div>
           </div>
           <div className="right">

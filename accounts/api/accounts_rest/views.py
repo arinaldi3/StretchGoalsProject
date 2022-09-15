@@ -151,6 +151,8 @@ def api_instructor(request, pk):
         "profile_picture": pexels image,
         "first_name": user's first name,
         "last_name": user's last name,
+        "email": user's email,
+        "phone_number": user's phone number,
         "certification": instructor's certification level,
         "yoga_studio": instructor's yoga studio,
         "demo": url link to a video demo,

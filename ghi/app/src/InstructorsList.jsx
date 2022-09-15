@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import InstructorFields from "./InstructorInfo";
 import Nav from './Nav';
+import { useNavigate } from 'react-router-dom'
 
 function InstructorList() {
   const [instructors, setInstructors] = useState([]);
@@ -15,6 +16,13 @@ function InstructorList() {
   useEffect(() => {
     fetch_instructors();
   },[]);
+
+  // let navigate = useNavigate(); 
+  // const routeChange = (id) => { 
+  //   let path = `http://localhost:8100/api/instructors/${id}`; 
+  //   navigate(path);
+  // }
+
   return (
     <>
     <Nav/>
@@ -29,6 +37,7 @@ function InstructorList() {
             <th>Yoga Studio</th>
             <th>Instagram</th>
             <th>Profile Picture</th>
+            <th>View Profile</th>
           </tr>
         </thead>
         {instructors.map((instructor, column) => {

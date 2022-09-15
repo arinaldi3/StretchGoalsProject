@@ -13,6 +13,8 @@ import Login from './Login';
 import { AuthProvider } from './Authentication';
 import InstructorDetailPage from './InstructorDetailProfile';
 import InstructorDetail from './InstructorDetail';
+import InstructorProfile from './InstructorProfile';
+import About from './About';
 
 
 function App(key) {
@@ -33,6 +35,7 @@ function App(key) {
                 {/* <Route path="instructor" element={<InstructorDetailPage />} /> */}
                 <Route path="classes" element={<ClassesList />} />
               </Route>
+              <Route path="/profile/:id" element={<InstructorProfile />} />
               <Route path="/portal">
                 <Route path="student" element={<StudentPortal />} />
                 <Route path="instructor" element={<InstructorPortal />} />
@@ -40,6 +43,8 @@ function App(key) {
               <Route>
                 <Route path="/login" element={<Login />} />
               </Route>
+              <Route path="/about" element={<About />} />
+
             </Routes>
           </div>
         </div>
