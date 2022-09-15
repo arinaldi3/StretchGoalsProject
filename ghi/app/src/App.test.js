@@ -18,6 +18,8 @@ import CreateClass from './CreateClass'
 //   expect(linkElement).toBeInTheDocument();
 // });
 
+
+//Carlos Tests
 test('tests image when main page renders', () => {
   render(
   <BrowserRouter>
@@ -39,8 +41,8 @@ test('tests student profile picture when page renders', () => {
 );
   container.getElementsByTagName('h1')
 });
-// LOGIN TESTS
 
+// Mindy Tests
 test('tests that student portal renders with a div', () => {
   const { container } = render(
   <BrowserRouter>
@@ -53,18 +55,6 @@ test('tests that student portal renders with a div', () => {
 
 
 })
-
-// test('tests that login form renders', () => {
-//   const { container } = render(
-//   <BrowserRouter>
-//     <Routes>   
-//         <Route path="/login" element= {<Login />}/>
-//     </Routes>
-//   </BrowserRouter>
-// );
-// const form = container.getElementsByTagName('form');
-// expect(form.length).toEqual(1);
-// })
 
 
 test('tests h1 tag in mainpage', () => {
@@ -80,6 +70,7 @@ expect(h1.length).toEqual(1)
 
 });
 
+// Ava Tests
 test('tests p tag in mainpage', () => {
   const { container } = render(
     <BrowserRouter>
@@ -90,7 +81,6 @@ test('tests p tag in mainpage', () => {
 );
 const pTag = container.getElementsByTagName('p');
 expect(pTag.length).toEqual(1)
-
 });
 
 test('tests instructor list', () => {
