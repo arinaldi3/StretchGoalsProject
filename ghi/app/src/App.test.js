@@ -54,63 +54,8 @@ test('tests that student portal renders with a div', () => {
 
 })
 
-<<<<<<< HEAD
 test('renders learn react link', () => {
   render(<App />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
-=======
-// test('tests that login form renders', () => {
-//   const { container } = render(
-//   <BrowserRouter>
-//     <Routes>   
-//         <Route path="/login" element= {<Login />}/>
-//     </Routes>
-//   </BrowserRouter>
-// );
-// const form = container.getElementsByTagName('form');
-// expect(form.length).toEqual(1);
-// })
-
-
-test('tests h1 tag in mainpage', () => {
-  const { container } = render(
-    <BrowserRouter>
-      <Routes>   
-          <Route path="/" element= {<MainPage />}/>
-      </Routes>
-    </BrowserRouter>
-);
-const h1 = container.getElementsByTagName('h1');
-expect(h1.length).toEqual(1)
-
-});
-
-test('tests p tag in mainpage', () => {
-  const { container } = render(
-    <BrowserRouter>
-      <Routes>   
-          <Route path="/" element= {<MainPage />}/>
-      </Routes>
-    </BrowserRouter>
-);
-const pTag = container.getElementsByTagName('p');
-expect(pTag.length).toEqual(1)
-
-});
-
-test('tests instructor list', () => {
-  const { container } = render(
-    <BrowserRouter>
-      <Routes>   
-          <Route path="/list/instructors" element= {<InstructorList />}/>
-      </Routes>
-    </BrowserRouter>
-);
-const title = container.getElementsByTagName('h1');
-// expect(title.length).toEqual(1)
-
-});
-
->>>>>>> 58539da1fd1454be894ab15f14e5c9090731e306

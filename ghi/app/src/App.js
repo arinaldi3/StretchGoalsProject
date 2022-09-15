@@ -1,5 +1,6 @@
 import './App.css';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 // import Nav from './Nav';
 import CreateStudent from './CreateStudent';
@@ -23,10 +24,10 @@ function App(key) {
   return (
     <>
       <AuthProvider>
-      <BackGround>
-      </BackGround>
+      
+      
           <div className="container">
-          
+          <BackGround/>
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/new" >

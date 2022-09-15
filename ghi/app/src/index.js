@@ -9,13 +9,14 @@ import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div className="p-3 mb-2 bg-dark text-white">
+  // <div className="p-3 mb-2 bg-dark text-white">
+  <>
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
-  </div>
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
