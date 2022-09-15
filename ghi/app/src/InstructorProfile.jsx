@@ -34,7 +34,6 @@ return (
     <> 
     <Nav/> 
     <div className="userProfile">
-    return (
         <div key={instructor.id}>
         <div className="left">
             <div className="leftImg">
