@@ -1,7 +1,7 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import MainPage from './MainPage';
-import Nav from './Nav';
+// import Nav from './Nav';
 import CreateStudent from './CreateStudent';
 import CreateInstructor from './CreateInstructor';
 import InstructorList from './InstructorsList'
@@ -11,18 +11,22 @@ import InstructorPortal from './InstructorPortal';
 import CreateClass from './CreateClass';
 import Login from './Login';
 import { AuthProvider } from './Authentication';
-import InstructorDetailPage from './InstructorDetailProfile';
-import InstructorDetail from './InstructorDetail';
+// import InstructorDetailPage from './InstructorDetailProfile';
+// import InstructorDetail from './InstructorDetail';
 import InstructorProfile from './InstructorProfile';
 import About from './About';
+import BackGround from './Background';
+// import BackGround from './Background';
 
 
 function App(key) {
   return (
     <>
       <AuthProvider>
-        <div className="BackGround">
-          <div className="">
+      <BackGround>
+      </BackGround>
+          <div className="container">
+          
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/new" >
@@ -47,8 +51,9 @@ function App(key) {
 
             </Routes>
           </div>
-        </div>
+          
       </AuthProvider>
+      
     </>
   );
 }

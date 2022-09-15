@@ -37,15 +37,15 @@
   }
 }
 
-.BackGround {
-  background-image: 
-  url(
-"https://i.imgur.com/tlOU12l.jpeg");
-  background-size: "inherit";
-  height: 100vh;
-  margin-top: -20px;
-  background-repeat:no-repeat;
-}
+.BackGround img{
+    position: absolute;
+    object-fit:cover;
+    width: 100%;
+    top: 0;
+    left: 0;
+    min-height: 572px;
+    background:rgba(0,0,0,0.7);
+}  
 
 #to-form {
   color: black;

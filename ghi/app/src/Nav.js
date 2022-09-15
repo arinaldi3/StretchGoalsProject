@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom';
 import { AuthProvider, useToken, AuthContext, getToken, useAuthContext } from './Authentication';
 import React, { useEffect, useState, useContext} from 'react';
+import BackGround from './Background';
 
 function Nav() {
   const [x, login, logout] = useToken();
@@ -94,6 +95,7 @@ const isInstructor = (() => {
 })
 
   return (
+    <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">Stretch Goals</NavLink>
@@ -135,6 +137,8 @@ const isInstructor = (() => {
         </div>
       </div>
     </nav>
+  
+    </>
   )
 }
 
