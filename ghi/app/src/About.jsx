@@ -16,7 +16,7 @@ return (
         <h2 style={{ textAlign: "center"}}>Our Team</h2><div className="row">
             <div className="column">
                 <div className="card">
-                    <img src="https://i.imgur.com/WaMgfce.png" alt="Ava" style={{width:" 100%"}}/>
+                    <img src="https://i.imgur.com/WaMgfce.png" alt="Ava" style={{width:" 50%"}}/>
                         <div className="container">
                             <h2>Ava Rinaldi</h2>
                             <p className="title">Full-Stack Software Engineer</p>
@@ -29,7 +29,7 @@ return (
 
             <div className="column">
                 <div className="card">
-                    <img src="https://i.imgur.com/hPoszjY.png" alt="Alex" style={{width:" 100%"}}/>
+                    <img src="https://i.imgur.com/hPoszjY.png" alt="Alex" style={{width:" 50%"}}/>
                         <div className="container">
                             <h2>Alex Adams</h2>
                             <p className="title">Full-Stack Software Engineer</p>
@@ -41,7 +41,7 @@ return (
             </div>
             <div className="column">
                 <div className="card">
-                    <img src="https://i.imgur.com/RwKMaZd.png" alt="Carlos" style={{width:" 100%"}}/>
+                    <img src="https://i.imgur.com/RwKMaZd.png" alt="Carlos" style={{width:" 50%"}}/>
                         <div className="container">
                             <h2>Carlos Castillo</h2>
                             <p className="title">Full-Stack Software Engineer</p>
@@ -53,7 +53,7 @@ return (
             </div>
             <div className="column">
                 <div className="card">
-                    <img src="https://i.imgur.com/QYqeO6G.png" alt="Mindy" style={{width:" 100%"}}/>
+                    <img src="https://i.imgur.com/QYqeO6G.png" alt="Mindy" style={{width:" 50%"}}/>
                         <div className="container">
                             <h2>Mindy Lin</h2>
                             <p className="title">Full-Stack Software Engineer</p>
@@ -65,7 +65,7 @@ return (
             </div>
             <div className="column">
                 <div className="card">
-                    <img src="https://i.imgur.com/xqyUmS2.png" alt="Josh" style={{width:" 100%"}}/>
+                    <img src="https://i.imgur.com/xqyUmS2.png" alt="Josh" style={{width:" 50%"}}/>
                         <div className="container">
                             <h2>Josh Lee</h2>
                             <p className="title">Full-Stack Software Engineer</p>
