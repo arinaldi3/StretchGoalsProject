@@ -1,11 +1,13 @@
 import './App.css';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
+import Nav from './Nav';
 
 function About() {
 return (
 
     <>
+    <Nav/>
     <div className="about-section">
         <h1>About Us</h1>
         <p>We are a team of software engineers that wanted to achieve our stretch-goals more consistently.</p>
