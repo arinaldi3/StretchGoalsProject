@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
 import InstructorClasses from "./InstructorClassList";
+import { useParams } from 'react-router-dom'
 
 
 // deleted curly brackets user in parameter
 function InstructorPortal() {
-const [instructors, setInstructors] = useState([]);
+const [instructor, setInstructor] = useState([]);
+const { id } = useParams();
   // added for testing
 const [classes, setClasses] = useState([]);
 
 async function fetchInstructorUser() {
-    let instructorData = await fetch(`http://localhost:8100/api/instructors/`);
+    let instructorData = await fetch(`http://localhost:8100/api/instructors/${id}`);
     let data = await instructorData.json();
-    setInstructors(data.instructors);
+    setInstructor(data);
     // added for testing
     let classData = await fetch("http://localhost:8080/api/classes/");
     let {classes} = await classData.json();
@@ -20,29 +22,18 @@ async function fetchInstructorUser() {
     // console.log(classes)
 }
 
-const [items, setItems] = useState([]);
 
-useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("key"));
-    if (items) {
-    setItems(items);
-      // console.log(items)
-    }
-}, []);
 
 useEffect(() => {
     fetchInstructorUser();
 }, []);
 
-const InstructorFilter = (instructor) => {
-    return instructor.username === items;
-};
+
 
 return (
     <> 
     <Nav/> 
     <div className="userProfile">
-    {instructors.filter(InstructorFilter).map((instructor) => {
     return (
         <div key={instructor.id}>
         <div className="left">
@@ -59,7 +50,7 @@ return (
             <p>Email: {instructor.email}</p>
             <p>Phone: {instructor.phone_number}</p>
             {/* <p>Yoga Studio: {instructor.yoga_studio}</p> */}
-            
+                
         </div>
         <div class="d-flex justify-content-center">
             <p className="lead mb-4">
@@ -70,9 +61,8 @@ return (
         </div>
         
     )
-    } )}
     <div className="bottom">
-        <InstructorClasses classes={classes} items={items}/>  
+        <InstructorClasses classes={classes} items={instructor.username}/>  
     </div>
     </div>
     </>

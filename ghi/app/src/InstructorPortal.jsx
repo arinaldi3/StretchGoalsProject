@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
 import InstructorClasses from "./InstructorClassList";
+<<<<<<< HEAD
 import { NavLink } from "react-router-dom";
+=======
+import { NavLink } from 'react-router-dom';
+>>>>>>> 8b8e7cf87c6979a4f43e7f04ff13192b55bf9dc9
 
 
 // deleted curly brackets user in parameter

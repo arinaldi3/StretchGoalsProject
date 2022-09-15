@@ -54,3 +54,9 @@ Today I spent more time doing discovery for testing, and also helped clarify som
 
 ## 9/13:
 Today I wrote some tests to test token authentication in the morning as well as give some input for getting the current user in the backend. Zach was helping out a lot on the latter. I still think my understanding of tests is a bit hazy but it's improving.
+
+## 9/14:
+I took a sick day today because some big apartment situations happened. I still communicated with my time and worked a little at night but couldn't do much during the day for a lot of reasons.
+
+## 9/15:
+Today I spent some time building out routing for the front end. We are going to be including an about us page and a profile page for instructors that students can see. Doing some discovery on certain hooks I haven't used before the get the id in the url like useParams. Also discussing what our mvp and presentation is gonna look like. Should be ready to go tomorrow!

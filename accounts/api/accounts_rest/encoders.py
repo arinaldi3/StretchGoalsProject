@@ -43,6 +43,8 @@ class InstructorDetailEncoder(ModelEncoder):
         "profile_picture",
         "first_name",
         "last_name",
+        "email",
+        "phone_number",
         "certification",
         "yoga_studio",
         "demo",

@@ -60,6 +60,9 @@ const isStudent = (() => {
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/list/classes">List of Classes</NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="/about">About Us</NavLink>
+          </li>
         </>  
       )
     } else {
@@ -78,6 +81,9 @@ const isInstructor = (() => {
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/new/class">Create a Class</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" aria-current="page" to="/about">About Us</NavLink>
           </li>
         </>
       )
@@ -110,7 +116,6 @@ const isInstructor = (() => {
           </> 
           :
           <>
-          <li><NavLink className="navbar-brand" to="/">Home</NavLink></li>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href='#' role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Sign up</a>
             <ul className="dropdown-menu">

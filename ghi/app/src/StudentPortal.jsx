@@ -42,6 +42,7 @@ function StudentPortal() {
                         <div>
                             {student.username}
                         </div>
+                       
                     </div>    
                     <div className="right">
                     <h1>Student Profile</h1>
