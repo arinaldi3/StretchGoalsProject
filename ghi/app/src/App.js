@@ -42,6 +42,8 @@ function App(key) {
               <Route>
                 <Route path="/login" element={<Login />} />
               </Route>
+              <Route path="/about" element={<About />} />
+
             </Routes>
           </div>
         </div>
