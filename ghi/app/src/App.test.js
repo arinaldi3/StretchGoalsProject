@@ -18,6 +18,8 @@ import CreateClass from './CreateClass'
 //   expect(linkElement).toBeInTheDocument();
 // });
 
+
+//Carlos Tests
 test('tests image when main page renders', () => {
   render(
   <BrowserRouter>
@@ -39,8 +41,8 @@ test('tests student profile picture when page renders', () => {
 );
   container.getElementsByTagName('h1')
 });
-// LOGIN TESTS
 
+// Mindy Tests
 test('tests that student portal renders with a div', () => {
   const { container } = render(
   <BrowserRouter>
@@ -54,8 +56,51 @@ test('tests that student portal renders with a div', () => {
 
 })
 
+<<<<<<< HEAD
 test('renders learn react link', () => {
   render(<App />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
+=======
+
+test('tests h1 tag in mainpage', () => {
+  const { container } = render(
+    <BrowserRouter>
+      <Routes>   
+          <Route path="/" element= {<MainPage />}/>
+      </Routes>
+    </BrowserRouter>
+);
+const h1 = container.getElementsByTagName('h1');
+expect(h1.length).toEqual(1)
+
+});
+
+// Ava Tests
+test('tests p tag in mainpage', () => {
+  const { container } = render(
+    <BrowserRouter>
+      <Routes>   
+          <Route path="/" element= {<MainPage />}/>
+      </Routes>
+    </BrowserRouter>
+);
+const pTag = container.getElementsByTagName('p');
+expect(pTag.length).toEqual(1)
+});
+
+test('tests instructor list', () => {
+  const { container } = render(
+    <BrowserRouter>
+      <Routes>   
+          <Route path="/list/instructors" element= {<InstructorList />}/>
+      </Routes>
+    </BrowserRouter>
+);
+const title = container.getElementsByTagName('h1');
+// expect(title.length).toEqual(1)
+
+});
+
+>>>>>>> a856830a52ea49c78ff9147f0c8eaae477c6b821

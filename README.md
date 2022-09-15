@@ -40,3 +40,8 @@ On this web forum, there will be 3 distinctive roles:
 * Run cmd 'Docker volume create stretch-data'
 * Run cmd 'Docker volume create pgadmin'
 * Run cmd 'Docker-compose up'
+
+## Frontend Unittests
+All frontend unit tests are in App.test.js. The tests are labeled to show who wrote which tests.
+
+## Backend Unittests
