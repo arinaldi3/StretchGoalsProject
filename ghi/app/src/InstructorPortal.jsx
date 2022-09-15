@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Nav from './Nav';
 import InstructorClasses from "./InstructorClassList";
+import { NavLink } from "react-router-dom";
 
 
 // deleted curly brackets user in parameter
 function InstructorPortal() {
   const [instructors, setInstructors] = useState([]);
-  // added for testing
   const [classes, setClasses] = useState([]);
+  const [noClasses, setNoClasses] = useState("none");
 
   async function fetchInstructorUser() {
     let instructorData = await fetch(`http://localhost:8100/api/instructors/`);
     let data = await instructorData.json();
     setInstructors(data.instructors);
-    // added for testing
     let classData = await fetch("http://localhost:8080/api/classes/");
     let {classes} = await classData.json();
     setClasses(classes);
-    // console.log(classes)
   }
   
   const [items, setItems] = useState([]);
@@ -26,13 +25,17 @@ function InstructorPortal() {
     const items = JSON.parse(localStorage.getItem("key"));
     if (items) {
       setItems(items);
-      // console.log(items)
     }
   }, []);
 
   useEffect(() => {
     fetchInstructorUser();
   }, []);
+  useEffect(() => {
+    if (classes.length === 0) {
+      setNoClasses(true)
+    }
+}, [classes]);
 
   const InstructorFilter = (instructor) => {
     return instructor.username === items;
@@ -58,14 +61,12 @@ function InstructorPortal() {
             <p>Name: {instructor.first_name} {instructor.last_name}</p>
             <p>Email: {instructor.email}</p>
             <p>Phone: {instructor.phone_number}</p>
-            {/* <p>Yoga Studio: {instructor.yoga_studio}</p> */}
-            
           </div>
         </div>
       )
     } )}
       <div className="bottom">
-        <InstructorClasses classes={classes} items={items}/>  
+        <InstructorClasses classes={classes} items={items} noClasses={noClasses}/>  
       </div>
     </div>
     </>

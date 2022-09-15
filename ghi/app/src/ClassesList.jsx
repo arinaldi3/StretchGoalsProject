@@ -8,6 +8,7 @@ function ClassesList({ user }) {
     const [classes, setClasses] = useState([]);
     const [studentData, setStudentData] = useState([]);
     const [token] = useToken();
+    const [noClasses, setNoClasses] = useState("none");
 
     async function fetchClasses() {
         let classData = await fetch("http://localhost:8080/api/classes/");
@@ -32,6 +33,15 @@ function ClassesList({ user }) {
         fetchClasses();
         fetchStudentInfo();
     }, []);
+
+    useEffect(() => {
+        console.log("classeslist", classes)
+        if (classes.length === 0) {
+            setNoClasses("block")
+        } else {
+            setNoClasses("none")
+        }
+    }, [classes]);
 
     const handleAttend = async (cData) => {
         cData = {...cData, student:studentData.id}
@@ -65,7 +75,8 @@ function ClassesList({ user }) {
                     </tr>
                 </thead>
                 <tbody>
-                {classes.map((lesson) => {
+                <div style={{display:noClasses}}>No class available at this moment.</div>
+                {classes.map((lesson, index) => {
                     console.log(lesson)
                     let owns = false;
                     if (lesson.students.length > 0) {
@@ -80,11 +91,11 @@ function ClassesList({ user }) {
                     }
                     if (owns) {
                         return (
-                            <ClassListItem hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
+                            <ClassListItem key={index} hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
                         );
                     }
                     return (
-                        <ClassListItem lesson={lesson} handleAttend={handleAttend}/>
+                        <ClassListItem key={index} lesson={lesson} handleAttend={handleAttend}/>
                     );
                 })}
                 </tbody>
