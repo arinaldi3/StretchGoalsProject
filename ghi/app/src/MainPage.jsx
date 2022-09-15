@@ -16,7 +16,7 @@ return (
     <div className="opacity-75">
     </div>
     <h1>
-        <img src="https://i.imgur.com/zNxikxH.png" className="" alt= "Stretch Goals" width="" height=""/>
+        <img src="https://i.imgur.com/qxSCbWS.png" className="" alt= "Stretch Goals" width="" height=""/>
         </h1>
         <div className="container-sm">
     <div className="col-lg-3 mx-auto">
