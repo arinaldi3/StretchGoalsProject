@@ -61,7 +61,10 @@ return (
             {/* <p>Yoga Studio: {instructor.yoga_studio}</p> */}
             
         </div>
-        <div class="container">
+        <div class="d-flex justify-content-center">
+            <p className="lead mb-4">
+                <iframe width="854" height="480" src={instructor.demo} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            </p>
             
         </div>
         </div>

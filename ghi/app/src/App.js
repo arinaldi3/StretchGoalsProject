@@ -13,6 +13,7 @@ import Login from './Login';
 import { AuthProvider } from './Authentication';
 import InstructorDetailPage from './InstructorDetailProfile';
 import InstructorDetail from './InstructorDetail';
+import InstructorProfile from './InstructorProfile';
 
 
 function App(key) {
@@ -33,6 +34,7 @@ function App(key) {
                 {/* <Route path="instructor" element={<InstructorDetailPage />} /> */}
                 <Route path="classes" element={<ClassesList />} />
               </Route>
+              <Route path="profile" element={<InstructorProfile />} />
               <Route path="/portal">
                 <Route path="student" element={<StudentPortal />} />
                 <Route path="instructor" element={<InstructorPortal />} />
