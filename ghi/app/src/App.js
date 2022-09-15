@@ -14,6 +14,7 @@ import { AuthProvider } from './Authentication';
 import InstructorDetailPage from './InstructorDetailProfile';
 import InstructorDetail from './InstructorDetail';
 import InstructorProfile from './InstructorProfile';
+import About from './About';
 
 
 function App(key) {
