@@ -30,40 +30,36 @@ function StudentPortal() {
 
     return (
         <>
-        <Nav/>
-        <h1 className='mt-4'>Student Profile</h1>
-        <div className="table table-striped">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Profile Picture</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                    </tr>
-                </thead>
-                <tbody>
-                {students.filter(studentFilter).map(student => {
-                    return (
-                        <tr key={student.id}>
-                            <td><img src ={student.profile_picture}alt='' style={{maxWidth: '150px', maxHeight: '150px', objectFit: 'contain'}}/> </td>
-                            <td>{student.first_name} {student.last_name}</td>
-                            <td>{student.username}</td>
-                            <td>{student.email}</td>
-                            <td>{student.phone_number}</td>
-                        </tr>
-                    );
-                })}
-                </tbody>
-            </table>
+        <Nav/> 
+        <div className="instructorProfile">
+        {students.filter(studentFilter).map((student) => {
+            return (
+                <div key={student.id}>
+                    <div  className="left">
+                        <div className="leftImg">
+                            <img className="instructorImg" src={student.profile_picture} alt="" />{" "}
+                        </div>
+                        <div>
+                            {student.username}
+                        </div>
+                    </div>    
+                    <div className="right">
+                    <h1>Student Profile</h1>
+                        <p>Name: {student.first_name} {student.last_name}</p>
+                        <p>Email: {student.email}</p>
+                        <p>Phone: {student.phone_number}</p>
+                    </div>
+                </div>
+            )
+        })} 
+            <div className="bottom">
+                <MyClassList />  
+            </div>
         </div>
-        <div>
-            <MyClassList />
-        </div>
-    </>
+        </>
     );
 }
 
 
 export default StudentPortal;
+

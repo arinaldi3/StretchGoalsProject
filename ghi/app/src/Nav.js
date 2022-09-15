@@ -29,19 +29,19 @@ useEffect(() => {
     fetchInstructorUser();
     fetchStudentUser();
     }
-   }, []); 
+}, []); 
 
 useEffect(() => {
   const itemString = localStorage.getItem("key");
   if (itemString) {
-      const item = JSON.parse(itemString);
-      setItem(item);
+    const item = JSON.parse(itemString);
+    setItem(item);
   }
   function storageEventHandler(event) {
-      if (event.key === "key") {
-          const item = JSON.parse(event.newValue);
-          setItem(item);
-      }
+    if (event.key === "key") {
+      const item = JSON.parse(event.newValue);
+      setItem(item);
+    }
   }
   window.addEventListener("storage", storageEventHandler);
   return () => {
@@ -49,11 +49,9 @@ useEffect(() => {
   };
 }, []);
 
-
 const isStudent = (() => {
   for (const student of students) {
     if (student.username === item) {
-
       return(
         <>
           <li className="nav-item">
@@ -120,10 +118,10 @@ const isInstructor = (() => {
             </ul>
           </li>
           <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
+            <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
           </li>
           </>
-}
+        }
           </ul>
         </div>
       </div>

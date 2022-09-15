@@ -31,8 +31,7 @@ function MyClassList({ user }) {
             return owns;
         });
         setClasses(filteredClasses)
-        
-        console.log(classes)
+        // console.log(classes)
     }
 
     async function fetchStudentInfo() {
@@ -47,7 +46,6 @@ function MyClassList({ user }) {
         console.log(student)
         setStudentData(student);
         console.log(student)
-        
     }
 
     useEffect(() => {
@@ -72,7 +70,6 @@ function MyClassList({ user }) {
         const attendClassUrl = `http://localhost:8080/api/classes/${cData.id}/attend/`
         const res = await fetch(attendClassUrl, fetchConfig)
     };
-
     
     return (
         <>
@@ -81,18 +78,18 @@ function MyClassList({ user }) {
             <table>
                 <thead>
                     <tr>
-                        <th>Difficulty</th>
-                        <th>Class Size</th>
                         <th>Class Name</th>
+                        <th>Class Size</th>
+                        <th>Difficulty</th>
+                        <th>Instructor</th>
                         <th>Starts</th>
                         <th>Ends</th>
-                        <th>Instructor</th>
                     </tr>
                 </thead>
                 <tbody>
                 {classes.map((lesson) => {
                     return (
-                        <ClassListItem hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
+                        <ClassListItem key={lesson.id} hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
                     );
                 })}
                 </tbody>

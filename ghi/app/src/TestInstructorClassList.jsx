@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 
 function InstructorClasses(props) {
-    
-
     return (
         <>
             <h3>My Class List</h3>
@@ -10,9 +8,9 @@ function InstructorClasses(props) {
             <table>
                 <thead>
                     <tr>
-                        <th>Difficulty</th>
-                        <th>Class Size</th>
                         <th>Class Name</th>
+                        <th>Class Size</th>
+                        <th>Difficulty</th>
                         <th>Start</th>
                         <th>End</th>
                     </tr>
