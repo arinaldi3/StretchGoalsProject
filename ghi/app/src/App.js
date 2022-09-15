@@ -34,7 +34,7 @@ function App(key) {
                 {/* <Route path="instructor" element={<InstructorDetailPage />} /> */}
                 <Route path="classes" element={<ClassesList />} />
               </Route>
-              <Route path="profile" element={<InstructorProfile />} />
+              <Route path="/profile/:id" element={<InstructorProfile />} />
               <Route path="/portal">
                 <Route path="student" element={<StudentPortal />} />
                 <Route path="instructor" element={<InstructorPortal />} />
