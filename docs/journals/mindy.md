@@ -1,3 +1,7 @@
+## 9/16
+- Today is the due day! We spent time on some CSS and checked code cleaness. We checked all functionalities and made sure they are working. We wanted to ensure the project is ready to be submitted.
+- We also plan to continue working on this project for the presentation tomorrow. 
+
 ## 9/15
 - Today we started writing our unit tests for the front end. We tested if different pages rendered properly for users.
 - We (Ava, Carlos, and I) wanted to have the feature of checking if there are any classes available on 3 different class lists (list of all classes, list of classes created by an instructor, and list of classes selected by a student). If there is no class data, these 3 lists will return a string telling the user that no class is available at the moment; otherwise, they will return corresponding class data.
