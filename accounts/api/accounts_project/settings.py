@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
     "classes-api",
     "levels-api",
     "vercel.app",
+    "testserver",
 ]
 
 CSRF_TRUSTED_ORIGINS = [

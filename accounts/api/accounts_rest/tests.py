@@ -5,10 +5,21 @@ import json
 import requests
 from django.test import SimpleTestCase
 from django.urls import reverse  
+from django.contrib.auth import get_user_model
 
 # Josh Tests
 from unittest import TestCase
 from .models import Student, Instructor
+
+class TestModel(TestCase):
+    def create_user(self):
+        User = get_user_model()
+        user = User.objects.create_user(username='test_username', 
+            password='test_password',
+            email='testemail@email.com')
+        user.save()
+
+        self.assertEqual(str(user), 'testemail@email.com')
 
 def login(self):
     url = 'http://localhost:8000/login/'
@@ -37,33 +48,59 @@ def login(self):
             token = token_response.json()
             return token.get('token')
 
-    def create_instructor_account_token(self):
-        url = 'http://localhost:8000/api/instructors'
-        session = requests.Session()
-        session.verify = False
+def create_instructor_account_token(self):
+    url = 'http://localhost:8000/api/instructors'
+    session = requests.Session()
+    session.verify = False
 
-        response = session.post(
+    response = session.post(
+        url,
+        body={
+        "id": "test_id",
+        "username": "test_username",
+        "profile_picture": "test_profile_picture",
+        "password": "test_password",
+        "email": "test_email",
+        "first_name": "test_first_name",
+        "last_name": "test_last_name",
+        "address": "test_address",
+        "phone_number": "test_phone_number",
+        "certification": "test_certification",
+        "yoga_studio": "test_yoga_studio",
+        "demo": "test-demo.com",
+        "instagram": "test_instagram",
+        }
+    )
+
+    if response.ok:
+        token = login(self)
+        return token
+
+class CreateStudentAccount(TestCase):
+    def test_create_student(self):
+        url = 'http://localhost:8000/api/students/'
+        sess = requests.Session()
+        sess.verify = False
+
+        body = {
+            'username': 'test_username',
+            'password': 'test_password',
+            'email': 'test_email',
+            'first_name': 'test_first_name',
+            'last_name': 'test_last_name',
+            'address': 'test_address',
+            'phone_number': 'test_phone_number',
+            'profile_picture': 'test profile',
+        }
+        response = sess.post(
             url,
-            body={
-            "id": "test_id",
-            "username": "test_username",
-            "profile_picture": "test_profile_picture",
-            "password": "test_password",
-            "email": "test_email",
-            "first_name": "test_first_name",
-            "last_name": "test_last_name",
-            "address": "test_address",
-            "phone_number": "test_phone_number",
-            "certification": "test_certification",
-            "yoga_studio": "test_yoga_studio",
-            "demo": "test-demo.com",
-            "instagram": "test_instagram",
-            }
+            json=body,
         )
+        
+        
+        self.assertEqual(response.status_code, 200)
 
-        if response.ok:
-            token = login(self)
-            return token
+class LoginTest(TestCase):
 
     def test_my_instructor_profile(self):
         url = f'http://localhost:8000/api/portal/instructor/'
@@ -76,8 +113,7 @@ def login(self):
         )
 
         response.json()
-        if response:
-            self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
 # Alex Tests
 class URLTests(SimpleTestCase):
