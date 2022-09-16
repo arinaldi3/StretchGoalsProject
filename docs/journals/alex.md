@@ -94,3 +94,10 @@ Spent most of the day reviewing the information in the practice exam and did not
 
 # September 13th, 2022
 Worked through unit tests for the Student and Instructor models to see if they are properly being created. 
+
+# September 14th, 2022
+Began the CSS/Frontend renovation process. Spent all day on CSS and preparing for some features.
+
+# September 15th, 2022
+Made the about page, redid the logo, fixed routing for the app, applied a changing background image carousel in bootstrap, configured a few modal bootstrap widgets, updated navbar, set up a link from instructor list to instructor profile, added an embedded youtube video, configured the cards in the about us page, generated content for the about us page, wrote a react test, then wrote tests for all of the accounts URLs. 
+

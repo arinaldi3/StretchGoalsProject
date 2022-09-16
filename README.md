@@ -45,3 +45,4 @@ On this web forum, there will be 3 distinctive roles:
 All frontend unit tests are in App.test.js. The tests are labeled to show who wrote which tests.
 
 ## Backend Unittests
+Tests are in accounts/api/accounts_rest/tests.py
