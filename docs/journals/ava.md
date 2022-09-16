@@ -58,3 +58,7 @@ Victory! Everything is finally functioning the way we want it to. Such a relief!
 
 # Sept 15, 2022
 After  meeting with our group this morning, there were still some functionalities we found out we wanted to implement. Carlos, Mindy and I worked on showing a div on the class list pages if there were no classes, which were a little more intricate than we thought but overall easy to implement. I also wrote another couple of tests, which for some reason were giving me a bit of trouble but I figured I didn't need to overcomplicate the testing so I kept them pretty standard for now. I may spend tomorrow writing a couple more - they are so satisfying to write! Overall, I finally feel like we're done and will spend our last day of being able to work on it just making some minor design changes.
+
+
+## Sept 16, 2022
+Today was a pretty laid back day. We fixed up some CSS and edited some minor things on the pages. All the functionality works the way we want it, and even though we are submitting it tonight, I'm sure we will spend the weekend and next week fixing up more of the CSS. I'm proud of our work and excited to turn it in.
