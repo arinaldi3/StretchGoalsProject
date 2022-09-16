@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import InstructorFields from "./InstructorInfo";
-import Nav from './Nav';
+import Nav from '../Nav';
 import { useNavigate } from 'react-router-dom'
 
 function InstructorList() {

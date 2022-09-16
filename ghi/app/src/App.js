@@ -2,22 +2,18 @@ import './App.css';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
-// import Nav from './Nav';
-import CreateStudent from './CreateStudent';
-import CreateInstructor from './CreateInstructor';
-import InstructorList from './InstructorsList'
-import ClassesList from './ClassesList';
-import StudentPortal from './StudentPortal';
-import InstructorPortal from './InstructorPortal';
-import CreateClass from './CreateClass';
+import CreateStudent from './StudentInfo/CreateStudent';
+import CreateInstructor from './InstructorInfo/CreateInstructor';
+import InstructorList from './InstructorInfo/InstructorsList'
+import ClassesList from './YogaClassInfo/ClassesList';
+import StudentPortal from './StudentInfo/StudentPortal';
+import InstructorPortal from './InstructorInfo/InstructorPortal';
+import CreateClass from './YogaClassInfo/CreateClass';
 import Login from './Login';
 import { AuthProvider } from './Authentication';
-// import InstructorDetailPage from './InstructorDetailProfile';
-// import InstructorDetail from './InstructorDetail';
-import InstructorProfile from './InstructorProfile';
+import InstructorProfile from './InstructorInfo/InstructorProfile';
 import About from './About';
 import BackGround from './Background';
-// import BackGround from './Background';
 
 
 function App(key) {

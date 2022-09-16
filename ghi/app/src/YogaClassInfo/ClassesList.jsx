@@ -1,38 +1,19 @@
 import React, { useState,useEffect } from "react";
-import Nav from './Nav';
+import Nav from '../Nav';
 import ClassListItem from "./ClassListItem";
-import { useToken } from "./Authentication";
+import { useToken } from "../Authentication";
 
-function MyClassList({ user }) {
+
+function ClassesList({ user }) {
     const [classes, setClasses] = useState([]);
-    const [studentData, setStudentData] = useState(null);
-    // console.log(studentData)
+    const [studentData, setStudentData] = useState([]);
     const [token] = useToken();
     const [noClasses, setNoClasses] = useState("none");
 
     async function fetchClasses() {
-        
         let classData = await fetch("http://localhost:8080/api/classes/");
         let {classes} = await classData.json();
-        
-        let filteredClasses = classes.filter(lesson => {
-            let owns = false;
-            if (lesson.students.length > 0) {
-                lesson.students.every(student => {
-                    owns = (student.id === studentData.id)
-                    // console.log(owns)
-                    if (owns) {
-                        return false;
-                    }
-                    return true;
-                })
-                // console.log(owns)
-                return owns;
-            }
-            return owns;
-        });
-        setClasses(filteredClasses)
-        // console.log(classes)
+        setClasses(classes);
     }
 
     async function fetchStudentInfo() {
@@ -44,22 +25,17 @@ function MyClassList({ user }) {
             Authorization: `Bearer ${token}`,
         }});
         let student = await userData.json();
-        // console.log(student)
+        console.log(student)
         setStudentData(student);
-        // console.log(student)
     }
 
     useEffect(() => {
+        fetchClasses();
         fetchStudentInfo();
     }, []);
 
     useEffect(() => {
-        if (studentData !== null) {
-            fetchClasses();
-        } 
-    }, [studentData])
-
-    useEffect(() => {
+        console.log("classeslist", classes)
         if (classes.length === 0) {
             setNoClasses("block")
         } else {
@@ -68,7 +44,8 @@ function MyClassList({ user }) {
     }, [classes]);
 
     const handleAttend = async (cData) => {
-        cData = {...cData, student:studentData.username}
+        cData = {...cData, student:studentData.id}
+    
         const fetchConfig = {
             method: 'PUT',
             body: JSON.stringify(cData),
@@ -82,7 +59,8 @@ function MyClassList({ user }) {
     
     return (
         <>
-        <h3>My Class List</h3>
+        <Nav/>
+        <h1>List of Classes</h1>
         <div className="table table-striped">
             <table>
                 <thead>
@@ -93,13 +71,31 @@ function MyClassList({ user }) {
                         <th>Instructor</th>
                         <th>Starts</th>
                         <th>Ends</th>
+                        <th>Interested?</th>
                     </tr>
                 </thead>
                 <tbody>
-                <div style={{display:noClasses}}>You have not picked any class.</div>
-                {classes.map((lesson) => {
+                <div style={{display:noClasses}}>No class available at this moment.</div>
+                {classes.map((lesson, index) => {
+                    console.log(lesson)
+                    let owns = false;
+                    if (lesson.students.length > 0) {
+                        lesson.students.every(student => {
+                            console.log(student.id, studentData.id)
+                            owns = (student.id === studentData.id)
+                            if (owns) {
+                                return false;
+                            }
+                            return true;
+                        })
+                    }
+                    if (owns) {
+                        return (
+                            <ClassListItem key={index} hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
+                        );
+                    }
                     return (
-                        <ClassListItem key={lesson.id} hideButton={true} lesson={lesson} handleAttend={handleAttend}/>
+                        <ClassListItem key={index} lesson={lesson} handleAttend={handleAttend}/>
                     );
                 })}
                 </tbody>
@@ -110,5 +106,5 @@ function MyClassList({ user }) {
 }
 
 
-export default MyClassList;
+export default ClassesList;
 

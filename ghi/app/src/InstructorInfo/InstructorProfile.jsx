@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Nav from './Nav';
+import Nav from '../Nav';
 import InstructorClasses from "./InstructorClassList";
 import { useParams } from 'react-router-dom'
 
