@@ -1,3 +1,9 @@
+## PLEASE READ
+
+- It might seem like I did not do work because of my lack of commits, but it is because my computer would crash with Docker and zoom open. Instead, I would pair program and remote control the screens of my team.
+
+## PLEASE READ
+
 ## 8/16
 
 - Worked on the GHI.md file.
