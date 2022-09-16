@@ -50,13 +50,11 @@ return (
         </div>
         <div class="d-flex justify-content-center">
             <p className="lead mb-4">
-                <iframe width="854" height="480" src={instructor.demo} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <iframe width="700" height="350" src={instructor.demo} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </p>
             
         </div>
         </div>
-        
-    )
     <div className="bottom">
         <InstructorClasses classes={classes} items={instructor.username}/>  
     </div>
