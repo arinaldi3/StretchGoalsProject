@@ -46,9 +46,7 @@ return (
         <h1>Instructor Profile</h1>
             <p>Name: {instructor.first_name} {instructor.last_name}</p>
             <p>Email: {instructor.email}</p>
-            <p>Phone: {instructor.phone_number}</p>
-            {/* <p>Yoga Studio: {instructor.yoga_studio}</p> */}
-                
+            <p>Phone: {instructor.phone_number}</p>                
         </div>
         <div class="d-flex justify-content-center">
             <p className="lead mb-4">

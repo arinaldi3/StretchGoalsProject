@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import ClassDetail from "./ClassDetail";
-
 
 function ClassCard(props) {
     return (
@@ -19,7 +17,6 @@ function ClassCard(props) {
                             </h6>
                             <h6 className="card-subtitle mb-2 text-muted">
                             Difficulty level: {lesson.difficulty}
-                            {/* {lesson.class_size} */}
                             </h6>
                         </div>
                         <div>

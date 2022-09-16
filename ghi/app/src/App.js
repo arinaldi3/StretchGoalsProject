@@ -33,7 +33,6 @@ function App(key) {
               </Route>
               <Route path="/list">
                 <Route path="instructors" element={<InstructorList />} />
-                {/* <Route path="instructor" element={<InstructorDetailPage />} /> */}
                 <Route path="classes" element={<ClassesList />} />
               </Route>
               <Route path="/profile/:id" element={<InstructorProfile />} />
