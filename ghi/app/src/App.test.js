@@ -56,10 +56,6 @@ test('tests that student portal renders with a div', () => {
 
 })
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4d0a602150fcd9a51653be9efac2e43ecf4237e1
 test('tests h1 tag in mainpage', () => {
   const { container } = render(
     <BrowserRouter>
