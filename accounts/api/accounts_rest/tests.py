@@ -3,8 +3,10 @@ from django.contrib.auth.models import User
 from django.test import Client
 import json
 import requests
+from django.test import SimpleTestCase
+from django.urls import reverse  
 
-# Create your tests here.
+# Josh Tests
 from unittest import TestCase
 from .models import Student, Instructor
 
@@ -77,6 +79,29 @@ def login(self):
         if response:
             self.assertEqual(response.status_code, 200)
 
+# Alex Tests
+class URLTests(SimpleTestCase):
+    def test_url_exists_at_correct_location(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+
+    def test_url_available_by_name(self):  
+        response = self.client.get(reverse("/"))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_url_available_by_name(self):  
+        response = self.client.get(reverse("/instructors"))
+        self.assertEqual(response.status_code, 200)
+    
+    def test_url_available_by_name(self):  
+        response = self.client.get(reverse("/students"))
+        self.assertEqual(response.status_code, 200)
+    
+
+    def test_react_content(self):
+        response = self.client.get(reverse("/"))
+        self.assertContains(response, "Stretch Goals... Not so far away after all!")
+        self.assertNotContains(response, "Not on the page")
 
 # class StudentTestCase(TestCase):
 #     def setUp(self):

@@ -1,3 +1,8 @@
+## 9/15
+- Today we started writing our unit tests for the front end. We tested if different pages rendered properly for users.
+- We (Ava, Carlos, and I) wanted to have the feature of checking if there are any classes available on 3 different class lists (list of all classes, list of classes created by an instructor, and list of classes selected by a student). If there is no class data, these 3 lists will return a string telling the user that no class is available at the moment; otherwise, they will return corresponding class data.
+- We got together as a group and discussed the website logo, website background, and other styling elements. We tried to wrap things up before tomorrow.
+
 ## 9/14
 - We made quit a progress today! Ava, Carlos, and I continued working on MyClassList for StudentProfile and it is finally working! We created multiple instructors and students to test the functionalities (MyClassList for both instructor and student) are working for all users. 
 - We started working on writing unit tests, and thanks to Dalonte's help.

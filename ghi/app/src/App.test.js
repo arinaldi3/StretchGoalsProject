@@ -57,13 +57,9 @@ test('tests that student portal renders with a div', () => {
 })
 
 <<<<<<< HEAD
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
 =======
 
+>>>>>>> 4d0a602150fcd9a51653be9efac2e43ecf4237e1
 test('tests h1 tag in mainpage', () => {
   const { container } = render(
     <BrowserRouter>
@@ -103,4 +99,12 @@ const title = container.getElementsByTagName('h1');
 
 });
 
->>>>>>> a856830a52ea49c78ff9147f0c8eaae477c6b821
+<<<<<<< HEAD
+// Alex Test
+test('renders about link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/about/i);
+  expect(linkElement).toBeInTheDocument();
+});
+=======
+>>>>>>> 4d0a602150fcd9a51653be9efac2e43ecf4237e1
