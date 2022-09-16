@@ -1,23 +1,23 @@
-## 9/16
+## 9/16/22
 - Today is the due day! We spent time on some CSS and checked code cleaness. We checked all functionalities and made sure they are working. We wanted to ensure the project is ready to be submitted.
 - We also plan to continue working on this project for the presentation tomorrow. 
 
-## 9/15
+## 9/15/22
 - Today we started writing our unit tests for the front end. We tested if different pages rendered properly for users.
 - We (Ava, Carlos, and I) wanted to have the feature of checking if there are any classes available on 3 different class lists (list of all classes, list of classes created by an instructor, and list of classes selected by a student). If there is no class data, these 3 lists will return a string telling the user that no class is available at the moment; otherwise, they will return corresponding class data.
 - We got together as a group and discussed the website logo, website background, and other styling elements. We tried to wrap things up before tomorrow.
 
-## 9/14
+## 9/14/22
 - We made quit a progress today! Ava, Carlos, and I continued working on MyClassList for StudentProfile and it is finally working! We created multiple instructors and students to test the functionalities (MyClassList for both instructor and student) are working for all users. 
 - We started working on writing unit tests, and thanks to Dalonte's help.
 - I fixed the problem on the InstructorProfile page and change the StudentProfile page to the same format for a better user experience. 
 
-## 9/13
+## 9/13/22
 - Today Ava, Carlos, and I continued working on the MyClassList from yesterday. We thought we had it working before the end of the day; however, it turned out that only work for the student user we used and didn't work for a new student user we just created. We stayed until 7:30 and still couldn't make it work. We are for sure going to continue working on that tomorrow.
 - We planned to have a similar MyClassList for instructor users, where the instructor will be able to see a list of classes that he/she created inside the profile page. We discussed how to make it work, but we did not have enough time to complete it during our group project time. I spent some time working on it after class, and I am very pleased that the MyClassList for an instructor is working!
 - I also spent some time working on the InstructorProfile page and tried to change the table to a user profile page for a better user experience. The page is showing some tiny problems, plan to continue working on that tomorrow. 
 
-## 9/12
+## 9/12/22
 - Today we were working on adding attend button to each class on the classeslist page, and tried to add classes that the current user clicked on to the user's profile page. We had some problems with adding these classes to the profile page, and Zach came to help us with it. We did not finish this function by the end of the day as we not only need to implement the handleAttend function on the front-end but also need to change some stuff on the back-end such as changing Class models' student property from one-to-many relationship to many-to-many relationship. We are going to continue working on this tomorrow.
 
 ## 9/9/22
