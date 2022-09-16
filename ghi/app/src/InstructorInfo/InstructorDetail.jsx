@@ -11,7 +11,6 @@ function InstructorDetail() {
         const response = await fetch(detailUrl)
         if (response.ok) {
             const data = await response.json()
-            console.log(data)
             setInstructorDetail(data)
         }
     }

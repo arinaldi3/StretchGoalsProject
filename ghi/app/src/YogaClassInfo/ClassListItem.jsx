@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function ClassListItem ({lesson, handleAttend, hideButton}) {
     const [active, setActive] = useState(hideButton);
-    // console.log(hideButton)
     function handleClick() {
         setActive(true);
         handleAttend(lesson)

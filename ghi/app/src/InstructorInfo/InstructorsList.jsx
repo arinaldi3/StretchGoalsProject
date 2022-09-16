@@ -8,7 +8,6 @@ function InstructorList() {
 
   async function fetch_instructors() {
     let instructorData = await fetch("http://localhost:8100/api/instructors/");
-    // console.log(instructorData)
     let {instructors} = await instructorData.json();
     setInstructors(instructors);
   }

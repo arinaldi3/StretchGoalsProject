@@ -19,7 +19,6 @@ async function fetchInstructorUser() {
     let classData = await fetch("http://localhost:8080/api/classes/");
     let {classes} = await classData.json();
     setClasses(classes);
-    // console.log(classes)
 }
 
 

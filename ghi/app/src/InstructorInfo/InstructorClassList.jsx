@@ -18,7 +18,6 @@ function InstructorClasses(props) {
                 );
             }
         }).filter(item => item);
-        console.log(filteredArray)
         setFilteredClasses(filteredArray)
     }
     useEffect(() => {
@@ -26,7 +25,6 @@ function InstructorClasses(props) {
     }, [props]);
 
     useEffect(() => {
-        console.log(filteredClasses, "!!!!!")
         if (filteredClasses.length === 0) {
             setNoClasses("block")
         } else {

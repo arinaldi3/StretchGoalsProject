@@ -10,7 +10,6 @@ function ClassDetail() {
         const response = await fetch(detailUrl)
         if (response.ok) {
             const data = await response.json()
-            // console.log(data) 
             setClassDetail(data)
         }
     }
