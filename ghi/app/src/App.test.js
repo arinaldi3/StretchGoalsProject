@@ -99,12 +99,9 @@ const title = container.getElementsByTagName('h1');
 
 });
 
-<<<<<<< HEAD
 // Alex Test
 test('renders about link', () => {
   render(<App />);
   const linkElement = screen.getByText(/about/i);
   expect(linkElement).toBeInTheDocument();
 });
-=======
->>>>>>> 4d0a602150fcd9a51653be9efac2e43ecf4237e1
