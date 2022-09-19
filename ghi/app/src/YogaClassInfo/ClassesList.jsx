@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
-import Nav from './Nav';
+import Nav from '../Nav';
 import ClassListItem from "./ClassListItem";
-import { useToken } from "./Authentication";
+import { useToken } from "../Authentication";
 
 
 function ClassesList({ user }) {
@@ -25,7 +25,6 @@ function ClassesList({ user }) {
             Authorization: `Bearer ${token}`,
         }});
         let student = await userData.json();
-        console.log(student)
         setStudentData(student);
     }
 
@@ -35,7 +34,6 @@ function ClassesList({ user }) {
     }, []);
 
     useEffect(() => {
-        console.log("classeslist", classes)
         if (classes.length === 0) {
             setNoClasses("block")
         } else {
@@ -77,11 +75,9 @@ function ClassesList({ user }) {
                 <tbody>
                 <div style={{display:noClasses}}>No class available at this moment.</div>
                 {classes.map((lesson, index) => {
-                    console.log(lesson)
                     let owns = false;
                     if (lesson.students.length > 0) {
                         lesson.students.every(student => {
-                            console.log(student.id, studentData.id)
                             owns = (student.id === studentData.id)
                             if (owns) {
                                 return false;

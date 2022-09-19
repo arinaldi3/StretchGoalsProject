@@ -60,3 +60,6 @@ I took a sick day today because some big apartment situations happened. I still 
 
 ## 9/15:
 Today I spent some time building out routing for the front end. We are going to be including an about us page and a profile page for instructors that students can see. Doing some discovery on certain hooks I haven't used before the get the id in the url like useParams. Also discussing what our mvp and presentation is gonna look like. Should be ready to go tomorrow!
+
+## 9/16:
+Finally done just added some tests on my end.

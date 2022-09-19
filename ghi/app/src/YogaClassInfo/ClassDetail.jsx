@@ -10,7 +10,6 @@ function ClassDetail() {
         const response = await fetch(detailUrl)
         if (response.ok) {
             const data = await response.json()
-            // console.log(data) 
             setClassDetail(data)
         }
     }
@@ -28,7 +27,6 @@ function ClassDetail() {
                         <th>Class Name</th>
                         <th>Start</th>
                         <th>End</th>
-                        {/* <th>Profile Picture</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -38,7 +36,6 @@ function ClassDetail() {
                         <td>{ClassDetail.class_name}</td>
                         <td>{ClassDetail.start}</td>
                         <td>{ClassDetail.end}</td>
-                        {/* <td>{InstructorDetail.profile_picture}</td> */}
                     </tr>
                 </tbody>
             </table>

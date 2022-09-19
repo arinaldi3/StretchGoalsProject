@@ -1,12 +1,11 @@
 import React, { useState,useEffect } from "react";
-import Nav from './Nav';
-import ClassListItem from "./ClassListItem";
-import { useToken } from "./Authentication";
+import Nav from '../Nav';
+import ClassListItem from "../YogaClassInfo/ClassListItem";
+import { useToken } from "../Authentication";
 
 function MyClassList({ user }) {
     const [classes, setClasses] = useState([]);
     const [studentData, setStudentData] = useState(null);
-    // console.log(studentData)
     const [token] = useToken();
     const [noClasses, setNoClasses] = useState("none");
 
@@ -20,19 +19,16 @@ function MyClassList({ user }) {
             if (lesson.students.length > 0) {
                 lesson.students.every(student => {
                     owns = (student.id === studentData.id)
-                    // console.log(owns)
                     if (owns) {
                         return false;
                     }
                     return true;
                 })
-                // console.log(owns)
                 return owns;
             }
             return owns;
         });
         setClasses(filteredClasses)
-        // console.log(classes)
     }
 
     async function fetchStudentInfo() {
@@ -44,9 +40,7 @@ function MyClassList({ user }) {
             Authorization: `Bearer ${token}`,
         }});
         let student = await userData.json();
-        // console.log(student)
         setStudentData(student);
-        // console.log(student)
     }
 
     useEffect(() => {

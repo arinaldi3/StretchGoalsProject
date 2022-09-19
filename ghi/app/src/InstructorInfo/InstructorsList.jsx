@@ -1,14 +1,12 @@
 import React, { useState,useEffect } from "react";
 import InstructorFields from "./InstructorInfo";
-import Nav from './Nav';
-import { useNavigate } from 'react-router-dom'
+import Nav from '../Nav';
 
 function InstructorList() {
   const [instructors, setInstructors] = useState([]);
 
   async function fetch_instructors() {
     let instructorData = await fetch("http://localhost:8100/api/instructors/");
-    // console.log(instructorData)
     let {instructors} = await instructorData.json();
     setInstructors(instructors);
   }
@@ -16,12 +14,6 @@ function InstructorList() {
   useEffect(() => {
     fetch_instructors();
   },[]);
-
-  // let navigate = useNavigate(); 
-  // const routeChange = (id) => { 
-  //   let path = `http://localhost:8100/api/instructors/${id}`; 
-  //   navigate(path);
-  // }
 
   return (
     <>

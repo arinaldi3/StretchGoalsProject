@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Nav from './Nav';
+import Nav from '../Nav';
 import InstructorClasses from "./InstructorClassList";
 import { useParams } from 'react-router-dom'
 
@@ -19,7 +19,6 @@ async function fetchInstructorUser() {
     let classData = await fetch("http://localhost:8080/api/classes/");
     let {classes} = await classData.json();
     setClasses(classes);
-    // console.log(classes)
 }
 
 
@@ -47,19 +46,15 @@ return (
         <h1>Instructor Profile</h1>
             <p>Name: {instructor.first_name} {instructor.last_name}</p>
             <p>Email: {instructor.email}</p>
-            <p>Phone: {instructor.phone_number}</p>
-            {/* <p>Yoga Studio: {instructor.yoga_studio}</p> */}
-                
+            <p>Phone: {instructor.phone_number}</p>                
         </div>
         <div class="d-flex justify-content-center">
             <p className="lead mb-4">
-                <iframe width="854" height="480" src={instructor.demo} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                <iframe width="700" height="350" src={instructor.demo} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </p>
             
         </div>
         </div>
-        
-    )
     <div className="bottom">
         <InstructorClasses classes={classes} items={instructor.username}/>  
     </div>
