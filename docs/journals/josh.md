@@ -63,3 +63,21 @@ Today I spent some time building out routing for the front end. We are going to 
 
 ## 9/16:
 Finally done just added some tests on my end.
+
+## pointers
+* add background-color to login modal
+* change text color so contrast is better
+  * home screen
+  * list of classes
+  * OPTIONAL
+    * make the background image less gradient (alpha value (rgba))
+* account creation confirmation page
+* why are there arrows on the side of the page? (Stretch Goals)
+### optional
+* make mobile friendly (make the "Stretch Goals" image smaller/responsive)
+  * right click -> inspect -> Ctrl + Shift + M
+* make phone number text field number only
+  * it's a property in the input html
+* why use iframe for profile? don't?
+  * if using iframe for youtube video, just use the default youtube embedded option, not iframe
+
