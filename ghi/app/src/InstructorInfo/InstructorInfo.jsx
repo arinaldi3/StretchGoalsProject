@@ -19,7 +19,7 @@ function InstructorFields({InstructorInfo}) {
           <td>{InstructorInfo.yoga_studio}</td>
           <td>{InstructorInfo.instagram}</td>
           <td><img src ={InstructorInfo.profile_picture}alt='' style={{maxWidth: '150px', maxHeight: '150px', objectFit: 'contain'}}/> </td>
-          <td><button onClick={() => routeChange(InstructorInfo.id)}>View Profile</button></td>
+          <td><button className="attendClass" onClick={() => routeChange(InstructorInfo.id)}><b>View Profile</b></button></td>
         </tr>
       </tbody>
     </>

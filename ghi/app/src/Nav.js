@@ -126,7 +126,7 @@ const isInstructor = (() => {
             </ul>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/login">Login</NavLink>
+            <NavLink className="nav-link navbar-login" aria-current="page" to="/login">Login</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/about">About Us</NavLink>
