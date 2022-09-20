@@ -18,7 +18,8 @@ function InstructorList() {
   return (
     <>
     <Nav/>
-    <h1>List of Instructors</h1>
+    <div className="list mt-5 shadow p-4 mt-4">
+    <h1 className="centered">List of Instructors</h1>
     <div className="table table-striped">
       <table>
         <thead>
@@ -36,6 +37,7 @@ function InstructorList() {
           return <InstructorFields key={column} InstructorInfo={instructor} />;
         })}
       </table>
+    </div>
     </div>
     </>
   );

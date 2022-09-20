@@ -58,7 +58,8 @@ function ClassesList({ user }) {
     return (
         <>
         <Nav/>
-        <h1>List of Classes</h1>
+        <div className="list mt-5 shadow p-4 mt-4">
+        <h1 className="centered">List of Classes</h1>
         <div className="table table-striped">
             <table>
                 <thead>
@@ -96,6 +97,7 @@ function ClassesList({ user }) {
                 })}
                 </tbody>
             </table>
+        </div>
         </div>
     </>
     );

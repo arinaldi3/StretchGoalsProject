@@ -48,9 +48,9 @@ function Login() {
             <button className="btn btn-primary">Login <NavLink className='navbar-brand' to='/' /> </button>
 
             <div>
-                Don't have an account?
-                <div><a href="/new/student" className="link-primary"> Sign up as a student here.</a></div>
-                <div><a href="/new/instructor" className="link-primary"> Sign up as an instructor here.</a></div>
+                <h5 className="mt-3">Don't Have an Account?</h5>
+                <div><a href="/new/student" className="link-primary"> <h5>Sign up as a Student here</h5></a></div>
+                <div><a href="/new/instructor" className="link-primary"> <h5>Sign up as an Instructor here</h5></a></div>
             </div>
             </form>
         </div>
