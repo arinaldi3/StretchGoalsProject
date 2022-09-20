@@ -45,7 +45,7 @@ function StudentPortal() {
                        
                     </div>    
                     <div className="right">
-                    <h1>Student Profile</h1>
+                    <h1>My Profile</h1>
                         <p>Name: {student.first_name} {student.last_name}</p>
                         <p>Email: {student.email}</p>
                         <p>Phone: {student.phone_number}</p>
