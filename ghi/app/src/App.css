@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400;500;600;700&display=swap');
 .App {
   text-align: center;
 }
 
 #apple {
   background-color:rgb(44, 58, 113);
+  
 }
 
 .App-logo {
@@ -222,4 +222,8 @@ html {
   color:black;
   background-color: white;
   box-shadow: grey;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.25)
 }

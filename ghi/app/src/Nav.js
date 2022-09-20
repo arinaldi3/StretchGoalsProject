@@ -57,11 +57,11 @@ const isStudent = (() => {
       return(
         <>
     
-            <NavLink className="nav-link" aria-current="page" to="/list/classes">List of Classes</NavLink>
+            <NavLink className="navbar-brand" aria-current="page" to="/list/classes">List of Classes</NavLink>
       
-            <NavLink className="nav-link" aria-current="page" to="/about">About Us</NavLink>
+            <NavLink className="navbar-brand" aria-current="page" to="/about">About Us</NavLink>
           <div className='d-flex justify-content-between text-white align-items-center'>
-            <NavLink className="nav-link px-4" aria-current="page" to="/portal/student"> <CgProfile size='30'/> </NavLink>
+            <NavLink className="navbar-brand px-4" aria-current="page" to="/portal/student"> <CgProfile size='30'/> </NavLink>
             <button onClick={logout} className="btn btn-primary">Logout</button>
             </div>
         </>  
@@ -77,11 +77,11 @@ const isInstructor = (() => {
     if (instructor.username === item) {
       return(
         <>
-            <NavLink className="nav-link" aria-current="page" to="/new/class">Create a Class</NavLink>
-            <NavLink className="nav-link" aria-current="page" to="/about">About Us</NavLink>
+            <NavLink className="navbar-brand" aria-current="page" to="/new/class">Create a Class</NavLink>
+            <NavLink className="navbar-brand" aria-current="page" to="/about">About Us</NavLink>
 
             <div className='d-flex justify-content-between text-white align-items-center'>
-            <NavLink className="nav-link px-4" aria-current="page" to="/portal/instructor" ><CgProfile size='30'/></NavLink>
+            <NavLink className="navbar-brand px-4" aria-current="page" to="/portal/instructor" ><CgProfile size='30'/></NavLink>
             <button onClick={logout} className="btn btn-primary">Logout</button>
             </div>
         </>
@@ -138,7 +138,7 @@ const isInstructor = (() => {
       </div>
     </nav> */}
     <nav className="py-2" id='apple'>
-      <div className='d-flex justify-content-around text-white align-items-center'>
+      <div className='d-flex justify-content-around text-white align-items-center' id="navbar">
         <NavLink to='/' className='navbar-brand fw-bold fs-2'>
           Stretch Goals
         </NavLink>
