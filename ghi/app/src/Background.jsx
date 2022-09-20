@@ -26,7 +26,7 @@ const BackGround = () => {
         <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
         <div className="carousel-inner">
             <div className="carousel-item active">
-                <img src="https://i.imgur.com/UdLeXQs.jpeg" className="d-block w-100" alt="..."/>
+                <img src="https://i.imgur.com/mHkkzX5.jpeg" className="d-block w-100" alt="..."/>
             </div>
             <div className="carousel-item interval-500">
                 <img src="https://i.imgur.com/NA77D75.jpeg" className="d-block w-100" alt="..."/>

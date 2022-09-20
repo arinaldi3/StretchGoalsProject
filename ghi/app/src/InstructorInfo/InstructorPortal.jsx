@@ -57,7 +57,7 @@ function InstructorPortal() {
             </div>
           </div>
           <div className="right">
-          <h1>Instructor Profile</h1>
+          <h1>My Profile</h1>
             <p>Name: {instructor.first_name} {instructor.last_name}</p>
             <p>Email: {instructor.email}</p>
             <p>Phone: {instructor.phone_number}</p>
