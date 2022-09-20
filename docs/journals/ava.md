@@ -62,3 +62,6 @@ After  meeting with our group this morning, there were still some functionalitie
 
 ## Sept 16, 2022
 Today was a pretty laid back day. We fixed up some CSS and edited some minor things on the pages. All the functionality works the way we want it, and even though we are submitting it tonight, I'm sure we will spend the weekend and next week fixing up more of the CSS. I'm proud of our work and excited to turn it in.
+
+## Sept 20, 2022
+I worked a lot today with CSS and changed some of the styling on the website. I also worked with Carlos and Mindy on CSS and we started to attempt to change the "List of Classes" page to show the instructor's first and last name rather than their username.

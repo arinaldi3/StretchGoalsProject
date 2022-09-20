@@ -19,7 +19,7 @@ function InstructorList() {
     <>
     <Nav/>
     <div className="list mt-5 shadow p-4 mt-4">
-    <h1 className="centered">List of Instructors</h1>
+    <h1 className="centered">Your Instructors</h1>
     <div className="table table-striped">
       <table>
         <thead>
