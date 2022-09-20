@@ -5,19 +5,19 @@ volumes:
   pgadmin:
     external: true
 services:
-  web:
-    build: .
-    ports:
-      - "5000:5000"
-    env_file: .env
-    depends_on:
-      - db
-    volumes:
-      - ./webapp:/opt/webapp
-  redis:
-    image: redis:alpine
-    ports:
-      - "6379:6379"
+  # web:
+  #   build: .
+  #   ports:
+  #     - "5000:5000"
+  #   env_file: .env
+  #   depends_on:
+  #     - postgres
+  #   volumes:
+  #     - ./webapp:/opt/webapp
+  # redis:
+  #   image: redis:alpine
+  #   ports:
+  #     - "6379:6379"
   react:
     image: node:lts-bullseye
     command: /bin/bash run.sh
