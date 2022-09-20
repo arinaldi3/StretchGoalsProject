@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400;500;600;700&display=swap');
 .App {
   text-align: center;
+}
+
+#apple {
+  background-color:rgb(44, 58, 113);
 }
 
 .App-logo {
@@ -122,12 +127,15 @@ table, td, th {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  /* font-family: 'Poppins', sans-serif; */
+
   margin: 0;
 }
 
 html {
   box-sizing: border-box;
+
 }
 
 *, *:before, *:after {

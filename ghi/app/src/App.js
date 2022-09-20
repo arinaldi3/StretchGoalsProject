@@ -22,7 +22,7 @@ function App(key) {
       <AuthProvider>
       
       
-          <div className="container">
+          <div className="font-link">
           <BackGround/>
             <Routes>
               <Route path="/" element={<MainPage />} />

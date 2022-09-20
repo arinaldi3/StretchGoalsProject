@@ -2,6 +2,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { AuthProvider, useToken, AuthContext, getToken, useAuthContext } from './Authentication';
 import React, { useEffect, useState, useContext} from 'react';
 import BackGround from './Background';
+import {CgProfile} from 'react-icons/cg'
 
 function Nav() {
   const [x, login, logout] = useToken();
@@ -55,15 +56,14 @@ const isStudent = (() => {
     if (student.username === item) {
       return(
         <>
-          <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/portal/student" >My Profile</NavLink>
-          </li>
-          <li className="nav-item">
+    
             <NavLink className="nav-link" aria-current="page" to="/list/classes">List of Classes</NavLink>
-          </li>
-          <li className="nav-item">
+      
             <NavLink className="nav-link" aria-current="page" to="/about">About Us</NavLink>
-          </li>
+          <div className='d-flex justify-content-between text-white align-items-center'>
+            <NavLink className="nav-link px-4" aria-current="page" to="/portal/student"> <CgProfile size='30'/> </NavLink>
+            <button onClick={logout} className="btn btn-primary">Logout</button>
+            </div>
         </>  
       )
     } else {
@@ -77,15 +77,13 @@ const isInstructor = (() => {
     if (instructor.username === item) {
       return(
         <>
-          <li className="nav-item">
-            <NavLink className="nav-link" aria-current="page" to="/portal/instructor" >My profile</NavLink>
-          </li>
-          <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/new/class">Create a Class</NavLink>
-          </li>
-          <li className="nav-item">
             <NavLink className="nav-link" aria-current="page" to="/about">About Us</NavLink>
-          </li>
+
+            <div className='d-flex justify-content-between text-white align-items-center'>
+            <NavLink className="nav-link px-4" aria-current="page" to="/portal/instructor" ><CgProfile size='30'/></NavLink>
+            <button onClick={logout} className="btn btn-primary">Logout</button>
+            </div>
         </>
       )
     } else {
@@ -96,13 +94,14 @@ const isInstructor = (() => {
 
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
-      <div className="container-fluid">
+    {/* <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
+      <div>
+      <div className="d-flex justify-content-between">
         <NavLink className="navbar-brand" to="/">Stretch Goals</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           { token ?
           <>
@@ -135,10 +134,37 @@ const isInstructor = (() => {
         }
           </ul>
         </div>
+        </div>
+      </div>
+    </nav> */}
+    <nav className="py-2" id='apple'>
+      <div className='d-flex justify-content-around text-white align-items-center'>
+        <NavLink to='/' className='navbar-brand fw-bold fs-2'>
+          Stretch Goals
+        </NavLink>
+        { token ?
+        <>
+        <NavLink to='/list/instructors' className='navbar-brand'>
+          Meet the Instructors
+        </NavLink>
+        {isStudent()}
+        {isInstructor()}
+        {/* <button onClick={logout} className="btn btn-primary">Logout</button> */}
+        </>
+        :
+        <>
+          <NavLink className="navbar-brand" to="/new/student">Sign up as a student</NavLink>
+          <NavLink className="navbar-brand" to="/new/instructor">Sign up as an instructor</NavLink>
+          <NavLink className="navbar-brand" aria-current="page" to="/about">About Us</NavLink>
+          <NavLink className="btn btn-primary" aria-current="page" to="/login">Login</NavLink>
+          </>
+      }
+    
+      
       </div>
     </nav>
-  
     </>
+    
   )
 }
 
