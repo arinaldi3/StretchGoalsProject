@@ -27,6 +27,8 @@ def get_instructor():
                 "yoga_studio": instructor["yoga_studio"],
                 "demo": instructor["demo"],
                 "profile_picture": instructor["profile_picture"],
+                "first_name": instructor["first_name"],
+                "last_name": instructor["last_name"]
                 
             }
         )
