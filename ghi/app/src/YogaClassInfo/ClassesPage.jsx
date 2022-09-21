@@ -50,7 +50,7 @@ class ClassesPage extends React.Component {
             <>
                 <div className="px-4 py-5 my-5 mt-0 text-center bg-info">
                     <img className="bg-white rounded shadow d-block mx-auto mb-4" />
-                    <h1 className="display-5 fw-bold">List of Classes</h1>
+                    <h1 className="display-5 fw-bold">Class Times</h1>
                     <div className="col-lg-6 mx-auto">
 
                     </div>

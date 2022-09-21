@@ -57,7 +57,7 @@ const isStudent = (() => {
       return(
         <>
     
-            <NavLink className="navbar-brand" aria-current="page" to="/list/classes">List of Classes</NavLink>
+            <NavLink className="navbar-brand" aria-current="page" to="/list/classes">Classes List</NavLink>
       
             <NavLink className="navbar-brand" aria-current="page" to="/about">About Us</NavLink>
           <div className='d-flex justify-content-between text-white align-items-center'>
