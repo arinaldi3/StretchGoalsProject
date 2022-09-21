@@ -59,7 +59,7 @@ function ClassesList({ user }) {
         <>
         <Nav/>
         <div className="list mt-5 shadow p-4 mt-4">
-        <h1 className="centered">List of Classes</h1>
+        <h1 className="centered">Class Times</h1>
         <div className="table table-striped">
             <table>
                 <thead>
