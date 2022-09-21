@@ -43,8 +43,8 @@ function About() {
                     <div className="card-body">
                             <h5 className="Card-Title">Ava Rinaldi</h5>
                             <p className="card-text">Full-Stack Software Engineer</p>
-                            <p>Ava is known for her relationship with Christiano Renaldo</p>
-                            <p>ava@ava.ava</p>
+                            <p>Ava likes to enjoy good food with good friends.</p>
+                            <p>avarinaldi5@gmail.com</p>
                     </div>
                             {/* <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Contact Info</button>
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -106,8 +106,8 @@ function About() {
                     <div className="card-body">
                             <h5>Carlos Castillo</h5>
                             <p className="Card-Text">Full-Stack Software Engineer</p>
-                            <p>Carlos loves watching soccer and sportsball related topics.</p>
-                            <p>carlos@carlos.carlos</p>
+                            <p>Carlos enjoys watching soccer and going to the beach.</p>
+                            <p>cscastillo1209@gmail.com</p>
                             {/* <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Contact Info</button>
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -137,8 +137,8 @@ function About() {
                         <div className="card-body">
                             <h5>Mindy Lin</h5>
                             <p className="Card-Text">Full-Stack Software Engineer</p>
-                            <p>Mindy likes to yodle to her pet chinchilla in her freetime.</p>
-                            <p>google@stevejobs.ru</p>
+                            <p>Mindy enjoys watching movies and listening to music.</p>
+                            <p>mindylin016@gmail.com</p>
                             {/* <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Contact Info</button>
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
