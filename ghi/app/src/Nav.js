@@ -137,8 +137,8 @@ const isInstructor = (() => {
         </div>
       </div>
     </nav> */}
-    <nav className="py-2" id='apple'>
-      <div className='d-flex justify-content-around text-white align-items-center' id="navbar">
+    <nav className="py-2 nav-area" id='apple'>
+      <div className='d-flex justify-content-around text-white align-items-center'>
         <NavLink to='/' className='navbar-brand fw-bold fs-2'>
           Stretch Goals
         </NavLink>

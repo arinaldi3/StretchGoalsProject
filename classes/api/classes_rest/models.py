@@ -8,6 +8,7 @@ class InstructorVO(models.Model):
     demo = models.URLField()
     profile_picture = models.CharField(max_length=300)
     
+    
     def __str__(self):
         return self.username
 

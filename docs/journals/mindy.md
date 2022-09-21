@@ -1,3 +1,7 @@
+## 9/20/22
+- Mainly worked on CSS and styling with other two front end team members. We changed the styling for all the forms and tables, attend class button and view profile button, and added hover effect for all nav links on the navbar.
+- I wanted to change and update the IntructorVO model, poller.py, and InstructorVO Encoder on the back end, to have instructor's full name to be shown on the list of classes page for better user experience. However, I was not able to migarte the changes I made to the model. I planed to cotinue working on this.
+
 ## 9/16/22
 - Today is the due day! We spent time on some CSS and checked code cleaness. We checked all functionalities and made sure they are working. We wanted to ensure the project is ready to be submitted.
 - We also plan to continue working on this project for the presentation tomorrow. 
